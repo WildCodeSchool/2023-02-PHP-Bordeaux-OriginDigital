@@ -1,0 +1,52 @@
+//button blue
+.ws-blue-btn{
+    font-family: Martel, sans-serif;
+    font-weight: 0;
+    font-size: 14px;
+    color: #fff;
+    background-color: #0066CC;
+    padding: 10px 30px;
+    border: solid #0066cc 2px;
+    border-radius: 1px;
+    transition : 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+.ws-blue-btn:hover{
+    transition : 1000ms;
+    padding: 10px 30px;
+    transform : translateY(-0px);
+    background-color: #fff;
+    color: #0066cc;
+    border: none;
+}
+
+//button yellow
+.ws-yellow-btn{
+    font-family: Martel, sans-serif;
+    font-weight: 0;
+    font-size: 14px;
+    color: #fff;
+    background-color: #000000;
+    padding: 10px 30px;
+    border: solid #ffdb59 4px;
+    border-radius: 1px;
+    transition : 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+.ws-yellow-btn:hover{
+    transition : 1000ms;
+    padding: 10px 30px;
+    transform : translateY(-0px);
+    background-color: #ffdb59;
+    color: #000000;
+    border: solid 4px #000000;
+}
+
