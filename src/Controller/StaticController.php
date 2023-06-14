@@ -13,4 +13,10 @@ class StaticController extends AbstractController
     {
         return $this->render('static-pages/legal-notice.html.twig');
     }
+
+    #[Route('/cookies-policy', name: 'cookies-policy')]
+    public function indexCookiesPolicy(): Response
+    {
+        return $this->render('static-pages/cookies-policy.html.twig');
+    }
 }
