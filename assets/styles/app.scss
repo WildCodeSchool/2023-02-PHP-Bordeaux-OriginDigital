@@ -4,6 +4,7 @@
 @import "modules/button";
 @import "modules/card";
 @import "modules/form";
+@import "modules/footer";
 
 :root {
     --primary-color: rgb(255, 255, 255);//text
@@ -30,9 +31,10 @@ h1, h2, h3 {
 
 a, p {
     font-family: 'Martel', serif;
+    color: var(--primary-color)!important;
 }
 
 a:hover {
-    color: var(--quinary-color);
+    color: var(--quinary-color)!important;
 }
 
