@@ -1,15 +1,27 @@
 <div>
-    <div class="ws-img-logo d-flex justify-content-evenly py-4 mb-2">
-        <img src="{{ asset('build/images/adidas.png') }}" alt="logo adidas">
-        <img src="{{ asset('build/images/nike.png') }}" alt="logo nike">
-        <img src="{{ asset('build/images/reebok.png') }}" alt="logo reebok">
+    {% set currentPage = app.request.attributes.get('_route') %}
+
+    {% if currentPage in ['contact', 'legal-notice', 'privacy-policy', 'cookies-policy',
+        'cgv'] %}
+        <style>
+            #ws-logo-visibility {
+                display: none;
+            }
+        </style>
+    {% endif %}
+    <div id="ws-logo-visibility">
+        <div class="ws-img-logo d-flex justify-content-evenly py-4 mb-2">
+            <img src="{{ asset('build/images/adidas.png') }}" alt="logo adidas"> <img
+                src="{{ asset('build/images/nike.png') }}" alt="logo nike"> <img
+                src="{{ asset('build/images/reebok.png') }}" alt="logo reebok">
+        </div>
     </div>
     <ul class="nav justify-content-center mb-2">
         <li class="nav-item">
             <a href="#" class="nav-link px-2">Contact</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link px-2">Mentions légales</a>
+            <a href="/legal-notice" class="nav-link px-2">Mentions légales</a>
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link px-2">Données personnelles et confidentialité</a>
@@ -17,18 +29,22 @@
         <li class="nav-item">
             <a href="#" class="nav-link px-2">Politique cookies</a>
         </li>
+        <li class="nav-item">
+            <a href="/cgv" class="nav-link px-2">CGV</a>
+        </li>
     </ul>
     <div class="d-flex justify-content-center mb-3">
         <a class="mx-4" href="https://fr-fr.facebook.com/">
-            <i id="logo-facebook" class="fa-brands fa-facebook-f fa-2xl"
+            <i id="logo-facebook"
+               class="fa-brands fa-facebook-f fa-2xl"
                style="color: #ffffff;"></i>
-        </a>
-        <a class="mx-4" href="https://twitter.com/">
-            <i id="logo-twitter" class="fa-brands fa-twitter fa-2xl"
+        </a> <a class="mx-4" href="https://twitter.com/">
+            <i id="logo-twitter"
+               class="fa-brands fa-twitter fa-2xl"
                style="color: #ffffff;"></i>
-        </a>
-        <a class="mx-4" href="https://www.instagram.com/">
-            <i id="logo-instagram" class="fa-brands fa-instagram fa-2xl"
+        </a> <a class="mx-4" href="https://www.instagram.com/">
+            <i id="logo-instagram"
+               class="fa-brands fa-instagram fa-2xl"
                style="color: #ffffff;"></i>
         </a>
     </div>
