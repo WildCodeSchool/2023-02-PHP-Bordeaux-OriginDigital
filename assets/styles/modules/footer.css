@@ -1,7 +1,46 @@
-.img-logo {
-  width: 50px;
-  height: auto;
+.ws-img-logo {
   background-color: var(--quaternary-color);
+}
+
+footer img {
+  width: 15%;
+  height: auto;
+}
+
+#logo-facebook:hover {
+  color: rgb(59, 89, 152) !important;
+}
+
+#logo-twitter:hover {
+  color: rgb(0, 172, 237) !important;
+}
+
+#logo-instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  border-radius: 35px;
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* CSS */
+}
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  footer ul {
+    margin-bottom: 2rem;
+  }
+  .ws-img-logo {
+    margin-bottom: 2rem;
+  }
+  footer img {
+    width: 10%;
+  }
 }
 
 /*# sourceMappingURL=footer.css.map */
