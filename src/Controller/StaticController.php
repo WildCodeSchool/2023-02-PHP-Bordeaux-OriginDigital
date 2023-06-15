@@ -25,4 +25,15 @@ class StaticController extends AbstractController
     {
         return $this->render('static-pages/privacy-policy.html.twig');
     }
+  
+  
+  
+  
+  
+  
+  #[Route('/cgv', name: 'cgv')]
+    public function indexCGV(): Response
+    {
+        return $this->render('static-pages/cgv.html.twig');
+    }
 }
