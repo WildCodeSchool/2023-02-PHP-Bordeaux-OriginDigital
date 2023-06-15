@@ -22,11 +22,15 @@
 
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('cookieConsent') }}
     {% endblock %}
 </head>
 <body>
+
+
 {% block body %}{% endblock %}
 <footer>{% include ('_includes/_footer.html.twig') %}</footer>
 <script src="https://kit.fontawesome.com/837a298307.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
