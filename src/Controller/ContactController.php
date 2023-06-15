@@ -2,34 +2,46 @@
 
 namespace App\Controller;
 
-use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 class ContactController extends AbstractController
 {
-    #[Route('/new', name: 'new')]
-    public function new(Request $request) : Response
+    #[Route('/contact', name: 'contactForm', methods: ['GET', 'POST'])]
+    public function new(Request $request, RequestStack $requestStack, MailerInterface $mailer): Response
     {
-        // Create a new Category Object
-        $category = new Category();
-        // Create the associated Form
-        $form = $this->createForm(ContactType::class, $category);
-        // Get data from HTTP request
+
+        $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
-        // Was the form submitted ?
-        if ($form->isSubmitted()) {
-            // Deal with the submitted data
-            // For example : persiste & flush the entity
-            // And redirect to a route that display the result
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $email = (new Email())
+                ->from($this->getParameter("mailer_from"))
+                ->to("your_email@example.com")
+                ->subject("Contact Wild Sports !")
+                ->html($this->renderView('Email/contactEmail.html.twig', [
+                    'form' => $form->createView(),
+                ]));
+
+            $this->addFlash('success', 'Formulaire soumis avec succès !');
+            $form = $this->createForm(ContactType::class);
+            $mailer->send($email);
+
+            return $this->render('contact/index.html.twig', [
+                'form' => $form->createView(),
+            ]);
         }
 
-        // Render the form
-        return $this->render('category/new.html.twig', [
-            'form' => $form,
+        return $this->render('contact/index.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
