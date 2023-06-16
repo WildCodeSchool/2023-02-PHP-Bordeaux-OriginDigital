@@ -1,0 +1,14 @@
+#cookie-consent-popup {
+    position: fixed;
+    justify-self: center;
+    text-align: center;
+    background-color: var(--quaternary-color);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    z-index: 9999;
+}
+
+
+
