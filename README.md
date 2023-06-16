@@ -32,6 +32,9 @@ It's symfony website-skeleton project with some additional library (webpack, fix
 2. Run `composer install`
 3. Run `yarn install`
 4. Run `yarn encore dev` to build assets
+5. Run `composer require nelmio/security-bundle`
+6. Run `yarn add js-cookie`
+7. Run `yarn encore dev`
 
 ### Working
 
