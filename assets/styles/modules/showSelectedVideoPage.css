@@ -1,0 +1,45 @@
+.notPremiumVideoBlurred {
+  filter: blur(50px);
+  margin-bottom: 50px;
+}
+
+.separationBarShowVideo {
+  height: 2px;
+  width: 90%;
+  background-color: white;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  margin-left: 50px;
+}
+
+.divUnderVideo {
+  margin-top: 350px;
+}
+
+.textBlockUnderVideo {
+  margin-left: 100px;
+}
+
+.contentReservedText {
+  margin: 50px 50px 50px 100px !important;
+}
+
+.contentReservedLink {
+  margin-left: 100px;
+}
+
+.contentReservedText a {
+  margin-left: 20px;
+}
+
+.videoScrollSingleVideoPage {
+  margin-left: -100px;
+}
+
+@media screen and (min-width 768px) {
+  .contentReservedText {
+    margin: 50px 0 !important;
+  }
+}
+
+/*# sourceMappingURL=showSelectedVideoPage.css.map */
