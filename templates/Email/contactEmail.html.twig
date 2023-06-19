@@ -1,0 +1,7 @@
+{#  {% extends 'templates/emailBase.html.twig' %}#}
+{% block content %}
+    <p>Merci {{ form.Prenom.vars.value }} de nous avoir contactés à propos de
+        {{ form.Sujet.vars.value }}. Nous vous recontacterons bientôt à
+        l'adresse {{ form.Email.vars.value }}.
+    </p>
+{% endblock %}
