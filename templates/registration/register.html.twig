@@ -4,42 +4,40 @@
 
 {% block body %}
     <section class="container">
-        <div class="row">
-            <div class="col">
+        <div class="row text-center">
+            <div class="col-4 ">
                 {% for flash_error in app.flashes('verify_email_error') %}
                     <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
                 {% endfor %}
 
-                <h1>S'inscrire</h1>
+                <h1 class="text-center mb-4">S'inscrire</h1>
 
                 {{ form_errors(registrationForm) }}
 
                 {{ form_start(registrationForm) }}
-                <fieldset class="mb-3">
-                    <legend>Mon identité</legend>
-                    {{ form_row(registrationForm.lastname) }}
-                    {{ form_row(registrationForm.firstname) }}
-                    {{ form_row(registrationForm.date_of_birth) }}
-                    {{ form_row(registrationForm.email) }}
-                </fieldset>
-
-                <fieldset class="mb-3">
-                    {{ form_row(registrationForm.plainPassword, {
-                        label: 'Mot de passe'
-                    }) }}
-
+                <fieldset class="mb-3 row">
+                    {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control col-6 rounded-0 mb-3'}}) }}
+                    {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control col-6 rounded-0 mb-3'}}) }}
+                    {{ form_row(registrationForm.email, {'attr': {'class': 'form-control col-6 rounded-0 mb-3'}}) }}
+                    {{ form_row(registrationForm.date_of_birth, {'attr': {'class': 'form-control col-6 rounded-0 mb-3 datepicker'}, 'label_attr': {'class': 'col-form-label'}}) }}
+                    {{ form_row(registrationForm.plainPassword) }}
+                    <br>
                     {{ form_row(registrationForm.RGPDConsent) }}
                 </fieldset>
-
-                <button type="submit" class="btn btn-primary btn-lg my-3">Créer un compte</button>
+                <div class="text-center">
+                <button class="btn btn-primary mt-4 mb-3 rounded-0" type="button">Créer un compte</button>
+                </div>
                 {{ form_end(registrationForm) }}
             </div>
         </div>
-        <div>
-            <p>Déjà inscrit ?</p>
-                <a href="/login">S'identifier</a>
+        <div class="text-center">
+            <div class="mb-3">
+                <p>Déjà inscrit ?</p>
+                <a href="/login" class="text-decoration-none"><strong>S'identifier</strong></a>
+            </div>
         </div>
     </section>
-
-
 {% endblock %}
+
+
+

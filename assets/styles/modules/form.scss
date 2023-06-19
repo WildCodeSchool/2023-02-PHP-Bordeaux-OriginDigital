@@ -1,0 +1,31 @@
+.login-form {
+    display: flex;
+    align-items: center;
+    height: 70vh;
+    margin-top: 20vh;
+    margin-bottom: auto;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+}
+
+.mb-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-login-bg{
+    background-color:rgba(31, 31, 31, 0.7);
+}
+
+.custom-login-bg-image{
+    background-image: url("/assets/images/minimalist-basketball-sports-4k-27ujktj0x5rdyyit.jpg");
+    background-size: auto;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}

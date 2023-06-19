@@ -3,13 +3,13 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -23,27 +23,36 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control col-6 rounded-0 mb-3',
+                    'placeholder' => 'E-mail',
                 ],
-                'label' => 'E-Mail'])
+                'label' => false,
+            ])
             ->add('firstname', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control col-6 rounded-0 mb-3',
+                    'placeholder' => 'Prénom',
                 ],
-                'label' => 'Nom'])
+                'label' => false,
+
+            ])
             ->add('lastname', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control col-6 rounded-0 mb-3',
+                    'placeholder' => 'Nom',
                 ],
-                'label' => 'Prénom'])
+                'label' => 'Informations personnelles',
+
+            ])
             ->add('date_of_birth', DateType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control col-6 rounded-0 mb-3 datepicker',
+                    'data-provide' => 'datepicker'
                 ],
                 'widget' => 'single_text',
-                'label' => 'Date de naissance'
-            ])
+                'label' => 'Date de naissance',
 
+            ])
             ->add('RGPDConsent', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -51,25 +60,38 @@ class RegistrationFormType extends AbstractType
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
-                'label' => 'En m\'inscrivant à ce site, j\'accepte les conditions d\'utilisation'
+                'label' => 'En m\'inscrivant à ce site, j\'accepte les conditions d\'utilisation du site Wild Sports',
             ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
                 'mapped' => false,
-                'attr' => [
-                    'autocomplete' => 'new-password',
-                    'class' => 'form-control'
+                'first_options' => [
+                    'attr' => [
+                        'class' => 'form-control col-6 rounded-0 mb-3',
+                        'autocomplete' => 'new-password',
+                        'placeholder' => 'Veuillez entrer un mot de passe',
+                    ],
+                    'label' => 'Mot de passe'
                 ],
+                'second_options' => [
+                    'attr' => [
+                        'class' => 'form-control col-6 rounded-0 mb-3',
+                        'autocomplete' => 'new-password',
+                        'placeholder' => 'Veuillez confirmer le mot de passe',
+                    ],
+                    'label' => false,
+                ],
+                'invalid_message' => 'Les champs du mot de passe doivent correspondre.',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez rentrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
+                        'minMessage' => 'Votre mot de passe doit avoir au minimum {{ limit }} caractères.',
                         'max' => 4096,
                     ]),
-                ]
+                ],
             ])
         ;
     }
