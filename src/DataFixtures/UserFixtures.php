@@ -79,7 +79,7 @@ class UserFixtures extends Fixture
             $video->setVideoLink($videoList[$i]);
             $manager->persist($video);
         }
-        for ($i = 0; $i < count($videoList); $i++) {
+        for ($i = 0; $i < count($videoCategory); $i++) {
             $category = new Category();
             $category
                 ->setName($videoCategory[$i])
