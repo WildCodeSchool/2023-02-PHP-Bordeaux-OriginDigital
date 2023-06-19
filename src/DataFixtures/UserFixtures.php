@@ -39,17 +39,7 @@ class UserFixtures extends Fixture
             'Volleyball5.mp4', 'Volleyball6.mp4', 'Volleyball7.mp4', 'Volleyball8.mp4',
             'Volleyball9.mp4', 'Volleyball10.mp4', 'Volleyball11.mp4', 'Volleyball12.mp4'];
 
-        $videoCategory = ['Basketball', 'Basketball', 'Basketball', 'Basketball', 'Basketball',
-            'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Basketball',
-            'Basketball',
-            'Football', 'Football', 'Football', 'Football', 'Football', 'Football', 'Football',
-            'Football', 'Football', 'Football', 'Football', 'Football',
-            'Surf', 'Surf', 'Surf', 'Surf', 'Surf', 'Surf', 'Surf', 'Surf', 'Surf', 'Surf',
-            'Surf', 'Surf',
-            'Tennis', 'Tennis', 'Tennis', 'Tennis', 'Tennis', 'Tennis', 'Tennis', 'Tennis',
-            'Tennis', 'Tennis', 'Tennis', 'Tennis',
-            'Volleyball', 'Volleyball', 'Volleyball', 'Volleyball', 'Volleyball', 'Volleyball',
-            'Volleyball', 'Volleyball', 'Volleyball', 'Volleyball', 'Volleyball', 'Volleyball'];
+        $videoCategory = ['Basketball', 'Football', 'Surf', 'Tennis', 'Volleyball'];
 
         $faker = Factory::create('fr_FR');
 
