@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-sm fixed-top">
+
+    <div class="container-fluid p-0 m-0">
+
+        <a class="navbar-brand  " href="#"><img class="ws-nav-logo" src="/build/images/WildSports.7886eafc.png" alt="Notre Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasSm"
+                aria-controls="navbarOffcanvasSm" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasSm" aria-labelledby="navbarOffcanvasSmLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav me-auto my-2 nav-items-container ">
+
+                    {#                    {% if user_is_connected %}#}
+                    <li class="nav-item ">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Catégories</a>
+                    </li>
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link" href="#">Mes favoris</a>#}
+                    {#                    </li>#}
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link" href="#">Contact</a>#}
+                    {#                    </li>#}
+
+                    {#                    {% else %}#}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pourquoi s'abonner</a>
+                    </li>
+                    {#                    {% endif %}#}
+
+                </ul>
+
+                <form class="d-flex m-0" role="search">
+                    <input class="form-control m-0" type="search" placeholder="Search" aria-label="Search"
+                           style="display: none;">
+                    <button class="btn btn-outline-success ms-auto p-0" type="button" onclick="toggleInput()">
+                        <img class="ws-loupe-noire" src="/build/images/loupe_noire.1cedadfc.png" alt="Loupe de recherche">
+                        <img class="ws-loupe-blanche" src="/build/images/chercher.ac71405c.png"
+                             alt="Loupe de recherche blanche">
+
+                    </button>
+                </form>
+                <script>
+                    function toggleInput() {
+                        var input = document.querySelector('.form-control');
+                        input.style.display = (input.style.display === 'none') ? 'flex' : 'none';
+                    }
+                </script>
+                <ul class="navbar-nav d-flex align-items-end ">
+                    {#                  {% if user_is_connected %}#}
+
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link active" aria-current="page" href="#">#}
+                    {#                            <img src="/build/images/black-male-user-symbol.4113acff.png" alt=""> Mon profil</a>#}
+                    {#                    </li>#}
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link" href="#">Se déconnecter</a>#}
+                    {#                    </li>#}
+                    {#                    {% else %}#}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Se connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">S'enregistrer</a>
+                    </li>
+                    {#                    {% endif %}#}
+                </ul>
+
+                <div class="dropdown">
+                    {#                        {% if user_is_connected %}#}
+                    {#                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"#}
+                    {#                           aria-expanded="false">#}
+                    {#                            <img src="/build/images/user.4da9742a.png" alt="">#}
+                    {#                        </a>#}
+                    {#
+                    {#                        <ul class="dropdown-menu">#}
+                    {#                            <li><a class="dropdown-item" href="#">Mon profil</a></li>#}
+                    {#                            <li><a class="dropdown-item" href="#">Se déconnecter</a></li>#}
+
+                    {#                        </ul>#}
+                    {#                        {% else %}#}
+                    <div class="ws-button-connexion m-0">
+                        <button class="ws-black-btn" type="button">Se connecter</button>
+                        <button class="ws-blue-btn" type="button">S'enregistrer</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>
