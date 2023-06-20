@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
+    <!-- Primary Meta Tags -->
+    <title>
+        {% block title %}Wild Sports{% endblock %}
+    </title>
+    <meta name="title" content="Wild Sports" />
+    <meta name="description" content="Découvrez Wild Sports, la plateforme ultime de vidéos de sport en ligne ! Regardez des moments palpitants dans une grande variété de sports." />
+    <meta name="author" content="Les étudiants de la Wild Code School de Bordeaux PHP/07/2023">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metatags.io" />
+    <meta property="og:title" content="Wild Sports" />
+    <meta property="og:description" content="Découvrez Wild Sports, la plateforme ultime de vidéos de sport en ligne ! Regardez des moments palpitants dans une grande variété de sports." />
+    <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://metatags.io" />
+    <meta property="twitter:title" content="Wild Sports" />
+    <meta property="twitter:description" content="Découvrez Wild Sports, la plateforme ultime de vidéos de sport en ligne ! Regardez des moments palpitants dans une grande variété de sports." />
+    <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+    <!-- Meta Tags Generated with https://metatags.io -->
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon/favicon-16x16.png') }}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Trirong:wght@600&display=swap"
@@ -12,10 +32,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200&display=swap"
           rel="stylesheet">
-    <title>
-        {% block title %}Projet 3 Name{% endblock %}
-    </title>
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
