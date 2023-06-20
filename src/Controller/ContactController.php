@@ -13,7 +13,6 @@ use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 
-
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'contactForm', methods: ['GET', 'POST'])]
