@@ -1,103 +1,113 @@
-<nav class="navbar navbar-expand-sm fixed-top">
+<nav class="navbar navbar-expand-sm navbar-light bg-dark fixed-top ws-navbar-color">
 
-    <div class="container-fluid p-0 m-0">
+{#    <div class="container-fluid">#}
 
-        <a class="navbar-brand  " href="#"><img class="ws-nav-logo" src="/build/images/WildSports.7886eafc.png" alt="Notre Logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasSm"
-                aria-controls="navbarOffcanvasSm" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <a href="#">
+            <img src="{{ asset('build/images/WildSports.7886eafc.png') }}" alt="logo" width="130"
+                 height="auto" ></a>
+        <button class="navbar-toggler ws-navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#navbarOffcanvasSm" aria-controls="navbarOffcanvasSm" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon ws-icon-toggler"></span>
         </button>
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasSm" aria-labelledby="navbarOffcanvasSmLabel">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav me-auto my-2 nav-items-container ">
+        <div class="offcanvas offcanvas-end ws-offcanvas-bg"  tabindex="-1" id="navbarOffcanvasSm"
+             aria-labelledby="navbarOffcanvasSmLabel">
 
-                    {#                    {% if user_is_connected %}#}
-                    <li class="nav-item ">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Wild Sports</h5>
+
+                <button type="button" class="btn-close btn-close-black " data-bs-dismiss="offcanvas" aria-label="Close">
+
+                </button>
+            </div>
+
+            <div class="offcanvas-body w-100 ">
+
+                <ul class="navbar-nav justify-content-start flex">
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Catégories</a>
+                        <a class="nav-link" href="#">Catégorie</a>
                     </li>
-                    {#                    <li class="nav-item">#}
-                    {#                        <a class="nav-link" href="#">Mes favoris</a>#}
-                    {#                    </li>#}
-                    {#                    <li class="nav-item">#}
-                    {#                        <a class="nav-link" href="#">Contact</a>#}
-                    {#                    </li>#}
 
-                    {#                    {% else %}#}
+{#                    {% if user_is_connected %}#}
+
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#">Favoris</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#">Contact</a>#}
+{#                    </li>#}
+
+{#                    {% else %}#}
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pourquoi s'abonner</a>
                     </li>
-                    {#                    {% endif %}#}
+
+{#                    {% endif %}#}
 
                 </ul>
 
-                <form class="d-flex m-0" role="search">
-                    <input class="form-control m-0" type="search" placeholder="Search" aria-label="Search"
-                           style="display: none;">
-                    <button class="btn btn-outline-success ms-auto p-0" type="button" onclick="toggleInput()">
-                        <img class="ws-loupe-noire" src="/build/images/loupe_noire.1cedadfc.png" alt="Loupe de recherche">
-                        <img class="ws-loupe-blanche" src="/build/images/chercher.ac71405c.png"
-                             alt="Loupe de recherche blanche">
+                <div class="d-flex w-100 justify-content-end">
 
-                    </button>
-                </form>
-                <script>
-                    function toggleInput() {
-                        var input = document.querySelector('.form-control');
-                        input.style.display = (input.style.display === 'none') ? 'flex' : 'none';
-                    }
-                </script>
-                <ul class="navbar-nav d-flex align-items-end ">
-                    {#                  {% if user_is_connected %}#}
+{#                <form class="d-flex " role="search">#}
+{#                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">#}
+{#                    <button class="btn btn-success ws-search-button" type="submit">Search</button>#}
+{#                </form>#}
 
-                    {#                    <li class="nav-item">#}
-                    {#                        <a class="nav-link active" aria-current="page" href="#">#}
-                    {#                            <img src="/build/images/black-male-user-symbol.4113acff.png" alt=""> Mon profil</a>#}
-                    {#                    </li>#}
-                    {#                    <li class="nav-item">#}
-                    {#                        <a class="nav-link" href="#">Se déconnecter</a>#}
-                    {#                    </li>#}
-                    {#                    {% else %}#}
-
+                <ul class="navbar-nav justify-content-start d-sm-none">
+{#                    {% if user_is_connected %}#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link active" aria-current="page" href="#">Profil</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#">Se déconnecter</a>#}
+{#                    </li>#}
+{#                    #}
+{#                    #}{#                    {% else %}#}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Se connecter</a>
+                        <a class="nav-link" href="#">Se connecter</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">S'enregistrer</a>
                     </li>
-                    {#                    {% endif %}#}
+{#                    {% endif %}#}
                 </ul>
 
-                <div class="dropdown">
-                    {#                        {% if user_is_connected %}#}
-                    {#                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"#}
-                    {#                           aria-expanded="false">#}
-                    {#                            <img src="/build/images/user.4da9742a.png" alt="">#}
-                    {#                        </a>#}
-                    {#
-                    {#                        <ul class="dropdown-menu">#}
-                    {#                            <li><a class="dropdown-item" href="#">Mon profil</a></li>#}
-                    {#                            <li><a class="dropdown-item" href="#">Se déconnecter</a></li>#}
 
-                    {#                        </ul>#}
-                    {#                        {% else %}#}
-                    <div class="ws-button-connexion m-0">
-                        <button class="ws-black-btn" type="button">Se connecter</button>
-                        <button class="ws-blue-btn" type="button">S'enregistrer</button>
 
-                    </div>
+                <ul class="navbar-nav ws-navbar-desktop" >
+{#                    {% if user_is_connected %}#}
+
+{#                    <li class="nav-item dropdown">#}
+{#                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"#}
+{#                           aria-expanded="false">Profil#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu dropdown-menu-dark">#}
+{#                            <li><a class="dropdown-item" href="#">Mon compte</a></li>#}
+{#                            <li>#}
+{#                                <hr class="dropdown-divider">#}
+{#                            </li>#}
+{#                            <li><a class="dropdown-item" href="#">Se déconnecter</a></li>#}
+{#                        </ul>#}
+{#                    {% else %}#}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                           <button class="ws-black-btn">Se connecter</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <button class="ws-blue-btn">S'enregistrer</button></a>
+                    </li>
+{#                    {% endif %}#}
+                </ul>
                 </div>
-
             </div>
         </div>
-    </div>
+{#    </div>#}
 </nav>
