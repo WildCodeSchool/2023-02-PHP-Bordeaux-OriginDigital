@@ -11,6 +11,7 @@
 /var/
 /vendor/
 /migrations/
+composer.lock
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###

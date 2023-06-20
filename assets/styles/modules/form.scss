@@ -1,4 +1,4 @@
-.login-form {
+.ws-custom-login-form{
     display: flex;
     align-items: center;
     height: 70vh;
@@ -6,26 +6,106 @@
     margin-bottom: auto;
 }
 
-.text-center {
+.ws-custom-text-center {
     display: flex;
     justify-content: center;
 }
 
-.mb-3 {
+.ws-custom-mb-3 {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.custom-login-bg{
+.ws-custom-login-bg{
     background-color:rgba(31, 31, 31, 0.7);
 }
 
-.custom-login-bg-image{
-    background-image: url("/assets/images/minimalist-basketball-sports-4k-27ujktj0x5rdyyit.jpg");
-    background-size: auto;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+/*
+##Device = Phone (portrait)
+##Screen = B/w 390px */
+@media (max-width: 390px) {
+    .ws-custom-login-bg-image{
+        background-image: url("../../images/loginbasketBGphone-4k-390.jpg");
+        background-size: auto;
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
 
+    .ws-loginRowHeight{
+        height: 700px;
+    }
+}
+
+
+/*
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 391px to 600px */
+@media (min-width: 391px) and (max-width: 600px) {
+    .ws-custom-login-bg-image{
+        background-image: url("../../images/loginbasketBGtablet-4k-600-1024.jpg");
+        background-size: auto;
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    .ws-loginRowHeight{
+        height: 700px;
+    }
+}
+/* TODO landscape orientation here for tablet 1024*600 */
+
+/*
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 599px to 1024px */
+@media (min-width: 599px) and (max-width: 767px) {
+    .ws-custom-login-bg-image{
+        background-image: url("../../images/loginbasketBGtablet-4k-768-1024.jpg");
+        background-size: auto;
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    .ws-loginRowHeight{
+        height: 700px;
+    }
+}
+
+/* TODO landscape orientation here for tablet 1024*768 */
+
+/*
+##Device = Desktops (portrait)
+##Screen = B/w 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ws-custom-login-bg-image{
+        background-image: url("../../images/loginbasketBGtablet-4k-1024-768.jpg");
+        background-size: auto;
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    .ws-loginRowHeight{
+        height: 700px;
+    }
+}
+
+/*
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops */
+@media (min-width: 1025px) {
+    .ws-custom-login-bg-image{
+        background-image: url("../../images/loginbasketBGdesktop-4k-1600-900.jpg");
+        background-size: auto;
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    .ws-loginRowHeight{
+        height: 700px;
+    }
 }

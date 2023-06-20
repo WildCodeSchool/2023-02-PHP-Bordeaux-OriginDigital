@@ -1,0 +1,29 @@
+.ws-contact-title{
+    color: $light;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.ws-contact-form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.ws-contact-fields{
+    border-radius: 0;
+}
+
+.ws-contact-contenu-fields{
+    height: 40vh;
+    border-radius: 0;
+}
+
+
+
+.form-group{
+    display: flex;
+    justify-content: center;
+}

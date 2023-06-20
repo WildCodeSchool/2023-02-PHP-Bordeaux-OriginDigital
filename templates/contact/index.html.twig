@@ -1,0 +1,39 @@
+  {% extends 'base.html.twig' %}
+{% block stylesheets%}{{ encore_entry_link_tags('app') }}{% endblock %}
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <h1 class="ws-contact-title">Contact</h1>
+
+    <div class="ws-contact-form">
+        {{ form_start(form) }}
+        <div class="">
+            {{ form_row(form.Prenom) }}
+        </div>
+        <div class="">
+            {{ form_row(form.Nom) }}
+        </div>
+        <div class="">
+            {{ form_row(form.Email) }}
+        </div>
+        <div class="">
+            {{ form_row(form.Sujet) }}
+        </div>
+        <div class="">
+            {{ form_row(form.Contenu) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.Envoyer) }}
+        </div>
+        {{ form_end(form) }}
+</div>
+    {% endblock %}
