@@ -2,14 +2,14 @@
 
 <div class="videoScrollSingleVideoPage ws-video-sections-container mb-5">
     <div class="ws-home-video-container no-scrollbar">
-        <div class="ws-home-video-card">
-            {% for video in category.videos %}
+        {% for video in video.category.videos | slice (0, 5) %}
+            <a href="/video/{{ video.id }}"><div class="ws-home-video-card">
             <video src="/videos/{{ video.videoLink }}" class="img-fluid ws-home-video-match"></video>
             <div class="ws-home-match-title">
                 <p>{{ video.title }}</p>
             </div>
-        </div>
-
+        </div></a>
+        {% endfor %}
     </div>
 
 </div>
