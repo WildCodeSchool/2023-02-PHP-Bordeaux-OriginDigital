@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class UserServices extends AbstractController
+/*class UserServices extends AbstractController
 {
     #[Route('/users/{id}/delete', name: 'user_delete', methods: ['POST'])]
     public function delete(User $user): Response
@@ -21,5 +21,4 @@ class UserServices extends AbstractController
 
         return $this->redirectToRoute('/login');
     }
-}
-
+}*/
