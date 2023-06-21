@@ -45,7 +45,7 @@
         {% for video in category.videos %}
             {% if app.user is empty and video.isPremium is not empty %}
                 <div class="col">
-                    <div class="card border-0 rounded-0 h-100">
+                    <a href="/video/{{ video.id }}"> <div class="card border-0 rounded-0 h-100" style="background-color: var(--secondary-color)">
                         <div class="d-flex justify-content-center align-items-center mb-5">
                         <video src="/videos/{{ video.videoLink }}" class="card-img-top notPremiumVideoBlurred"></video>
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="position-absolute bi bi-shield-lock-fill m-5" viewBox="0 0 16 16">
@@ -53,20 +53,20 @@
                         </svg>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ video.title }}</h5>
+                            <h5 class="card-title" style="color: white">{{ video.title }}</h5>
                             <p class="card-text videoDescriptionOverflow">{{ video.description }}</p>
                         </div>
-                    </div>
+                    </div> </a>
                 </div>
             {% else %}
             <div class="col">
-                <div class="card border-0 rounded-0 h-100">
-                <video src="/videos/{{ video.videoLink }}" class="card-img-top mb-5"></video>
+                <a class="ws-videoTitleColor" href="/video/{{ video.id }}"><div class="card border-0 rounded-0 h-100" style="background-color: var(--secondary-color)">
+                <video src="/videos/{{ video.videoLink }}" class="card-img-top mb-5" ></video>
                 <div class="card-body">
-                    <h5 class="card-title">{{ video.title }}</h5>
-                    <p class="card-text">{{ video.description }}</p>
+                    <h5 class="videoTitleColor card-title" style="color: white">{{ video.title }}</h5>
+                    <p class="videoTitleColor card-text">{{ video.description }}</p>
                 </div>
-            </div>
+            </div></a>
             </div>
         {% endif %}
         {% endfor %}
