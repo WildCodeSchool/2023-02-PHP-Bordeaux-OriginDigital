@@ -10,6 +10,10 @@
 /public/bundles/
 /var/
 /vendor/
+/migrations/
+composer.lock
+.mp4
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
@@ -32,4 +36,5 @@ yarn-error.log
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
+
 ###< phpunit/phpunit ###

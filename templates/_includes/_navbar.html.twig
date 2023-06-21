@@ -1,0 +1,118 @@
+<nav class="navbar navbar-expand-md navbar-light bg-dark fixed-top ws-navbar-color ">
+
+    <div class="container-fluid align-items-center ">
+
+        <a href="/">
+            <img src="{{ asset('build/images/WildSports.7886eafc.png') }}" class="my-0 p-0 ws-logo-site"
+                 alt="logo" width="135" height="auto" ></a>
+        <button class="navbar-toggler ws-navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#navbarOffcanvasMd" aria-controls="navbarOffcanvasMd" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon ws-icon-toggler"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end ws-offcanvas-bg"  tabindex="-1" id="navbarOffcanvasMd"
+             aria-labelledby="navbarOffcanvasMdLabel">
+
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Wild Sports</h5>
+
+                <button type="button" class="btn-close btn-close-black " data-bs-dismiss="offcanvas" aria-label="Close">
+
+                </button>
+            </div>
+
+            <div class="offcanvas-body w-100 ">
+                <div class="d-flex  w-100">
+
+                <ul class="navbar-nav ws-navbar-link-color-black">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Catégorie</a>
+                    </li>
+
+                    {% if app.user %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Favoris</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-nowrap" href="#">Pourquoi s'abonner</a>
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+
+                <div class="d-flex w-100 justify-content-end  ">
+
+{#                <form class="d-flex " role="search">#}
+{#                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">#}
+{#                    <button class="btn btn-success ws-search-button" type="submit">Search</button>#}
+{#                </form>#}
+
+                <ul class="navbar-nav text-nowrap ws-navbar-desktop " >
+                    {% if app.user %}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">{{ app.user.firstName }}
+                            <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"> Profil</a>
+
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Mon compte</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Se déconnecter</a></li>
+                        </ul>
+
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active p-0 me-1" aria-current="page" href="/login">
+                           <button class="ws-black-btn">Se connecter</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-0 " href="/register">
+                            <button class="ws-blue-btn">S'enregistrer</button></a>
+                    </li>
+                    {% endif %}
+                </ul>
+                </div>
+                </div>
+
+                <ul class="navbar-nav justify-content-start d-md-none ws-navbar-link-connexion-color-black">
+                    {% if app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil">
+                                {{ app.user.firstName }}  Profil </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Se déconnecter</a>
+                        </li>
+
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Se connecter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">S'enregistrer</a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</nav>

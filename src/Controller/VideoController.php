@@ -13,7 +13,7 @@ class VideoController extends AbstractController
     public function showVideo(Video $video): Response
     {
         return $this->render('video/showSelectedVideo.html.twig', [
-            'video' =>  $video,
+            'video' => $video,
         ]);
     }
 }

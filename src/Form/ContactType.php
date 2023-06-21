@@ -22,7 +22,7 @@ class ContactType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Prenom',
-                        'class' => 'ws-contact-fields'
+                    'class' => 'ws-contact-fields'
                 ],
             ])
             ->add('Nom', TextType::class, [
@@ -31,7 +31,7 @@ class ContactType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Nom',
-                        'class' => 'ws-contact-fields'
+                    'class' => 'ws-contact-fields'
                 ],
             ])
             ->add('Email', EmailType::class, [
@@ -40,7 +40,7 @@ class ContactType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Email',
-                        'class' => 'ws-contact-fields'
+                    'class' => 'ws-contact-fields'
                 ],
             ])
             ->add('Sujet', TextType::class, [
@@ -49,7 +49,7 @@ class ContactType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Sujet',
-                        'class' => 'ws-contact-fields'
+                    'class' => 'ws-contact-fields'
                 ],
             ])
             ->add('Contenu', TextType::class, [
@@ -58,7 +58,7 @@ class ContactType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Contenu',
-                        'class' => 'ws-contact-contenu-fields'
+                    'class' => 'ws-contact-contenu-fields'
                 ],
             ])
             ->add('Envoyer', SubmitType::class, [
