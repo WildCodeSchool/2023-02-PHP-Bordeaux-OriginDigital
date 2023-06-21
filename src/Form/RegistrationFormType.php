@@ -24,24 +24,24 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control col-6 rounded-0 mb-3',
-                    'placeholder' => 'E-mail',
+                    'placeholder' => 'Veuillez entrer votre E-mail',
                 ],
-                'label' => false,
+                'label' => 'E-mail',
             ])
             ->add('firstname', TextType::class, [
                 'attr' => [
                     'class' => 'form-control col-6 rounded-0 mb-3',
-                    'placeholder' => 'Prénom',
+                    'placeholder' => 'Veuillez entrer votre Prénom',
                 ],
-                'label' => false,
+                'label' => 'Prénom',
 
             ])
             ->add('lastname', TextType::class, [
                 'attr' => [
                     'class' => 'form-control col-6 rounded-0 mb-3',
-                    'placeholder' => 'Nom',
+                    'placeholder' => 'Veuillez entrer votre Nom',
                 ],
-                'label' => 'Informations personnelles',
+                'label' => 'Nom',
 
             ])
             ->add('date_of_birth', DateType::class, [
@@ -57,17 +57,19 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter les termes du contrat.',
                     ]),
                 ],
-                'label' => 'En m\'inscrivant à ce site, j\'accepte les conditions d\'utilisation du site Wild Sports',
+                'label' => 'J\'accepte les Conditions Générales d\'Utilisation et reconnais avoir été informé que mes
+                 données personnelles seront utilisées tel que décrit ci-dessous et détaillé dans la Politique de
+                 protection des données personnelles * du site Wild Sports',
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'first_options' => [
                     'attr' => [
-                        'class' => 'form-control col-6 rounded-0 mb-3',
+                        'class' => 'form-control col-6 rounded-0 mb-1',
                         'autocomplete' => 'new-password',
                         'placeholder' => 'Veuillez entrer un mot de passe',
                     ],
@@ -75,11 +77,11 @@ class RegistrationFormType extends AbstractType
                 ],
                 'second_options' => [
                     'attr' => [
-                        'class' => 'form-control col-6 rounded-0 mb-3',
+                        'class' => 'form-control col-6 rounded-0 mb-2',
                         'autocomplete' => 'new-password',
                         'placeholder' => 'Veuillez confirmer le mot de passe',
                     ],
-                    'label' => false,
+                    'label' => 'Confirmation du mot de passe'
                 ],
                 'invalid_message' => 'Les champs du mot de passe doivent correspondre.',
                 'constraints' => [
