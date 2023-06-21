@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets%}{{ encore_entry_link_tags('app') }}{% endblock %}
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <h1 class="ws-profil-title">Profile</h1>
+
+    <h2>Mon abonnement</h2>
+    <div class="ws-profil-form">
+        {{ form_start(form) }}
+        <div class="">
+            <a href="{{ path('app_subscription') }}" class="btn btn-primary">Aller vers une autre vue</a>
+        </div>
+        <div class="">
+            {{ form_row(form.Resilier_mon_abonnement) }}
+        </div>
+        <h2>Mon compte</h2>
+        <div class="">
+            {{ form_row(form.Email) }}
+        </div>
+        <div class="">
+            {{ form_row(form.Supprimer_mon_compte) }}
+        </div>
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}
