@@ -35,6 +35,7 @@ It's symfony website-skeleton project with some additional library (webpack, fix
 5. Run `composer require nelmio/security-bundle`
 6. Run `yarn add js-cookie`
 7. Run `yarn encore dev`
+8. Run 'composer require symfony/mailer'
 
 ### Working
 
