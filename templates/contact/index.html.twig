@@ -16,19 +16,21 @@
 
     <div class="ws-contact-form">
         {{ form_start(form) }}
-        <div class="">
-            {{ form_row(form.Prenom) }}
+        <div class="ws-contact-name">
+            <div class="ws-contact-firstname">
+                {{ form_row(form.Prenom) }}
+            </div>
+            <div class="ws-contact-lastname">
+                {{ form_row(form.Nom) }}
+            </div>
         </div>
-        <div class="">
-            {{ form_row(form.Nom) }}
-        </div>
-        <div class="">
+        <div>
             {{ form_row(form.Email) }}
         </div>
-        <div class="">
+        <div>
             {{ form_row(form.Sujet) }}
         </div>
-        <div class="">
+        <div>
             {{ form_row(form.Contenu) }}
         </div>
         <div class="form-group">

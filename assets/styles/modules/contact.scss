@@ -25,3 +25,36 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (min-width: 768px){
+    .ws-contact-title{
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    .ws-contact-form{
+        display: flex;
+        width: 50%;
+        margin: auto;
+    }
+
+    .ws-contact-name{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ws-contact-firstname{
+        width: 45%;
+    }
+
+    .ws-contact-lastname{
+        width: 45%;
+    }
+
+    .form-group{
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+}
+
+
