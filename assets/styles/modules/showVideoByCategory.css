@@ -1,0 +1,12 @@
+.imageCategoryCarousel  {
+    max-height: 800px;
+    object-fit: cover;
+}
+
+.videoDescriptionOverflow   {
+    text-overflow: ellipsis;
+}
+
+.mb-6    {
+    margin-bottom: 6rem;
+}
