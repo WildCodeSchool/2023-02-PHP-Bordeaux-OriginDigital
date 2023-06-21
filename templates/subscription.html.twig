@@ -1,9 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 {% block title %} Mon abonnement {% endblock %}
 
 {% block body %}
 
-    {{ 'Status: Abonnement premium actif' }}
+    {{ "Status: Abonnement premium actif" }}
+
+    {{ "Date d'inscription:" }}
+
+    {{ "Date du prochain renouvellement:" }}
+    
+    <button>Supprimer mon compte</button>
 
 {% block content %}
     {# Utilisez la route appropriée pour la suppression et transmettez l'ID de l'utilisateur #}

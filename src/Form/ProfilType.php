@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Services\UserServices;
 
 class ProfilType extends AbstractType
 {
@@ -30,7 +31,9 @@ class ProfilType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Email',
                 ],
-            ])
+            ]);
+
+            $builder
             ->add('Supprimer_mon_compte', SubmitType::class, [
             ])
         ;

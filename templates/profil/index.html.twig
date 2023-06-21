@@ -18,7 +18,7 @@
     <div class="ws-profil-form">
         {{ form_start(form) }}
         <div class="">
-            <a href="{{ path('app_subscription') }}" class="btn btn-primary">Aller vers une autre vue</a>
+            <a href="{{ path('app_subscription') }}" class="btn btn-primary">Gérer mon abonnement</a>
         </div>
         <div class="">
             {{ form_row(form.Resilier_mon_abonnement) }}
@@ -28,7 +28,11 @@
             {{ form_row(form.Email) }}
         </div>
         <div class="">
-            {{ form_row(form.Supprimer_mon_compte) }}
+            {{ form_start(form) }}
+            {# Champ de suppression #}
+            <input type="submit" name="_method" value="DELETE" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">
+            {{ form_end(form) }}
+
         </div>
         {{ form_end(form) }}
 
