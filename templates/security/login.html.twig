@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <div class="img-fluid ws-custom-login-bg-image">
+        <div class="ws-loginRowHeight col-md d-flex justify-content-center align-items-center">
+            <div class=" d-flex flex-column align-items-center">
+                <section class="container my-3">
+                    <div class="row ws-custom-login-bg">
+                        <div class="col-md p-4">
+                            <form method="post">
+                                {% if error %}
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+
+                                {% if app.user %}
+                                    <div class="ws-custom-mb-3">
+                                        Vous êtes connecté(e) {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                    </div>
+                                {% endif %}
+
+                                <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
+                                <label for="inputEmail"></label>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control rounded-0" placeholder='E-mail' autocomplete="email" required minlength="5" maxlength="50">
+                                <label for="inputPassword"></label>
+                                <input type="password" name="password" id="inputPassword" class="form-control rounded-0" autocomplete="current-password" placeholder='Mot de passe' required>
+
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                <div class="text-center">
+                                    <button class="btn btn-primary mt-5 mb-2 rounded-0" type="button">Se connecter</button>
+                                </div>
+                                <br>
+                                <div class="ws-custom-text-center">
+                                    <div class="ws-custom-mb-3 d-flex align-items-center justify-content-center">
+                                        <a href="" class="text-decoration-none">Mot de passe oublié</a>
+                                        <hr style="width: 50%">
+                                        <p>Pas encore de compte ?
+                                        <a href="/register" class="text-decoration-none"><strong>Inscrivez-vous !</strong></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+</div>
+{% endblock %}
