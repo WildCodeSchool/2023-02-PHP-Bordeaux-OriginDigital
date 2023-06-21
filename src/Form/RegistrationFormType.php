@@ -15,6 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
 
 class RegistrationFormType extends AbstractType
 {
@@ -27,6 +28,10 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Veuillez entrer votre E-mail',
                 ],
                 'label' => 'E-mail',
+                'constraints' => [
+                    new NotBlank(['message' => 'L\'adresse e-mail est requise.']),
+                    new Email(['message' => 'L\'adresse e-mail n\'est pas valide.'])
+                ],
             ])
             ->add('firstname', TextType::class, [
                 'attr' => [
@@ -34,7 +39,9 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Veuillez entrer votre Prénom',
                 ],
                 'label' => 'Prénom',
-
+                'constraints' => [
+                    new NotBlank(['message' => 'Le prénom est requis.'])
+                ],
             ])
             ->add('lastname', TextType::class, [
                 'attr' => [
@@ -42,7 +49,9 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Veuillez entrer votre Nom',
                 ],
                 'label' => 'Nom',
-
+                'constraints' => [
+                    new NotBlank(['message' => 'Le nom est requis.'])
+                ],
             ])
             ->add('date_of_birth', DateType::class, [
                 'attr' => [
@@ -51,7 +60,9 @@ class RegistrationFormType extends AbstractType
                 ],
                 'widget' => 'single_text',
                 'label' => 'Date de naissance',
-
+                'constraints' => [
+                    new NotBlank(['message' => 'La date de naissance est requise.'])
+                ],
             ])
             ->add('RGPDConsent', CheckboxType::class, [
                 'mapped' => false,
@@ -62,7 +73,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 'label' => 'J\'accepte les Conditions Générales d\'Utilisation et reconnais avoir été informé que mes
                  données personnelles seront utilisées tel que décrit ci-dessous et détaillé dans la Politique de
-                 protection des données personnelles * du site Wild Sports',
+                  protection des données personnelles * du site Wild Sports',
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -94,8 +105,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
