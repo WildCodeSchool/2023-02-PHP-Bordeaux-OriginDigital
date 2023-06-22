@@ -15,31 +15,33 @@
     <h1 class="ws-profil-title">Mon profile</h1>
 
     <div class="ws-profil-information">
-    <h2 class="ws-profil-title">Mon abonnement</h2>
+    <h2 class="ws-profil-titles">Mon abonnement</h2>
 
         {% if app.user %}
     <div class="ws-profil-form">
-    {#  {{ form_start(form) }}#}
-        <div class="">
-             <a href="{{ path('app_subscription') }}" class="btn ws-yellow-btn">Gérer mon abonnement</a>
+
+        <div>
+             <a href="{{ path('app_subscription') }}" class="btn">Gérer mon abonnement</a>
         </div>
     </div>
             {% else %}
                 <a href="{{ path('app_subscription') }}" class="">Pourquoi s'abonner</a>
     {% endif %}
           {% if is_granted('ROLE_USER') %}
-        <h2 class="ws-profil-title">Mon compte</h2>
-        <div class="ws-profil-form">
+
+        <h2 class="ws-profil-titles">Mon compte</h2>
+
+        <div id="ws-profil-mail">
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <button class="btn">{{ button_label|default('Save') }}</button>
+            <button class="btn ws-yellow-btn" onclick="return confirm('Êtes-vous sûr(e) de vouloir modifier votre adresse e-mail ?')">{{ button_label|default('Modifier votre addresse') }}</button>
             {{ form_end(form) }}
         </div>
 
         <div class="ws-profil-form">
-            <form method="post" action="{{ path('app_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+            <form method="post" action="{{ path('app_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Etes vous sure de vouloir supprimer votre compte?');">
                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
-                <button class="btn">Delete</button>
+                <button class="btn ws-yellow-btn">Supprimer mon compte</button>
             </form>
         </div>
         {{ form_end(form) }}
