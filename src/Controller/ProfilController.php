@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\ContactType;
 use App\Form\ProfilType;
+use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +20,7 @@ class ProfilController extends AbstractController
     {
         $user = $this->getUser();
 
-        $form = $this->createForm(ProfilType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
 
         $form->setData($user);
 

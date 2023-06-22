@@ -3,14 +3,19 @@
 
 {% block body %}
 
+    <h1 class="ws-subscription-title">Mon abonnement</h1>
+<div class="ws-subscription-contents">
+    <div class="ws-subscription-content">
     {{ "Status: Abonnement premium actif" }}
-
+    </div>
+    <div class="ws-subscription-content">
     {{ "Date d'inscription:" }}
-
+    </div>
+    <div class="ws-subscription-content">
     {{ "Date du prochain renouvellement:" }}
-    
-    <button>Supprimer mon compte</button>
-
+    </div>
+    <button>Supprimer mon abonnement</button>
+    </div>
 {% block content %}
     {# Utilisez la route appropriée pour la suppression et transmettez l'ID de l'utilisateur #}
     {#  <form action="{{ path('user_delete', {'id': user.id}) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">
