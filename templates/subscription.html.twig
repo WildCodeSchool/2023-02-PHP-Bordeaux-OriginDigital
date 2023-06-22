@@ -9,7 +9,8 @@
     {{ "Status: Abonnement premium actif" }}
     </div>
     <div class="ws-subscription-content">
-    {{ "Date d'inscription:" }}
+        {{ "Date d'inscription: " }}{{ app.user.getCreatedAt()|date('d/m/Y') }}
+
     </div>
     <div class="ws-subscription-content">
     {{ "Date du prochain renouvellement: TO DO" }}
