@@ -13,7 +13,7 @@
 /migrations/
 composer.lock
 .mp4
-
+/public/video
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
