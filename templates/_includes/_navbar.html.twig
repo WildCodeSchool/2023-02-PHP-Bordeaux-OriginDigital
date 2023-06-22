@@ -70,11 +70,7 @@
                             <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"> Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            {% if is_granted("ROLE_ADMIN") and app.user %}
-                            <li><a class="dropdown-item" href="/admin">Administration</a></li>
-                            {% else %}
                             <li><a class="dropdown-item" href="#">Mon compte</a></li>
-                            {% endif %}
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
