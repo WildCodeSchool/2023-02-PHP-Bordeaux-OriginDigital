@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -30,7 +31,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'E-mail',
                 'constraints' => [
                     new NotBlank(['message' => 'L\'adresse e-mail est requise.']),
-                    new Email(['message' => 'L\'adresse e-mail n\'est pas valide.'])
+                    new Email(['message' => 'L\'adresse e-mail n\'est pas valide.']),
                 ],
             ])
             ->add('firstname', TextType::class, [
@@ -112,6 +113,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'translation_domain' => 'forms'
         ]);
     }
 }
