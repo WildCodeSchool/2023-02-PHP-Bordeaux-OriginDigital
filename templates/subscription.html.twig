@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+{% block title %} Mon abonnement {% endblock %}
+
+{% block body %}
+
+    <h1 class="ws-subscription-title">Mon abonnement</h1>
+<div class="ws-subscription-contents">
+    <div class="ws-subscription-content">
+    {{ "Status: Abonnement premium actif" }}
+    </div>
+    <div class="ws-subscription-content">
+        {{ "Date d'inscription: " }}{{ app.user.getCreatedAt()|date('d/m/Y') }}
+
+    </div>
+    <div class="ws-subscription-content">
+    {{ "Date du prochain renouvellement: TO DO" }}
+      </div>
+    {#<button>Supprimer mon abonnement</button>#}
+    </div>
+       <div></div>
+{% block content %}
+
+{% endblock %}
+
+{% endblock %}
