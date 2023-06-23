@@ -32,7 +32,7 @@
                         <a class="nav-link" href="#">Catégorie</a>
                     </li>
 
-                    {% if app.user %}
+                    {#  {% if app.user %}
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">Favoris</a>
@@ -50,7 +50,7 @@
                         <a class="nav-link text-nowrap" href="#">Pourquoi s'abonner</a>
                     </li>
 
-                    {% endif %}
+                    {% endif %}#}
 
                 </ul>
 
@@ -70,7 +70,11 @@
                             <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"> Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="#">Mon compte</a></li>
+                            {% if is_granted("ROLE_ADMIN") and app.user %}
+                                <li><a class="dropdown-item" href="#">Administration</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="#">Mon compte</a></li>
+                            {% endif %}
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

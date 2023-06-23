@@ -23,6 +23,9 @@
     "amphp/sync": {
         "version": "v1.4.2"
     },
+    "andanteproject/timestampable-bundle": {
+        "version": "1.1.0"
+    },
     "composer/pcre": {
         "version": "3.0.0"
     },
@@ -118,6 +121,15 @@
     },
     "doctrine/sql-formatter": {
         "version": "1.1.2"
+    },
+    "easycorp/easyadmin-bundle": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "b131e6cbfe1b898a508987851963fff485986285"
+        }
     },
     "egulias/email-validator": {
         "version": "3.1.2"
@@ -627,6 +639,18 @@
         "files": [
             "config/packages/twig.yaml",
             "templates/base.html.twig"
+        ]
+    },
+    "symfony/uid": {
+        "version": "6.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.2",
+            "ref": "d294ad4add3e15d7eb1bae0221588ca89b38e558"
+        },
+        "files": [
+            "./config/packages/uid.yaml"
         ]
     },
     "symfony/validator": {

@@ -9,7 +9,7 @@
     </div>
 {% if app.user is empty and video.isPremium is not empty %}
     <div class="d-flex justify-content-center">
-        <video class="notPremiumVideoBlurred align-items-center" src="/assets/videos/{{ video.videoLink }}" width="60%"></video>
+        <video class="notPremiumVideoBlurred selectedVideo align-items-center" src="/assets/videos/{{ video.videoLink }}" width="60%"></video>
 
         <div class="position-absolute d-flex justify-content-center flex-column align-items-center" id="notPremiumVideoText" style="margin-top: 50px">
             <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-shield-lock-fill m-5" viewBox="0 0 16 16">
@@ -19,7 +19,7 @@
             <h2 class="contentReservedText text-center">Contenu réservé aux abonnements Premium</h2>
 
             <div class="d-flex justify-content-center">
-                <h2 class="contentReservedLink text-center"><a href="#!">Deviens PREMIUM maintenant!</a></h2>
+                <h2 class="contentReservedLink text-center"><a href="/register">Deviens PREMIUM maintenant!</a></h2>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
     {% else %}
 
     <div class="d-flex justify-content-center">
-        <video src="/assets/videos/{{ video.videoLink }}" controls width="90%"></video>
+        <video src="/videos/{{ video.videoLink }}" controls width="90%"></video>
     </div>
     {% endif %}
     <div class="divUnderVideo d-flex flex-column">
