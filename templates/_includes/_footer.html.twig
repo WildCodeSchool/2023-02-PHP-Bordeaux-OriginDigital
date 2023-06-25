@@ -11,9 +11,12 @@
     {% endif %}
     <div id="ws-logo-visibility">
         <div class="ws-img-logo d-flex justify-content-evenly py-4 mb-2">
-            <img src="{{ asset('build/images/adidas.png') }}" alt="logo adidas"> <img
-                src="{{ asset('build/images/nike.png') }}" alt="logo nike"> <img
-                src="{{ asset('build/images/reebok.png') }}" alt="logo reebok">
+{#            {% for advertisement in advertisement %}#}
+{#                <img src="{{ asset('uploads/advertisements/' ~ advertisement.image) }}" alt="logo {{ advertisement.name }}">#}
+{#            {% endfor %}#}
+            <img src="{{ asset('build/images/adidas.png') }}" alt="logo adidas">
+            <img src="{{ asset('build/images/nike.png') }}" alt="logo nike">
+            <img src="{{ asset('build/images/reebok.png') }}" alt="logo reebok">
         </div>
     </div>
     <ul class="nav justify-content-center mb-2">
@@ -34,19 +37,12 @@
         </li>
     </ul>
     <div class="d-flex justify-content-center mb-3">
-        <a class="mx-4" href="https://fr-fr.facebook.com/">
-            <i id="logo-facebook"
-               class="fa-brands fa-facebook-f fa-2xl"
-               style="color: #ffffff;"></i>
-        </a> <a class="mx-4" href="https://twitter.com/">
-            <i id="logo-twitter"
-               class="fa-brands fa-twitter fa-2xl"
-               style="color: #ffffff;"></i>
-        </a> <a class="mx-4" href="https://www.instagram.com/">
-            <i id="logo-instagram"
-               class="fa-brands fa-instagram fa-2xl"
-               style="color: #ffffff;"></i>
-        </a>
+        <a class="mx-4" href="https://fr-fr.facebook.com/"> <i id="logo-facebook" class="fa-brands fa-facebook-f fa-2xl"
+                                                               style="color: #ffffff;"></i> </a> <a class="mx-4"
+                                                                                                    href="https://twitter.com/">
+            <i id="logo-twitter" class="fa-brands fa-twitter fa-2xl" style="color: #ffffff;"></i> </a> <a class="mx-4"
+                                                                                                          href="https://www.instagram.com/">
+            <i id="logo-instagram" class="fa-brands fa-instagram fa-2xl" style="color: #ffffff;"></i> </a>
     </div>
     <p class="text-center">© 2023 Wild Sports</p>
 </div>

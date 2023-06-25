@@ -46,6 +46,17 @@
 <body>
 <header>{% include ('_includes/_navbar.html.twig') %}</header>
 
+{% include ('_includes/_navbar.html.twig') %}
+<div class="container">
+    {# pass an array argument to get the messages of those types  #}
+    {% for label, messages in app.flashes(['warning', 'error', 'success']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
 {% block body %}{% endblock %}
 
 <footer>{% include ('_includes/_footer.html.twig') %}</footer>
