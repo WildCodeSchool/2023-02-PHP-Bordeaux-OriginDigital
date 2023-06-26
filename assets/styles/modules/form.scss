@@ -3,7 +3,6 @@
     align-items: center;
     height: 70vh;
     margin-top: 20vh;
-    margin-bottom: auto;
 }
 
 .ws-custom-text-center {
@@ -98,7 +97,7 @@
 ##Screen = 1281px to higher resolution desktops */
 @media (min-width: 1025px) {
     .ws-custom-login-bg-image{
-        background-image: url("../../images/loginbasketBGdesktop-4k-1600-900.jpg");
+        background-image: url("../../images/loginbasketBGdesktop-4k-1536-864.jpg");
         background-size: auto;
         background-position: center center;
         background-attachment: fixed;
