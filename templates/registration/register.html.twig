@@ -4,14 +4,14 @@
 
 {% block body %}
     <div class="img-fluid ws-custom-login-bg-image">
-        <section class="container">
-            <div class="ws-custom-login-bg">
-                <div class=" p-4 my-3" style="width: 45vh;"> //reprendre à partir d'ici
+        <section class="container d-flex justify-content-center">
+            <div class="ws-custom-login-bg" style="width: 80vh;margin-top: 120px;margin-bottom: 100px">
+                <div class="my-5 mx-5" >
                     {% for flash_error in app.flashes('verify_email_error') %}
                         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
                     {% endfor %}
 
-                    <h1 class="text-center mb-4">S'inscrire</h1>
+                    <h1 class="text-center mb-4" >Créer un compte</h1>
 
                     {{ form_errors(registrationForm) }}
 
@@ -26,7 +26,7 @@
                         {{ form_row(registrationForm.RGPDConsent) }}
                     </fieldset>
                     <div class="text-center">
-                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">Créer un compte</button>
+                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">S'inscrire</button>
                     </div>
                     {{ form_end(registrationForm) }}
 

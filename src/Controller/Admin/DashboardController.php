@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Advertisement;
 use App\Entity\Category;
 use App\Entity\User;
 use App\Entity\Video;
@@ -26,6 +27,7 @@ class DashboardController extends AbstractDashboardController
     {
         $url = $this->adminUrlGenerator
             ->setController(CategoryCrudController::class)
+            ->setController(AdvertisementCrudController::class)
             ->setController(UserCrudController::class)
             ->setController(VideoCrudController::class)
             ->generateUrl();
@@ -42,6 +44,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToUrl('Accueil du site', 'fas fa-home', $this->generateUrl('app_home'));
+        yield MenuItem::linkToCrud('Advertisement', 'fas fa-euro', Advertisement::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Membres', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Videos', 'fas fa-video', Video::class);
