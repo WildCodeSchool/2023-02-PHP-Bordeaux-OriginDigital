@@ -32,7 +32,7 @@
                         <a class="nav-link" href="#">Catégorie</a>
                     </li>
 
-                    {#  {% if app.user %}
+                    {% if app.user %}
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">Favoris</a>
@@ -50,30 +50,30 @@
                         <a class="nav-link text-nowrap" href="#">Pourquoi s'abonner</a>
                     </li>
 
-                    {% endif %}#}
+                    {% endif %}
 
                 </ul>
 
-                <div class="d-flex w-100 justify-content-end  ">
+                <div class="d-flex w-100 justify-content-end">
 
-{#                <form class="d-flex " role="search">#}
-{#                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">#}
-{#                    <button class="btn btn-success ws-search-button" type="submit">Search</button>#}
-{#                </form>#}
+                {# <form class="d-flex " role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success ws-search-button" type="submit">Search</button>
+                </form>  #}
 
                 <ul class="navbar-nav text-nowrap ws-navbar-desktop " >
                     {% if app.user %}
 
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown me-5">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">{{ app.user.firstName }}
-                            <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"> Profil</a>
+                            <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"></a>
 
                         <ul class="dropdown-menu dropdown-menu-dark">
                             {% if is_granted("ROLE_ADMIN") and app.user %}
                                 <li><a class="dropdown-item" href="#">Administration</a></li>
                             {% else %}
-                                <li><a class="dropdown-item" href="#">Mon compte</a></li>
+                                <li><a class="dropdown-item" href="/profil">Mon compte</a></li>
                             {% endif %}
                             <li>
                                 <hr class="dropdown-divider">
@@ -100,7 +100,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
                                 <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil">
-                                {{ app.user.firstName }}  Profil </a>
+                                {{ app.user.firstName }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/">Se déconnecter</a>

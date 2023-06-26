@@ -1,15 +1,17 @@
-
-
 <div class="videoScrollSingleVideoPage ws-video-sections-container mb-5">
     <div class="ws-home-video-container no-scrollbar">
         {% for video in video.category.videos | slice (0, 5) %}
-            <a href="/video/{{ video.id }}"><div class="ws-home-video-card">
-            <video src="/videos/{{ video.videoLink }}" class="img-fluid ws-home-video-match"></video>
-            <div class="ws-home-match-title">
-                <p>{{ video.title }}</p>
+        <a href="/video/{{ video.id }}" class="text-decoration-none">
+            <div class="ws-home-video-card">
+                <video src="/videos/{{ video.videoLink }}" class="img-fluid ws-home-video-match"></video>
+                {% if video.title|length > 30 %}
+                    <p>{{ video.title|slice(0, 30) ~ '...' }}</p>
+                {% else %}
+                    <p>{{ video.title }}</p>
+                {% endif %}
             </div>
-        </div></a>
+        </a>
         {% endfor %}
     </div>
-
 </div>
+
