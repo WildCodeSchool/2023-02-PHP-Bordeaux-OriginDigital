@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ef6cc2c0c5062fda5bf176e9dc9e697",
+    "content-hash": "3cbb7e4d16aaf6d4282274e2bbdd56f7",
     "packages": [
         {
             "name": "andanteproject/timestampable-bundle",
@@ -9710,7 +9710,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-21T20:07:58+00:00"
+            "time": "2023-06-20T12:07:40+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",

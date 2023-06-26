@@ -21,36 +21,42 @@
                     <video class="d-block w-100" src="videos/{{ carouselVideos[0].videoLink }}"
                            alt="First slide" style="filter: brightness(80%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
+                        <a href="/video/{{ carouselVideos[0].id }}" class="text-decoration-none">
                         <h5>COMPETITION</h5>
                         {% if carouselVideos[0].title|length > 20 %}
                             <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
                         {% else %}
                             <h2>{{ carouselVideos[0].title }}</h2>
                         {% endif %}
+                        </a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <video class="d-block w-100" src="videos/{{ carouselVideos[1].videoLink }}"
                            alt="First slide" style="filter: brightness(80%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
+                        <a href="/video/{{ carouselVideos[1].id }}" class="text-decoration-none">
                         <h5>COMPETITION</h5>
                         {% if carouselVideos[1].title|length > 20 %}
                             <h2>{{ carouselVideos[1].title|slice(0, 20) ~ '...' }}</h2>
                         {% else %}
                             <h2>{{ carouselVideos[1].title }}</h2>
                         {% endif %}
+                        </a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <video class="d-block w-100" src="videos/{{ carouselVideos[2].videoLink }}"
                            alt="First slide" style="filter: brightness(80%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
+                        <a href="/video/{{ carouselVideos[2].id }}" class="text-decoration-none">
                         <h5>COMPETITION</h5>
                         {% if carouselVideos[2].title|length > 20 %}
                             <h2>{{ carouselVideos[2].title|slice(0, 20) ~ '...' }}</h2>
                         {% else %}
                             <h2>{{ carouselVideos[2].title }}</h2>
                         {% endif %}
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,10 +79,10 @@
         <!-- Subsection matchs -->
         <div class="w-100 d-inline-flex justify-content-between align-items-center ws-header-video-container">
             <h4>MATCHS</h4>
-            <button class="ws-yellow-btn mb-3">Voir plus</button>
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for premiumVideo in premiumVideos %}
+            <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
                     <video src="videos/{{ premiumVideo.videoLink }}" width="100%" style="filter: brightness(50%);"></video>
                     <div class="ws-home-match-title">
@@ -90,6 +96,7 @@
                         <button class="ws-blue-btn">Premium pass</button>
                     </div>
                 </div>
+            </a>
             {% endfor %}
         </div>
         <!-- End of subsection -->
@@ -97,21 +104,22 @@
         <!-- Subsection category 1 -->
         <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
             <h4>BASKETBALL</h4>
-            <button class="ws-yellow-btn mb-3">Voir plus</button>
+            <button class="ws-yellow-btn mb-3"><a href="/category/1" class="text-decoration-none">Voir plus</a></button>
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for basketballVideo in basketballVideos %}
-                <div class="ws-home-video-card">
-                    <video src="videos/{{ basketballVideo.videoLink }}" width="90%"></video>
-                    {% if basketballVideo.title|length > 30 %}
-                        <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
-                    {% else %}
-                        <p>{{ basketballVideo.title }}</p>
-                    {% endif %}
-                </div>
+                <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
+                    <div class="ws-home-video-card">
+                        <video src="videos/{{ basketballVideo.videoLink }}" width="90%"></video>
+                        {% if basketballVideo.title|length > 30 %}
+                            <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
+                        {% else %}
+                            <p>{{ basketballVideo.title }}</p>
+                        {% endif %}
+                    </div>
+                </a>
             {% endfor %}
         </div>
-
         <!-- End of subsection -->
 
         <!-- Subsection advertisement -->
@@ -123,10 +131,11 @@
         <!-- Subsection category 2 -->
         <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
             <h4>FOOTBALL</h4>
-            <button class="ws-yellow-btn mb-3">Voir plus</button>
+            <button class="ws-yellow-btn mb-3"><a href="/category/2" class="text-decoration-none">Voir plus</a></button>
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for footballVideo in footballVideos %}
+            <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
                     <video src="videos/{{ footballVideo.videoLink }}" width="90%"></video>
                     {% if footballVideo.title|length > 30 %}
@@ -135,17 +144,20 @@
                         <p>{{ footballVideo.title }}</p>
                     {% endif %}
                 </div>
+            </a>
             {% endfor %}
+
         </div>
         <!-- End of subsection -->
 
         <!-- Subsection category 3 -->
         <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
             <h4>SURF</h4>
-            <button class="ws-yellow-btn mb-3">Voir plus</button>
+            <button class="ws-yellow-btn mb-3"><a href="/category/3" class="text-decoration-none">Voir plus</a></button>
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for surfVideo in surfVideos %}
+            <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
                     <video src="videos/{{ surfVideo.videoLink }}" width="90%"></video>
                     {% if surfVideo.title|length > 30 %}
@@ -154,6 +166,7 @@
                         <p>{{ surfVideo.title }}</p>
                     {% endif %}
                 </div>
+            </a>
             {% endfor %}
         </div>
         <!-- End of subsection -->
