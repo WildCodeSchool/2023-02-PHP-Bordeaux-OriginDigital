@@ -13,6 +13,8 @@
 /vendor/
 /migrations/
 composer.lock
+/composer.lock
+
 .mp4
 
 ###< symfony/framework-bundle ###
