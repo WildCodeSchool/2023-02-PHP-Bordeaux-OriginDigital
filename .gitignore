@@ -41,3 +41,5 @@ yarn-error.log
 ###< phpunit/phpunit ###
 
 .mp4
+
+/vendor/symfony/polyfill-intl-icu/Locale.php
