@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
@@ -34,6 +36,14 @@ class Video
     #[ORM\OneToMany(mappedBy: 'video', targetEntity: Favorite::class)]
     private Collection $favorites;
 
+    /**
+     * @Assert\File(
+     *     maxSize = "100M",
+     *     mimeTypes = {"video/mp4", "video/mpeg"},
+     *     mimeTypesMessage = "Veuillez télécharger une vidéo valide (MP4 ou MPEG)"
+     * )
+     */
+    private mixed $file;
     public function __construct()
     {
         $this->favorites = new ArrayCollection();
@@ -132,5 +142,21 @@ class Video
         }
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFile(): mixed
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile(mixed $file): void
+    {
+        $this->file = $file;
     }
 }
