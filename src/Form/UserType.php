@@ -11,9 +11,11 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add('email')
-            //->add('roles')
+        $builder->add('email', null, [
+            'label' => "Modifier vore email",
+        ]);
+
+        //->add('roles')
             //->add('password')
             //->add('firstname')
             //->add('lastname')
