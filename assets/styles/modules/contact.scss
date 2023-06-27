@@ -2,7 +2,7 @@
     color: $light;
     display: flex;
     justify-content: center;
-    margin-top: 1em;
+    margin-top: 100px;
 }
 
 .ws-contact-form{
@@ -24,6 +24,12 @@
 .form-group{
     display: flex;
     justify-content: center;
+}
+
+.ws-contact-contenu-fields::placeholder{
+    display: flex;
+    text-align: start;
+    align-items: flex-start;
 }
 
 @media screen and (min-width: 768px){
