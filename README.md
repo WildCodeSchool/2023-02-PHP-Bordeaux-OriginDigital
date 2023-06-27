@@ -30,14 +30,13 @@ It's symfony website-skeleton project with some additional library (webpack, fix
 
 1. Clone this project
 2. Run `composer install`
-3. Run `yarn install`
-4. Run `yarn encore dev` to build assets
-5. Run `composer require nelmio/security-bundle`
-6. Run `yarn add js-cookie`
-7. Run `yarn encore dev`
-8. Run `composer require symfony/mailer`
-9. Run `composer require vich/uploader-bundle`
-
+3. Run `composer require nelmio/security-bundle`
+4. Run `composer require vich/uploader-bundle`
+5. Run `composer require symfony/mailer`
+6. Run `yarn install`
+7. Run `yarn add js-cookie`
+8. Run `yarn encore dev` to build assets
+ 
 ### Working
 
 1. Run `symfony server:start` to launch your local php web server
