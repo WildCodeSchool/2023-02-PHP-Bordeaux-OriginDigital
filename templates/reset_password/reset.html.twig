@@ -7,10 +7,12 @@
         <section class="container d-flex justify-content-center">
             <div class="ws-custom-login-bg" style="width: 80vh;margin-top: 120px;margin-bottom: 100px">
                 <div class="my-5 mx-5">
-                    <h1>Modifier le mot de passe</h1>
+                    <h1 class="text-center h3 mb-5 font-weight-normal">Modifier le mot de passe</h1>
                     {{ form_start(resetForm) }}
                     {{ form_row(resetForm.plainPassword) }}
-                    <button class="btn btn-primary mt-2 mb-5 rounded-0">Modifier le mot de passe</button>
+                <div class="text-center">
+                    <button class="btn btn-primary mt-5 mb-3 rounded-0">Modifier le mot de passe</button>
+                </div>
                     {{ form_end(resetForm) }}
                 </div>
             </div>

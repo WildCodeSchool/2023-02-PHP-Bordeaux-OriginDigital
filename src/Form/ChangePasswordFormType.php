@@ -19,14 +19,17 @@ class ChangePasswordFormType extends AbstractType
                 'type' => PasswordType::class,
                 'options' => [
                     'attr' => [
-                        'class' => 'form-control col-6 rounded-0 mb-1',
                         'autocomplete' => 'new-password',
                     ],
                 ],
                 'first_options' => [
+                    'attr' => [
+                    'class' => 'form-control col-6 rounded-0 mb-1',
+                    'placeholder' => 'Veuillez saisir votre nouveau mot de passe',
+                    ],
                     'constraints' => [
                         new NotBlank([
-                            'message' => 'Veuillez rentrer un mot de passe',
+                            'message' => 'Veuillez saisir un mot de passe',
                         ]),
                         new Length([
                             'min' => 6,
@@ -37,9 +40,13 @@ class ChangePasswordFormType extends AbstractType
                     'label' => 'Nouveau mot de passe',
                 ],
                 'second_options' => [
+                    'attr' => [
+                        'class' => 'form-control col-6 rounded-0 mb-1',
+                        'placeholder' => 'Veuillez confirmer votre nouveau mot de passe',
+                    ],
                     'label' => 'Répétez le mot de passe',
                 ],
-                'invalid_message' => 'Les mots de passe ne correspondent pas !',
+                'invalid_message' => 'Veuillez saisir un mot de passe identique',
                 'mapped' => false,
             ])
         ;
