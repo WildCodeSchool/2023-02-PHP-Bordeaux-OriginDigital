@@ -10,11 +10,8 @@
                     {% for flash_error in app.flashes('verify_email_error') %}
                         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
                     {% endfor %}
-
-                    <h1 class="text-center mb-4" >Créer un compte</h1>
-
+                    <h1 class="text-center h3 mb-3 font-weight-normal" >Créer un compte</h1>
                     {{ form_errors(registrationForm) }}
-
                     {{ form_start(registrationForm) }}
                     <fieldset class="mb-2 row">
                         {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control col-6 rounded-0 mb-1'}}) }}
@@ -29,7 +26,6 @@
                         <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">S'inscrire</button>
                     </div>
                     {{ form_end(registrationForm) }}
-
                     <div class="text-center">
                         <div class="mb-3">
                             <p>Déjà inscrit ?<a href="/login" class="text-decoration-none"><strong>
