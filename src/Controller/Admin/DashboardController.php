@@ -6,6 +6,7 @@ use App\Entity\Advertisement;
 use App\Entity\Category;
 use App\Entity\User;
 use App\Entity\Video;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -38,15 +39,21 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Wild Sports');
+            ->setFaviconPath('build/images/favicon/favicon-16x16.png');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToUrl('Accueil du site', 'fas fa-home', $this->generateUrl('app_home'));
-        yield MenuItem::linkToCrud('Advertisement', 'fas fa-euro', Advertisement::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Membres', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Sponsor', 'fas fa-euro', Advertisement::class);
         yield MenuItem::linkToCrud('Videos', 'fas fa-video', Video::class);
+    }
+
+    public function configureAssets(): Assets
+    {
+        return parent::configureAssets()
+            ->addWebpackEncoreEntry('admin');
     }
 }
