@@ -3,7 +3,7 @@
         {% for video in video.category.videos | slice (0, 5) %}
         <a href="/video/{{ video.id }}" class="text-decoration-none">
             <div class="ws-home-video-card">
-                <video src="/videos/{{ video.videoLink }}" class="img-fluid ws-home-video-match"></video>
+                <video src="/videos/{{ video.videoLink }}" style="max-height:134px" class="img-fluid ws-home-video-match"></video>
                 {% if video.title|length > 30 %}
                     <p>{{ video.title|slice(0, 30) ~ '...' }}</p>
                 {% else %}
