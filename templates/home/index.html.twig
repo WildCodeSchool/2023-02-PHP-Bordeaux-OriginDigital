@@ -110,7 +110,7 @@
             {% for basketballVideo in basketballVideos %}
                 <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video controls width="90%" class="ws-hover-video">
+                        <video controls class="ws-hover-video" style="max-height: 170px;">
                             <source src="videos/{{ basketballVideo.videoLink }}" type="video/mp4">
                         </video>
                         {% if basketballVideo.title|length > 30 %}
@@ -140,7 +140,7 @@
             {% for footballVideo in footballVideos %}
             <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
-                    <video autoplay controls width="90%" class="ws-hover-video">
+                    <video autoplay controls class="ws-hover-video" style="max-height: 170px;">
                         <source src="videos/{{ footballVideo.videoLink }}" type="video/mp4">
                     </video>
                     {% if footballVideo.title|length > 30 %}
@@ -164,7 +164,7 @@
             {% for surfVideo in surfVideos %}
             <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
-                    <video autoplay controls width="90%" class="ws-hover-video">
+                    <video autoplay controls class="ws-hover-video" style="max-height: 170px;">
                         <source src="videos/{{ surfVideo.videoLink }}" type="video/mp4">
                     </video>
                     {% if surfVideo.title|length > 30 %}
