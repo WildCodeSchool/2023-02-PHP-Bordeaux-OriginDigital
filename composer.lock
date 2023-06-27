@@ -9652,8 +9652,6 @@
         },
         {
             "name": "phpstan/phpstan",
-
-
             "version": "1.10.21",
             "source": {
                 "type": "git",
@@ -9664,7 +9662,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
                 "reference": "b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
-
             "version": "1.10.20",
             "source": {
                 "type": "git",
