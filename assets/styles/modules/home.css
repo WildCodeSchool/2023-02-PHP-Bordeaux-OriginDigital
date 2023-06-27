@@ -27,7 +27,7 @@
   margin-bottom: -5px;
 }
 
-.ws-home-video-container:after {
+.ws-home-video-container:before {
   content: "";
   width: 10px;
 }
