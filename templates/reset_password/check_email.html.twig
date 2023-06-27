@@ -3,14 +3,22 @@
 {% block title %}E-mail de réinitialisation du mot de passe envoyé{% endblock %}
 
 {% block body %}
-    <p>
-        Si un compte correspondant à votre adresse e-mail existe, un e-mail vient d'être envoyé contenant
-        un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
-        Ce lien expirera dans
-        {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>Un E-mail de confirmation de changement de mot de passe vous a été envoyer.
-        Si vous ne parvenez pas à voir celui-ci,
-        veuillez vérifier votre dossier de spam ou
-        <a href="{{ path('app_forgot_password_request') }}">Réessayer</a>.</p>
+    <div class="img-fluid ws-custom-login-bg-image">
+        <section class="container d-flex justify-content-center">
+            <div class="ws-custom-login-bg" style="width: 80vh;margin-top: 120px;margin-bottom: 100px">
+                <div class="my-5 mx-5">
+                    <p class="text-center mb-4" >
+                       Si votre compte correspond à l'adresse saisie, un e-mail vient de vous être adressé.
+                       Celui-ci contient un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+                       Ce lien expirera dans {{ resetToken.expirationMessageKey|trans
+                       (resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                    </p>
+                    <p class="text-center mb-4" >Si vous ne parvenez pas à voir cet e-mail,
+                       veuillez vérifier votre dossier de spam <br>ou<br>
+                       <a href="{{ path('app_forgot_password_request') }}">Réessayer la procédure ici</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock %}

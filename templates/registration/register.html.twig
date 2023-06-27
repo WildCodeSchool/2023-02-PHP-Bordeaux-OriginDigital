@@ -10,7 +10,7 @@
                     {% for flash_error in app.flashes('verify_email_error') %}
                         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
                     {% endfor %}
-                    <h1 class="text-center mb-4" >Créer un compte</h1>
+                    <h1 class="text-center h3 mb-3 font-weight-normal" >Créer un compte</h1>
                     {{ form_errors(registrationForm) }}
                     {{ form_start(registrationForm) }}
                     <fieldset class="mb-2 row">
