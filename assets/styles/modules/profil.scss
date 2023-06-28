@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .ws-profil-form{
@@ -23,13 +22,24 @@
     margin-bottom: 3em;
 }
 
-.ws-profil-mail form{
+.ws-profil-underline{
+    text-decoration: underline;
+}
+
+.ws-profil-btn{
+    display: flex;
+    justify-content: center;
+    margin-left: 3em;
+    margin-bottom: 2em;
+}
+
+#ws-profil-mail{
     display: flex;
     justify-content: center;
 }
 
-.ws-profil-underline{
-    text-decoration: underline;
+#ws-profil-mail input{
+    border-radius: 0;
 }
 
 @media screen and (min-width: 768px){
@@ -61,37 +71,4 @@
        border-radius: 0;
     }
 
-
-
 }
-
-/*.ws-profil-btn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 4em;
-}
-
-.ws-profil-mail{
-    display: flex;
-    justify-content: center;
-}
-
-.ws-profil-mail form{
-    margin-left: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-}
-
-.ws-profil-mail input{
-    border-radius: 0;
-}
-
-.ws-profil-mail button{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 55%;
-}*/

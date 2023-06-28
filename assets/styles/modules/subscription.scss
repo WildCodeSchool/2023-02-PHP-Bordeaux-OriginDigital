@@ -12,5 +12,16 @@
 .ws-subscription-content{
     display: flex;
     justify-content: center;
-    margin: 3em;
+    margin: 2em;
+}
+
+.ws-subscription-form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+}
+
+.ws-subscription-redirect{
+    margin-left: 2em;
+    width: 15%;
 }

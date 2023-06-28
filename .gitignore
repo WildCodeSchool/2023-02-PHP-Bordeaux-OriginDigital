@@ -12,6 +12,7 @@
 /var/
 /vendor/
 /migrations/
+/composer.lock
 composer.lock
 /composer.lock
 .mp4
@@ -36,9 +37,5 @@ yarn-error.log
 ###< symfony/phpunit-bridge ###
 
 ###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-
 ###< phpunit/phpunit ###
 
-.mp4
