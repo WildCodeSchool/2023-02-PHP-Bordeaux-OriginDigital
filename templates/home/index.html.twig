@@ -110,8 +110,7 @@
             {% for basketballVideo in basketballVideos %}
                 <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video controls class="ws-hover-video" style="max-height: 170px;">
-                            <source src="videos/{{ basketballVideo.videoLink }}" type="video/mp4">
+                        <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ basketballVideo.videoLink }}" type="video/mp4" preload="metadata">
                         </video>
                         {% if basketballVideo.title|length > 30 %}
                             <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
@@ -139,8 +138,7 @@
             {% for footballVideo in footballVideos %}
             <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
-                    <video autoplay controls class="ws-hover-video" style="max-height: 170px;">
-                        <source src="videos/{{ footballVideo.videoLink }}" type="video/mp4">
+                    <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}" type="video/mp4" preload="metadata">
                     </video>
                     {% if footballVideo.title|length > 30 %}
                         <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
@@ -163,8 +161,7 @@
             {% for surfVideo in surfVideos %}
             <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
-                    <video autoplay controls class="ws-hover-video" style="max-height: 170px;">
-                        <source src="videos/{{ surfVideo.videoLink }}" type="video/mp4">
+                    <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}" type="video/mp4" preload="metadata">
                     </video>
                     {% if surfVideo.title|length > 30 %}
                         <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
