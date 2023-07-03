@@ -138,7 +138,8 @@
             {% for footballVideo in footballVideos %}
             <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
-                    <video src="videos/{{ footballVideo.videoLink }}" width="90%"></video>
+                    <video src="videos/{{ footballVideo.videoLink }}" width="90%"
+                           class="clip" preload="metadata"></video>
                     {% if footballVideo.title|length > 30 %}
                         <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
                     {% else %}
@@ -160,7 +161,8 @@
             {% for surfVideo in surfVideos %}
             <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
-                    <video src="videos/{{ surfVideo.videoLink }}" width="90%"></video>
+                    <video src="videos/{{ surfVideo.videoLink }}" width="90%"
+                           class="clip" preload="metadata"></video>
                     {% if surfVideo.title|length > 30 %}
                         <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
                     {% else %}
