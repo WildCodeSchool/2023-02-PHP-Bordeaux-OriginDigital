@@ -1,8 +1,8 @@
 <div>
     {% set currentPage = app.request.attributes.get('_route') %}
 
-    {% if currentPage in ['contact', 'legal-notice', 'privacy-policy', 'cookies-policy',
-        'cgv'] %}
+    {% if currentPage in ['contactForm', 'legal-notice', 'privacy-policy', 'cookies-policy',
+        'cgv', 'app_login', 'app_register'] %}
         <style>
             #ws-logo-visibility {
                 display: none;

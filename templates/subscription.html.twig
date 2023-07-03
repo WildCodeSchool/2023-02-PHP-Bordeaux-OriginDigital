@@ -2,24 +2,29 @@
 {% block title %} Mon abonnement {% endblock %}
 
 {% block body %}
-
     <h1 class="ws-subscription-title">Mon abonnement</h1>
-<div class="ws-subscription-contents">
-    <div class="ws-subscription-content">
-    {{ "Status: Abonnement premium actif" }}
-    </div>
-    <div class="ws-subscription-content">
-        {{ "Date d'inscription: " }}{{ app.user.getCreatedAt()|date('d/m/Y') }}
+    <a class="ws-subscription-redirect" href="{{ path('app_profil', {'id': app.user.id}) }}">Retourner vers votre profile</a>
 
-    </div>
-    <div class="ws-subscription-content">
-    {{ "Date du prochain renouvellement: TO DO" }}
-      </div>
-    {#<button>Supprimer mon abonnement</button>#}
-    </div>
-       <div></div>
-{% block content %}
+    <div class="ws-subscription-contents">
+        <div class="ws-subscription-content">
+            {{ "Status: Abonnement premium actif" }}
+        </div>
+        <div class="ws-subscription-content">
+            {{ "Date d'inscription: " }}{{ app.user.getCreatedAt()|date('d/m/Y') }}
 
-{% endblock %}
+        </div>
+        <div class="ws-subscription-content">
+            {#{{ "Date du prochain renouvellement: TO DO" }}#}
+        </div>
+        <div class="ws-profil-form">
+            <form method="post" action="{{ path('app_user_delete', {'id': app.user.id}) }}" onsubmit="return confirm('Etes vous sure de vouloir supprimer votre compte?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ app.user.id) }}">
+                <button class="btn ws-yellow-btn">Supprimer mon compte</button>
+            </form>
+    </div>
+    </div>
+    {% block content %}
+
+    {% endblock %}
 
 {% endblock %}
