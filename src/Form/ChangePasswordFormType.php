@@ -42,7 +42,7 @@ class ChangePasswordFormType extends AbstractType
                 'second_options' => [
                     'attr' => [
                         'class' => 'form-control col-6 rounded-0 mb-1',
-                        'placeholder' => 'Veuillez confirmer votre nouveau mot de passe',
+                        'placeholder' => 'Confirmez votre nouveau mot de passe',
                     ],
                     'label' => 'Répétez le mot de passe',
                 ],
