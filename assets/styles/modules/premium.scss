@@ -2,10 +2,17 @@
     margin-top: 120px;
 }
 
-.ws-premium-header h1, h2, h4, p, a {
+.ws-premium-header h1, h2, p, a{
     display: flex;
     justify-content: center;
 }
+
+.ws-premium h3, a {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+}
+
 
 .ws-premium a {
     text-decoration: none;
@@ -36,6 +43,9 @@
     background-color: transparent;
     color: var(--primary-color)
 }
+
+
+
 //width: 73%;
 //         display: flex;
 //flex-direction: column;
