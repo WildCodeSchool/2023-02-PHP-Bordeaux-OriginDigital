@@ -15,4 +15,12 @@ require('bootstrap');
 // start the Stimulus application
 import './bootstrap';
 
+document.querySelector('.ws-hover-video').addEventListener('mouseover', function () {
+    this.play();
+});
+
+document.querySelector('.ws-hover-video').addEventListener('mouseleave', function () {
+    this.pause();
+});
+
 
