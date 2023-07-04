@@ -4,39 +4,46 @@
 
 {% block body %}
     <div class="img-fluid ws-custom-login-bg-image">
-        <section class="container d-flex justify-content-center">
-            <div class="ws-custom-login-bg" style="width: 80vh;margin-top: 120px;margin-bottom: 100px">
-                <div class="my-5 mx-5" >
-                    {% for flash_error in app.flashes('verify_email_error') %}
-                        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-                    {% endfor %}
-                    <h1 class="text-center h3 mb-3 font-weight-normal" >Créer un compte</h1>
-                    {{ form_errors(registrationForm) }}
-                    {{ form_start(registrationForm) }}
-                    <fieldset class="mb-2 row">
-                        {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control col-6 rounded-0 mb-1'}}) }}
-                        {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control col-6 rounded-0 mb-1'}}) }}
-                        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control col-6 rounded-0 mb-1'}}) }}
-                        {{ form_row(registrationForm.date_of_birth, {'attr': {'class': 'form-control col-6 rounded-0 mb-1'}}) }}
-                        {{ form_row(registrationForm.plainPassword) }}
-                        <br>
-                        {{ form_row(registrationForm.RGPDConsent) }}
-                    </fieldset>
-                    <div class="text-center">
-                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">S'inscrire</button>
-                    </div>
-                    {{ form_end(registrationForm) }}
-                    <div class="text-center">
-                        <div class="mb-3">
-                            <p>Déjà inscrit ?<a href="/login" class="text-decoration-none"><strong>
-                                        S'identifier</strong></a></p>
+        <section class="container d-flex justify-content-center ws-custom-register-form">
+            <div class="ws-custom-login-bg">
+                <div class="d-flex flex-column align-items-center">
+                    <section class="container my-3">
+                        <div class="row ws-custom-login-bg">
+                            <div class="col-md p-4 mt-5">
+                                <div class="my-5 mx-5">
+                                    {% for flash_error in app.flashes('verify_email_error') %}
+                                        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                                    {% endfor %}
+                                    <h1 class="text-center h3 mb-3 font-weight-normal">Créer un compte</h1>
+                                    {{ form_errors(registrationForm) }}
+                                    {{ form_start(registrationForm) }}
+                                    <fieldset class="mb-2 row">
+                                        <div class="col-md-6">
+                                            {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.email, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{ form_row(registrationForm.date_of_birth, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.plainPassword) }}
+                                            {{ form_row(registrationForm.RGPDConsent) }}
+                                        </div>
+                                    </fieldset>
+                                    <div class="text-center">
+                                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">S'inscrire</button>
+                                    </div>
+                                    {{ form_end(registrationForm) }}
+                                    <div class="text-center">
+                                        <div class="mb-3">
+                                            <p>Déjà inscrit ? <a href="/login" class="text-decoration-none"><strong>S'identifier</strong></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </section>
     </div>
 {% endblock %}
-
-
-

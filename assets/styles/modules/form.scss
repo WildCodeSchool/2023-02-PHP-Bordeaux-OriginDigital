@@ -23,7 +23,7 @@
 /*
 ##Device = Phone (portrait)
 ##Screen = B/w 390px */
-@media (max-width: 390px) {
+@media (max-width: 376px) {
     .ws-custom-login-bg-image{
         background-image: url("../../images/loginbasketBGphone-4k-390.jpg");
         background-size: auto;
@@ -34,14 +34,20 @@
 
     .ws-loginRowHeight{
         height: 700px;
+        margin-top: 20px;
+    }
+
+    .suscribreChoice{
+        text-align: center;
+        white-space: pre-line;
     }
 }
 
 
 /*
 ##Device = Tablets, Ipads (portrait)
-##Screen = B/w 391px to 600px */
-@media (min-width: 391px) and (max-width: 600px) {
+##Screen = B/w 375px to 600px */
+@media (min-width: 376px) and (max-width: 600px) {
     .ws-custom-login-bg-image{
         background-image: url("../../images/loginbasketBGtablet-4k-600-1024.jpg");
         background-size: auto;
