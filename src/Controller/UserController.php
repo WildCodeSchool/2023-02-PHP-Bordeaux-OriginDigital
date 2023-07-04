@@ -7,7 +7,6 @@ use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -41,7 +40,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'app_user_profil_show', methods: ['GET'])]
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', [
@@ -65,17 +64,5 @@ class UserController extends AbstractController
             'user' => $user,
             'form' => $form,
         ]);
-    }
-
-    #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, UserRepository $userRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
-            $userRepository->remove($user, true);
-        }
-        $request->getSession()->invalidate();
-        $this->container->get('security.token_storage')->setToken(null);
-
-        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
     }
 }

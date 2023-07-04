@@ -49,9 +49,11 @@
         "symfony/webapp-meta": "^1.0",
         "symfony/webpack-encore-bundle": "^2.0",
         "symfony/yaml": "6.2.*",
+        "symfonycasts/reset-password-bundle": "^1.17",
         "symfonycasts/verify-email-bundle": "^1.13",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^2.1"
     },
     "config": {
         "allow-plugins": {
