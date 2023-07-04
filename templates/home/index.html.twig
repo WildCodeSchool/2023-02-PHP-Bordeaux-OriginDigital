@@ -110,8 +110,10 @@
             {% for basketballVideo in basketballVideos %}
                 <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
+
                         <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ basketballVideo.videoLink }}" type="video/mp4" preload="metadata">
                         </video>
+                        
                         {% if basketballVideo.title|length > 30 %}
                             <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
@@ -138,8 +140,10 @@
             {% for footballVideo in footballVideos %}
             <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
+
                     <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}" type="video/mp4" preload="metadata">
                     </video>
+
                     {% if footballVideo.title|length > 30 %}
                         <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
                     {% else %}
@@ -161,8 +165,10 @@
             {% for surfVideo in surfVideos %}
             <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                 <div class="ws-home-video-card">
+
                     <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}" type="video/mp4" preload="metadata">
                     </video>
+
                     {% if surfVideo.title|length > 30 %}
                         <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
                     {% else %}
@@ -175,4 +181,28 @@
         <!-- End of subsection -->
     </div>
     <!-- End of second section -->
+    <script>
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.addEventListener('mouseover', function () {
+                if (video.readyState !== 4) {
+                    video.load();
+                }
+            });
+            video.addEventListener('mouseout', function () {
+                this.pause();
+            });
+        });
+    </script>
+    <script>
+        const clip = document.querySelectorAll('.clip');
+        for (let i = 0; i<clip.length; i++) {
+            clip[i].addEventListener('mouseover', function () {
+                clip[i].play();
+            });
+            clip[i].addEventListener('mouseout', function () {
+                clip[i].pause();
+            });
+        }
+    </script>
 {% endblock %}
