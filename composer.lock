@@ -9874,7 +9874,6 @@
         },
         {
             "name": "phpstan/phpstan",
-
             "version": "1.10.21",
             "source": {
                 "type": "git",
@@ -9933,7 +9932,6 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2023-06-20T12:07:40+00:00"
         },
         {
