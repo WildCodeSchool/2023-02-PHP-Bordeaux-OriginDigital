@@ -14,29 +14,30 @@ class HomeController extends AbstractController
     {
         $carouselVideos = $videoRepository->findBy(
             [],
-            [],
+            ['id' => 'DESC'],
             3
         );
         shuffle($carouselVideos);
+
         $premiumVideos = $videoRepository->findBy(
             ['isPremium' => true],
             ['id' => 'ASC'],
-            8
+            6
         );
         $basketballVideos = $videoRepository->findBy(
             ['category' => 1],
             ['id' => 'ASC'],
-            8
+            6
         );
         $footballVideos = $videoRepository->findBy(
             ['category' => 2],
             ['id' => 'ASC'],
-            8
+            6
         );
         $surfVideos = $videoRepository->findBy(
             ['category' => 3],
             ['id' => 'ASC'],
-            8
+            6
         );
 
         return $this->render(
