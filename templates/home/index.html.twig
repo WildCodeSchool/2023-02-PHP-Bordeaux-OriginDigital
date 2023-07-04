@@ -126,10 +126,9 @@
         <!-- Subsection advertisement -->
         <div class="ws-home-ad-container">
             {% for advertisementVideo in advertisementVideos %}
-                <a href="uploads/advertisements/{{ advertisementVideo.id }}" class="text-decoration-none">
-                    <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="90%"></video>
+                    <video src="uploads/advertisements/{{ advertisementVideo.link }}"
+                           width="900" height="500" autoplay muted></video>
                     {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
-                </a>
             {% endfor %}
         </div>
         <!-- End of subsection -->

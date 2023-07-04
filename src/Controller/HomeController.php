@@ -14,7 +14,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(
         VideoRepository $videoRepository,
-        AdvertisementRepository $advertisementRepository
+        AdvertisementRepository $advertisementRepository,
     ): Response {
         $carouselVideos = $videoRepository->findBy(
             [],

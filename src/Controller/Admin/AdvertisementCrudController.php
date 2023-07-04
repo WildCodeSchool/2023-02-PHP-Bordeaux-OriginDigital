@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class AdvertisementCrudController extends AbstractCrudController
 {
@@ -23,16 +24,18 @@ class AdvertisementCrudController extends AbstractCrudController
             IdField::new('id', label: 'Id')->hideOnForm(),
             TextField::new('name', label: 'Nom de la publicité'),
 
-            Field::new('link', label: 'Lien de la video')
-                ->setFormType(FileType::class)
+            Field::new('advertisementFile', 'Fichier vidéo')
+                ->setFormType(VichFileType::class)
                 ->setFormTypeOptions([
                     'required' => true,
-                ]),
-//            ImageField::new('thumbnail', label: 'Image de la publicité')
-//                ->setBasePath('uploads/advertisements/')
-//                ->setUploadDir('public/uploads/advertisements/')
-//                ->setUploadedFileNamePattern('[randomhash].[extension]')
-//                ->setRequired(true),
+                    'download_label' => 'Voir la video',
+                ])
+                ->formatValue(function ($value, $entity) {
+                    // Récupérer le nom du fichier depuis l'entité Video
+                    $fileName = $entity->getLink();
+                    // Retourner le nom du fichier s'il est disponible, sinon retourner la valeur par défaut
+                    return $fileName ? $fileName : 'Aucun fichier sélectionné';
+                }),
         ];
     }
 }
