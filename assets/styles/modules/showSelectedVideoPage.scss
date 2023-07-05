@@ -1,5 +1,5 @@
 .notPremiumVideoBlurred {
-    filter: blur(15px);
+    filter: brightness(40%);
 }
 
 .selectedVideo  {
@@ -43,4 +43,7 @@
         margin: 50px 0!important;
     }
 
+    .divUnderVideo {
+        margin-top: 0;
+    }
 }

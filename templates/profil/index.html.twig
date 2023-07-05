@@ -17,17 +17,12 @@
     <div class="ws-profil-information">
         <h2 class="ws-profil-titles">Mon abonnement</h2>
 
-        {% if app.user %}
             <div class="ws-profil-form">
 
                 <div>
                     <a href="{{ path('app_subscription') }}" class="btn ws-profil-underline">Gérer mon abonnement</a>
                 </div>
             </div>
-        {% else %}
-            {#<a href="{{ path('premium') }}">Pourquoi s'abonner</a>#}
-        {% endif %}
-        {% if is_granted('ROLE_USER') %}
 
             <h2 class="ws-profil-titles">Mon compte</h2>
 
@@ -39,6 +34,5 @@
             </div>
             </div>
             {#  <a href="templates/reset_password/reset.html.twig"></a>#}
-        {% endif %}
     </div>
 {% endblock %}
