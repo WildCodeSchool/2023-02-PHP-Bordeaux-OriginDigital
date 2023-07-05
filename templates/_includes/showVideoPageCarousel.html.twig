@@ -1,6 +1,6 @@
 <div class="videoScrollSingleVideoPage ws-video-sections-container mb-5">
     <div class="ws-home-video-container no-scrollbar">
-{#  {% for video in video.category.videos|slice (0, 5) %}#}
+  {% for video in video.category.videos|slice (0, 5) %}
         <a href="/video/{{ video.id }}" class="text-decoration-none">
             <div class="ws-home-video-card">
                 <video src="/videos/{{ video.videoLink }}" class="img-fluid ws-home-video-match"></video>
@@ -11,7 +11,7 @@
                 {% endif %}
             </div>
         </a>
-{#  {% endfor %}#}
+  {% endfor %}
     </div>
 </div>
 
