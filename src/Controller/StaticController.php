@@ -31,4 +31,10 @@ class StaticController extends AbstractController
     {
         return $this->render('static-pages/cgv.html.twig');
     }
+
+    #[Route('/premium', name: 'premium')]
+    public function indexPremium(): Response
+    {
+        return $this->render('static-pages/premium.html.twig');
+    }
 }
