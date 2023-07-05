@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UserCrudController extends AbstractCrudController
 {
+
     private CsvService $csvService;
     private FilterFactory $filterFactory;
 
@@ -23,6 +24,9 @@ class UserCrudController extends AbstractCrudController
         $this->csvService = $csvService;
         $this->filterFactory = $filterFactory;
     }
+
+    use Trait\AddShowTrait;
+
     public static function getEntityFqcn(): string
     {
         return User::class;
