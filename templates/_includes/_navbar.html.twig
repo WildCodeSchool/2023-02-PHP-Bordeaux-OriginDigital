@@ -28,26 +28,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                     </li>
-                    <a class="nav nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Catégories
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownCategory">
-                    <li>
-                        {{ component('all_category') }}
-                    </li>
-                    </ul>
-                    {#  {% for category in categories %}
-                        {{ component('category', { 'id': category.id }) }}
-                    {% endfor %}#}
-
-                    {#  <ul class="dropdown-menu" aria-labelledby="dropdownCategory">
-                        <li><a class="dropdown-item" href="#">Basketball</a></li>
-                        <li><a class="dropdown-item" href="#">Football</a></li>
-                        <li><a class="dropdown-item" href="#">Tenis</a></li>
-                        <li><a class="dropdown-item" href="#">Voley</a></li>
-                        <li><a class="dropdown-item" href="#">Basketball</a></li>
-
-                    </ul>#}
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownCategory" data-bs-toggle="dropdown" aria-expanded="false">
+                            Catégories
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownCategory">
+                            <li>
+                                {{ component('all_category') }}
+                            </li>
+                        </ul>
+                    </div>
 
                     {% if app.user %}
 
