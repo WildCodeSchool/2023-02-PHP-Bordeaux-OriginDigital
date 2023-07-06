@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -44,19 +45,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timesta
     private ?string $lastname = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $dateOfBirth = null;
-
-    #[ORM\ManyToMany(targetEntity: Favorite::class, mappedBy: 'user')]
-    private Collection $favorites;
+    private ?DateTimeInterface $dateOfBirth = null;
 
     #[ORM\Column(type: 'boolean')]
     private bool $isVerified = false;
 
+    #[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'likes')]
+    #[ORM\JoinTable('user_video_like')]
+    private Collection $likes;
+
     public function __construct()
     {
-        $this->favorites = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -151,45 +152,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timesta
         return $this;
     }
 
-    public function getDateOfBirth(): ?\DateTimeInterface
+    public function getDateOfBirth(): ?DateTimeInterface
     {
         return $this->dateOfBirth;
     }
 
-    public function setDateOfBirth(?\DateTimeInterface $dateOfBirth): static
+    public function setDateOfBirth(?DateTimeInterface $dateOfBirth): static
     {
         $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Favorite>
-     */
-    public function getFavorites(): Collection
-    {
-        return $this->favorites;
-    }
-
-    public function addFavorite(Favorite $favorite): static
-    {
-        if (!$this->favorites->contains($favorite)) {
-            $this->favorites->add($favorite);
-            $favorite->addUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFavorite(Favorite $favorite): static
-    {
-        if ($this->favorites->removeElement($favorite)) {
-            $favorite->removeUser($this);
-        }
-
-        return $this;
-    }
-
     public function isVerified(): bool
     {
         return $this->isVerified;
@@ -198,6 +171,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timesta
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Video>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function isLikedByUser(Video $video): bool
+    {
+        return $this->likes->contains($video);
+    }
+
+    public function addLike(Video $like): static
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Video $like): static
+    {
+        $this->likes->removeElement($like);
 
         return $this;
     }

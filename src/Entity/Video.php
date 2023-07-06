@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
@@ -33,9 +32,6 @@ class Video
     #[ORM\ManyToOne(inversedBy: 'videos')]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'video', targetEntity: Favorite::class)]
-    private Collection $favorites;
-
     /**
      * @Assert\File(
      *     maxSize = "100M",
@@ -44,16 +40,19 @@ class Video
      * )
      */
     private mixed $file;
+
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'likes')]
+    private Collection $likes;
+
     public function __construct()
     {
-        $this->favorites = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getTitle(): ?string
     {
         return $this->title;
@@ -115,36 +114,6 @@ class Video
     }
 
     /**
-     * @return Collection<int, Favorite>
-     */
-    public function getFavorites(): Collection
-    {
-        return $this->favorites;
-    }
-
-    public function addFavorite(Favorite $favorite): static
-    {
-        if (!$this->favorites->contains($favorite)) {
-            $this->favorites->add($favorite);
-            $favorite->setVideo($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFavorite(Favorite $favorite): static
-    {
-        if ($this->favorites->removeElement($favorite)) {
-            // set the owning side to null (unless already changed)
-            if ($favorite->getVideo() === $this) {
-                $favorite->setVideo(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getFile(): mixed
@@ -158,5 +127,32 @@ class Video
     public function setFile(mixed $file): void
     {
         $this->file = $file;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(User $like): static
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->addLike($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(User $like): static
+    {
+        if ($this->likes->removeElement($like)) {
+            $like->removeLike($this);
+        }
+
+        return $this;
     }
 }
