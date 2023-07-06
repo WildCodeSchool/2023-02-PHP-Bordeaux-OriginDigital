@@ -45,8 +45,9 @@
             <p class="mt-2 w-75"><b>Publié le:</b> {# videos.createdAt #}</p>
             <p class="mt-2 w-75"><b>Description:</b> {{ video.description }}</p>
             <p class="mt-2 w-75"><b>Categorie: </b>{# videos.categorie.name #}</p>
-        </div>
+            <p class="mt-2 w-75"><b>Partager:</b> {% include '_includes/_share.html.twig' %} </p>
 
+        </div>
         <div class="separationBarShowVideo align-self-center"></div>
 
         <div class="textBlockUnderVideo">

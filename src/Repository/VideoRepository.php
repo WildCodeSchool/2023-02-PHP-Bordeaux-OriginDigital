@@ -39,6 +39,17 @@ class VideoRepository extends ServiceEntityRepository
         }
     }
 
+    public function findLikeTitle(string $search): array
+    {
+        $queryBuilder = $this->createQueryBuilder('v')
+            ->where('v.title LIKE :search')
+            ->setParameter('search', '%' . $search . '%')
+            ->orderBy('v.title', 'ASC')
+            ->getQuery();
+
+        return $queryBuilder->getResult();
+    }
+
 //    /**
 //     * @return Video[] Returns an array of Video objects
 //     */

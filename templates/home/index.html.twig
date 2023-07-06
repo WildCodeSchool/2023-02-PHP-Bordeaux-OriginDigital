@@ -18,12 +18,11 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-
                     <video class="d-block w-100" src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
-                           style="filter: brightness(80%);"></video>
+                           style="filter: brightness(70%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[0].id }}" class="text-decoration-none">
-                            <h5>COMPETITION</h5>
+                            <h4 class="fw-bold">COMPETITION</h4>
                             {% if carouselVideos[0].title|length > 20 %}
                                 <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
                             {% else %}
@@ -34,10 +33,10 @@
                 </div>
                 <div class="carousel-item">
                     <video class="d-block w-100" src="videos/{{ carouselVideos[1].videoLink }}" alt="First slide"
-                           style="filter: brightness(80%);"></video>
+                           style="filter: brightness(70%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[1].id }}" class="text-decoration-none">
-                            <h5>COMPETITION</h5>
+                            <h4 class="fw-bold">COMPETITION</h4>
                             {% if carouselVideos[1].title|length > 20 %}
                                 <h2>{{ carouselVideos[1].title|slice(0, 20) ~ '...' }}</h2>
                             {% else %}
@@ -48,10 +47,10 @@
                 </div>
                 <div class="carousel-item">
                     <video class="d-block w-100" src="videos/{{ carouselVideos[2].videoLink }}" alt="First slide"
-                           style="filter: brightness(80%);"></video>
+                           style="filter: brightness(70%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[2].id }}" class="text-decoration-none">
-                            <h5>COMPETITION</h5>
+                            <h4 class="fw-bold">COMPETITION</h4>
                             {% if carouselVideos[2].title|length > 20 %}
                                 <h2>{{ carouselVideos[2].title|slice(0, 20) ~ '...' }}</h2>
                             {% else %}
@@ -84,8 +83,10 @@
             {% for premiumVideo in premiumVideos %}
                 <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video src="videos/{{ premiumVideo.videoLink }}" width="100%"
-                               style="filter: brightness(50%);"></video>
+                        <video src="videos/{{ premiumVideo.videoLink }}"
+                               width="100%"
+                               style="filter: brightness(50%);">
+                        </video>
                         <div class="ws-home-match-title">
                             {% if premiumVideo.title|length > 20 %}
                                 <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
@@ -111,10 +112,10 @@
             {% for basketballVideo in basketballVideos %}
                 <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-
-                        <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ basketballVideo.videoLink }}" type="video/mp4" preload="metadata">
+                        <video class="ws-clip" style="max-height: 170px;"
+                               src="videos/{{ basketballVideo.videoLink }}"
+                               type="video/mp4" preload="metadata">
                         </video>
-                        
                         {% if basketballVideo.title|length > 30 %}
                             <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
@@ -143,19 +144,19 @@
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for footballVideo in footballVideos %}
-            <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
-                <div class="ws-home-video-card">
-
-                    <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}" type="video/mp4" preload="metadata">
-                    </video>
-
-                    {% if footballVideo.title|length > 30 %}
-                        <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
-                    {% else %}
-                        <p>{{ footballVideo.title }}</p>
-                    {% endif %}
-                </div>
-            </a>
+                <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
+                    <div class="ws-home-video-card">
+                        <video class="ws-clip" style="max-height: 170px;"
+                               src="videos/{{ footballVideo.videoLink }}"
+                               type="video/mp4" preload="metadata">
+                        </video>
+                        {% if footballVideo.title|length > 30 %}
+                            <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
+                        {% else %}
+                            <p>{{ footballVideo.title }}</p>
+                        {% endif %}
+                    </div>
+                </a>
             {% endfor %}
         </div>
         <!-- End of subsection -->
@@ -167,24 +168,70 @@
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for surfVideo in surfVideos %}
-            <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
-                <div class="ws-home-video-card">
+                <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
+                    <div class="ws-home-video-card">
+                        <video class="ws-clip" style="max-height: 170px;"
+                               src="videos/{{ surfVideo.videoLink }}"
+                               type="video/mp4" preload="metadata">
+                        </video>
+                        {% if surfVideo.title|length > 30 %}
+                            <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
+                        {% else %}
+                            <p>{{ surfVideo.title }}</p>
+                        {% endif %}
+                    </div>
+                </a>
 
-                    <video class="ws-hover-video" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}" type="video/mp4" preload="metadata">
-                    </video>
-
-                    {% if surfVideo.title|length > 30 %}
-                        <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
-                    {% else %}
-                        <p>{{ surfVideo.title }}</p>
-                    {% endif %}
-                </div>
-            </a>
             {% endfor %}
         </div>
         <!-- End of subsection -->
     </div>
     <!-- End of second section -->
+    <script>
+        const elements = document.querySelectorAll(".ws-home-video-container");
+
+        elements.forEach(element => {
+            <!-- MouseEvent -->
+            element.addEventListener('wheel', (event) => {
+                event.preventDefault();
+
+                element.scrollBy({
+                    left: event.deltaY < 0 || event.deltaX < 0 ? -100 : 100,
+                });
+            });
+            <!-- TrackpadEvent -->
+            element.addEventListener('gesturechange', (event) => {
+                event.preventDefault();
+
+                element.scrollBy({
+                    left: event.deltaY < 0 || event.deltaX < 0 ? -50 : 50,
+                });
+            });
+        });
+        <!-- KeyBoardEvent -->
+        document.addEventListener('keydown', (event) => {
+            const focusedElement = document.activeElement;
+            const isInputFocused = focusedElement && (focusedElement.tagName === 'INPUT' || focusedElement.tagName === 'TEXTAREA');
+
+            if (!isInputFocused) {
+                elements.forEach(element => {
+                    if (event.key === 'ArrowLeft') {
+                        event.preventDefault();
+                        element.scrollBy({
+                            left: -100,
+                        });
+                    } else if (event.key === 'ArrowRight') {
+                        event.preventDefault();
+                        element.scrollBy({
+                            left: 100,
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- chargement des videos asynchrone -->
     <script>
         const videos = document.querySelectorAll('video');
         videos.forEach(video => {
@@ -198,9 +245,10 @@
             });
         });
     </script>
+    <!-- play video à l'hover -->
     <script>
-        const clip = document.querySelectorAll('.clip');
-        for (let i = 0; i<clip.length; i++) {
+        const clip = document.querySelectorAll('.ws-clip');
+        for (let i = 0; i < clip.length; i++) {
             clip[i].addEventListener('mouseover', function () {
                 clip[i].play();
             });

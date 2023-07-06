@@ -13,6 +13,8 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class AdvertisementCrudController extends AbstractCrudController
 {
+    use Trait\AddShowTrait;
+
     public static function getEntityFqcn(): string
     {
         return Advertisement::class;
