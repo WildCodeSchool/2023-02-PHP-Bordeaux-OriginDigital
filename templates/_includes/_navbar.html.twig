@@ -31,8 +31,14 @@
                     <a class="nav nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Catégories
                     </a>
-
-                    {% include ('_includes/_navbar.html.twig') %}
+                    <ul class="dropdown-menu" aria-labelledby="dropdownCategory">
+                    <li>
+                        {{ component('all_category') }}
+                    </li>
+                    </ul>
+                    {#  {% for category in categories %}
+                        {{ component('category', { 'id': category.id }) }}
+                    {% endfor %}#}
 
                     {#  <ul class="dropdown-menu" aria-labelledby="dropdownCategory">
                         <li><a class="dropdown-item" href="#">Basketball</a></li>
