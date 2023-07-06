@@ -3,14 +3,17 @@
 namespace App\Entity;
 
 use App\Repository\VideoRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
+#[Vich\Uploadable()]
 class Video
 {
     #[ORM\Id]
@@ -30,6 +33,9 @@ class Video
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $videoLink = null;
 
+    #[Vich\UploadableField(mapping: 'video_file', fileNameProperty: 'videoLink')]
+    private ?File $videoFile = null;
+
     #[ORM\ManyToOne(inversedBy: 'videos')]
     private ?Category $category = null;
 
@@ -44,6 +50,9 @@ class Video
      * )
      */
     private mixed $file;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAT = null;
     public function __construct()
     {
         $this->favorites = new ArrayCollection();
@@ -158,5 +167,38 @@ class Video
     public function setFile(mixed $file): void
     {
         $this->file = $file;
+    }
+
+
+    /**
+     * @return File|null
+     */
+    public function getVideoFile(): ?File
+    {
+        return $this->videoFile;
+    }
+
+    /**
+     * @param File|null $videoFile
+     */
+    public function setVideoFile(?File $videoFile): void
+    {
+        $this->videoFile = $videoFile;
+    }
+
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getUpdatedAt(): ?DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param DateTimeInterface|null $updatedAt
+     */
+    public function setUpdatedAt(?DateTimeInterface $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 }
