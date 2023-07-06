@@ -1,5 +1,3 @@
-<div class="videoScrollSingleVideoPage ws-video-sections-container mb-5">
-    <div class="ws-home-video-container no-scrollbar">
         {% for video in video.category.videos | slice (0, 5) %}
             {% if app.user is empty and video.isPremium is not empty %}
                 <a href="/video/{{ video.id }}" class="text-decoration-none d-flex">

@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 class UserCrudController extends AbstractCrudController
 {
     use Trait\AddShowTrait;
-
+  
     private CsvService $csvService;
     private FilterFactory $filterFactory;
 
