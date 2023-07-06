@@ -201,4 +201,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Timesta
 
         return $this;
     }
+    public function getExportData(): array
+    {
+        $dateOfBirthString = $this->dateOfBirth?->format('d-m-Y');
+
+        return [
+            'email' => $this->email,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'date_of_birth' => $dateOfBirthString,
+        ];
+    }
 }
