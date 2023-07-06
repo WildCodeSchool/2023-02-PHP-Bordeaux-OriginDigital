@@ -1,0 +1,23 @@
+<div class="d-flex">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ absolute_url(path('app_video', {id: video.id, name: video.title})) }}">
+        <i id="logo-facebook" class="fa-brands fa-facebook-f fa-2xl ws-logo-RS" style="color: #ffffff;"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?text={{ video.title|url_encode }}%20{{ absolute_url(path('app_video', {id: video.id, title: video.title })) }}%20@test" class="href">
+        <i id="logo-twitter" class="fa-brands fa-twitter fa-2xl ws-logo-RS" style="color: #ffffff;"></i>
+    </a>
+    <a href="https://www.instagram.com/share?url={{ absolute_url(path('app_video', {id: video.id, name: video.title })) }}&title={{ video.title|url_encode }}" class="href">
+        <i id="logo-instagram" class="fa-brands fa-instagram fa-2xl ws-logo-RS" style="color: #ffffff;"></i>
+    </a>
+    <a href="mailto:?subject={{ video.title|url_encode }}&body=Check out this video: {{ absolute_url(path('app_video', {id: video.id, title: video.title })) }}" class="href">
+        <i id="logo-email" class="fa-regular fa-envelope fa-2x ws-logo-RS ws-logo-mail" style="color: #ffffff;"></i>
+    </a>
+</div>
+  <style>
+    #logo-email:hover {
+        color: #ea4335 !important;
+    }
+
+    .ws-logo-RS{
+        margin-left: 1em;
+    }
+</style>
