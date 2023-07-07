@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Serializer;
 
 class CsvService
 {
-    public function export($data, $filename): Response
+    public function export(mixed $data, string $filename): Response
     {
         $serializer = new Serializer([new ObjectNormalizer()], [new CsvEncoder()]);
         $response = new Response($serializer->encode($data, CsvEncoder::FORMAT));
@@ -18,7 +18,7 @@ class CsvService
         return $response;
     }
 
-    public function import($filename, $options = [])
+    public function import(string $filename, array $options = []): mixed
     {
         $serializer = new Serializer([new ObjectNormalizer()], [new CsvEncoder()]);
         return $serializer->decode(file_get_contents($filename), CsvEncoder::FORMAT, $options);

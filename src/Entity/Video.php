@@ -52,7 +52,7 @@ class Video
     private mixed $file;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updatedAT = null;
+    private ?\DateTimeInterface $updatedAt = null;
     public function __construct()
     {
         $this->favorites = new ArrayCollection();

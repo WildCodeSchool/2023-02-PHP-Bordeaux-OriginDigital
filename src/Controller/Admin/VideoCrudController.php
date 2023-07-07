@@ -16,6 +16,7 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 class VideoCrudController extends AbstractCrudController
 {
     use Trait\AddShowTrait;
+
     public static function getEntityFqcn(): string
     {
         return Video::class;
