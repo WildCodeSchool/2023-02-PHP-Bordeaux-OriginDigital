@@ -1,5 +1,5 @@
 //button blue
-.ws-blue-btn{
+.ws-blue-btn {
     font-family: Martel, sans-serif;
     font-weight: 1;
     font-size: 14px;
@@ -8,7 +8,7 @@
     padding: 10px 10px;
     border-radius: 1px;
     border: none;
-    transition : 1000ms;
+    transition: 1000ms;
     transform: translateY(0);
     display: flex;
     flex-direction: row;
@@ -16,17 +16,18 @@
     cursor: pointer;
 
 }
-.ws-blue-btn:hover{
+
+.ws-blue-btn:hover {
     font-weight: bolder;
-    transition : 1000ms;
+    transition: 1000ms;
     padding: 10px 10px;
-    transform : translateY(-0px);
+    transform: translateY(-0px);
     background-color: #fff;
-    color:var(--tertiary-color);
+    color: var(--tertiary-color);
 }
 
 //button yellow
-.ws-yellow-btn{
+.ws-yellow-btn {
     font-family: Martel, sans-serif;
     font-weight: 0;
     font-size: 14px;
@@ -35,51 +36,25 @@
     padding: 10px 30px;
     border: solid #ffdb59 2px;
     border-radius: 1px;
-    transition : 1000ms;
+    transition: 1000ms;
     transform: translateY(0);
     display: flex;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
 }
-.ws-yellow-btn:hover{
-    transition : 1000ms;
+
+.ws-yellow-btn:hover {
+    transition: 1000ms;
     padding: 10px 30px;
-    transform : translateY(-0px);
+    transform: translateY(-0px);
     background-color: #ffdb59;
     color: #000000;
     border: solid 2px #000000;
 }
 
 //button grey cookies
-//.ws-grey-btn{
-//    font-family: Martel, sans-serif;
-//    font-weight: 0;
-//    font-size: 14px;
-//    color: var(--primary-color);
-//    background-color: var(--secondary-color);
-//    padding: 10px 10px;
-//    border: none;
-//    border-radius: 1px;
-//    transition : 1000ms;
-//    transform: translateY(0);
-//    display: flex;
-//    flex-direction: row;
-//    align-items: center;
-//    cursor: pointer;
-//
-//}
-//.ws-grey-btn:hover{
-//    transition : 1000ms;
-//    padding: 10px 10px;
-//    transform : translateY(-0px);
-//    background-color: var(--primary-color);
-//    color: var(--secondary-color);
-//    border: none;
-//}
-
-
-.ws-grey-btn{
+.ws-grey-btn {
 
     font-family: Martel, sans-serif;
     font-weight: 0;
@@ -89,7 +64,7 @@
     padding: 10px 10px;
     border: none;
     border-radius: 1px;
-    transition : 1000ms;
+    transition: 1000ms;
     transform: translateY(0);
     display: flex;
     flex-direction: row;
@@ -97,20 +72,18 @@
     cursor: pointer;
 }
 
-.ws-grey-btn:hover{
+.ws-grey-btn:hover {
 
-    transition : 1000ms;
+    transition: 1000ms;
     padding: 10px 10px;
-    transform : translateY(-0px);
+    transform: translateY(-0px);
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: none;
 }
 
 
-
-
-.ws-black-btn{
+.ws-black-btn {
 
     font-family: Martel, sans-serif;
     font-weight: 0;
@@ -121,7 +94,7 @@
     border: none;
     box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
     border-radius: 1px;
-    transition : 1000ms;
+    transition: 1000ms;
     transform: translateY(0);
     display: flex;
     flex-direction: row;
@@ -129,11 +102,11 @@
     cursor: pointer;
 }
 
-.ws-black-btn:hover{
+.ws-black-btn:hover {
 
-    transition : 1000ms;
+    transition: 1000ms;
     padding: 10px 10px;
-    transform : translateY(-0px);
+    transform: translateY(-0px);
     background-color: #fff;
     color: #000000;
     border: none;
