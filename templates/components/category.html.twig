@@ -1,11 +1,9 @@
-<div class="card m-4">
-    <div class="card-body">
-        <a href="{{ path('app_category', {'id': this.category.id}) }}">{{ this.category.name }}</a>
-    </div>
+<div >
+    <ul class="card-body bg-black border-0 dropdown-menu-start">
+        <li class=" ws-navbar-dropdown-category ">
+            <a href="{{ path('app_category', {'id': this.category.id}) }}">{{ this.category.name }}</a>
+        </li>
+
+    </ul>
 </div>
 
-<style>
-    .test{
-        background-color: black;
-    }
-</style>
