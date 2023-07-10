@@ -1,8 +1,13 @@
 vich_uploader:
     db_driver: orm
-    
     mappings:
         video_file:
             uri_prefix: /videos
             upload_destination: '%kernel.project_dir%/public/videos'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        advertisement_file:
+            uri_prefix: /uploads/advertisements
+            upload_destination: '%kernel.project_dir%/public/uploads/advertisements'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+

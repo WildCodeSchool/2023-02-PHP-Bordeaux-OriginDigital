@@ -26,7 +26,6 @@ class UserCrudController extends AbstractCrudController
         $this->filterFactory = $filterFactory;
     }
 
-
     public static function getEntityFqcn(): string
     {
         return User::class;

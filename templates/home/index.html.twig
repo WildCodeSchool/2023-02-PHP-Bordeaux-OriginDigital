@@ -18,23 +18,23 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <video class="d-block " src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
-                           style="filter: brightness(70%); width: 100%"></video>
+
+                    <video class="d-block w-100" src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
+                           style="filter: brightness(70%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[0].id }}" class="text-decoration-none">
-                            <div>
-                                <h4 class="fw-bold">COMPETITION</h4>
-                                {% if carouselVideos[0].title|length > 20 %}
-                                    <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
-                                {% else %}
-                                    <h2>{{ carouselVideos[0].title }}</h2>
-                                {% endif %}
-                            </div>
+                            <h4 class="fw-bold">COMPETITION</h4>
+                            {% if carouselVideos[0].title|length > 20 %}
+                                <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
+                            {% else %}
+                                <h2>{{ carouselVideos[0].title }}</h2>
+                            {% endif %}
                         </a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <video class="d-block w-100" src="videos/{{ carouselVideos[1].videoLink }}" alt="First slide"
+
                            style="filter: brightness(70%); width: 100%"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[1].id }}" class="text-decoration-none">
@@ -66,6 +66,7 @@
                     </div>
                 </div>
             </div>
+        </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
@@ -101,6 +102,7 @@
                         {% endif %}
                         <!-- TO DO: change date by premiumVideo.createdAt -->
                         <p class="fw-bold">31 JAN 2023</p>
+
                     </div>
                 </div>
                 {% endfor %}
@@ -123,6 +125,12 @@
                             <p class="fw-bold">31 JAN 2023</p>
                             <button class="ws-blue-btn">Premium pass</button>
                         </div>
+                    </div>
+
+                        <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
+
+                            <button class="ws-blue-btn" type="submit">Premium pass</button>
+                        </form>
                     </div>
                 </a>
             {% endfor %}
@@ -157,7 +165,11 @@
 
         <!-- Subsection advertisement -->
         <div class="ws-home-ad-container">
-            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid">
+            {% for advertisementVideo in advertisementVideos %}
+                    <video src="uploads/advertisements/{{ advertisementVideo.link }}"
+                           width="900" height="500" autoplay muted></video>
+                    {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
+            {% endfor %}
         </div>
         <!-- End of subsection -->
 
@@ -182,7 +194,6 @@
                     </div>
                 </a>
             {% endfor %}
-
         </div>
         <!-- End of subsection -->
 

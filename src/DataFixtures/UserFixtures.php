@@ -76,6 +76,7 @@ class UserFixtures extends Fixture
             $video->setTitle($videoList[$i]);
             $video->setDescription($faker->text(50));
             $video->setIsPremium((bool) rand(0, 1));
+
             $video->setVideoLink($videoList[$i]);
             $manager->persist($video);
         }

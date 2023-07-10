@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-dark fixed-top ws-navbar-color ">
+<nav class="navbar navbar-expand-md p-md-2 p-lg-3 navbar-light bg-black fixed-top ws-navbar-color ">
 
     <div class="container-fluid align-items-center ">
 
@@ -14,32 +14,31 @@
              aria-labelledby="navbarOffcanvasMdLabel">
 
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Wild Sports</h5>
+                <h4 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Wild Sports</h4>
 
                 <button type="button" class="btn-close btn-close-black " data-bs-dismiss="offcanvas" aria-label="Close">
 
                 </button>
             </div>
 
-            <div class="offcanvas-body w-100 ">
-                <div class="d-flex  w-100">
+            <div class="offcanvas-body ">
+                <div class="d-flex w-100 align-items-center">
 
-                <ul class="navbar-nav ws-navbar-link-color-black">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Accueil</a>
-                    </li>
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownCategory" data-bs-toggle="dropdown" aria-expanded="false">
-                            Catégories
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownCategory">
-                            <li>
+                    <ul class="navbar-nav mx-md-2 mx-lg-3 mx-xl-4 ws-navbar-link-color-black">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">Catégories</a>
+
+                            <ul class="dropdown-menu bg-black ws-navbar-dropdown-category">
 
                                 {{ component('all_category') }}
+                            </ul>
+                        </li>
 
-                            </li>
-                        </ul>
-                    </div>
 
                         {% if app.user %}
 
@@ -56,67 +55,66 @@
                                 <a class="nav-link" href="/contact">Contact</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link text-nowrap" href="#">Pourquoi s'abonner</a>
+                                <a class="nav-link text-nowrap" href="/premium">Pourquoi s'abonner</a>
                             </li>
 
                         {% endif %}
 
-                        <div class="d-flex align-items-center ms-2">
-                            <a href="/search/videos"><i class="fa fa-search fs-5"></i></a>
-                        </div>
 
                     </ul>
 
-                    <div class="d-flex w-100 justify-content-end">
-                        <ul class="navbar-nav text-nowrap ws-navbar-desktop ">
-                            {% if app.user %}
+                    {#                    <div class="d-flex w-100 justify-content-end"> #}
+                    <ul class="navbar-nav text-nowrap w-100  justify-content-end ws-navbar-desktop ">
 
-                                <li class="nav-item dropdown me-5">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                   aria-expanded="false">{{ app.user.firstName }}
-                                    <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"></a>
+                        <a class="d-flex align-items-center me-md-1 me-lg-2 me-xl-3" href="/search/videos "><i
+                                class="fa fa-search fs-5 "></i></a>
+                        {% if app.user %}
 
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    {% if is_granted("ROLE_ADMIN") and app.user %}
-                                        <li><a class="dropdown-item" href="/admin">Administration</a></li>
-                                    {% else %}
-                                        <li><a class="dropdown-item" href="/profil">Mon compte</a></li>
-                                    {% endif %}
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="/logout">Se déconnecter</a></li>
-                                </ul>
+                            <li class="nav-item dropdown me-5">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">{{ app.user.firstName }}
+                                <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"></a>
 
-                            {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link active p-0 me-1" aria-current="page" href="/login">
-                                        <button class="ws-black-btn">Se connecter</button>
-                                    </a>
+                            <ul class="dropdown-menu dropdown-menu-start bg-black">
+                                {% if is_granted("ROLE_ADMIN") and app.user %}
+                                    <li><a class="dropdown-item" href="/admin">Administration</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="/profil">Mon compte</a></li>
+                                {% endif %}
+                                <li>
+                                    <hr class="dropdown-divider">
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link p-0 " href="/register">
-                                        <button class="ws-blue-btn">S'enregistrer</button>
-                                    </a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </div>
+                                <li><a class="dropdown-item" href="/logout">Se déconnecter</a></li>
+                            </ul>
+
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link active p-0 me-1" aria-current="page" href="/login">
+                                    <button class="ws-black-btn">Se connecter</button>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0 " href="/register">
+                                    <button class="ws-blue-btn">S'enregistrer</button>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    {#                    </div> #}
                 </div>
 
                 <ul class="navbar-nav justify-content-start d-md-none ws-navbar-link-connexion-color-black">
                     {% if app.user %}
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <a class="nav-link active" aria-current="page" href="/profil">
                                 <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil">
                                 {{ app.user.firstName }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Se déconnecter</a>
+                            <a class="nav-link" href="/logout">Se déconnecter</a>
                         </li>
 
                     {% else %}
-
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Se connecter</a>
                         </li>

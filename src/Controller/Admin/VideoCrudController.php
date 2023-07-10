@@ -12,10 +12,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
-use Trait\AddShowTrait;
 
 class VideoCrudController extends AbstractCrudController
 {
+    use Trait\AddShowTrait;
+
     public static function getEntityFqcn(): string
     {
         return Video::class;
