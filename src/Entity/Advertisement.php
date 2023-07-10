@@ -39,7 +39,7 @@ class Advertisement
     private mixed $file;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updatedAT = null;
+    private ?\DateTimeInterface $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -114,8 +114,8 @@ class Advertisement
         $this->advertisementFile = $advertisementFile;
     }
 
-    public function getUpdatedAT(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updatedAT;
+        return $this->updatedAt;
     }
 }
