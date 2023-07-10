@@ -51,39 +51,100 @@
     .ws-logo-site {
         min-width: 150px;
     }
+
+    .ws-navbar-color {
+        height: 70px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
 
-    .ws-logo-site {
-        min-width: 160px;
+    .ws-navbar-color {
+        height: 90px;
     }
 
+    .ws-navbar-logo {
+        width: 25%;
+        height: 85%;
+    }
+
+    .ws-logo-site {
+        min-width: 85%;
+
+    }
     .ws-navbar-link-color-black li, .ws-navbar-desktop button {
         font-size: 12px;
 
     }
-
-
 }
 
-@media screen and (min-width: 1200px) {
+
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+
+    .ws-navbar-color {
+        height: 140px;
+    }
+
+    .ws-navbar-logo {
+        width: 25%;
+        height: 75%;
+    }
 
     .ws-logo-site {
-        min-width: 200px;
+        min-width: 85%;
+
     }
 
     .ws-navbar-link-color-black li {
         font-size: 18px;
         letter-spacing: 2px;
 
+    }
+
+    .ws-navbar-desktop button {
+        font-size: 20px;
+        letter-spacing: 2px;
+
+    }
+
+    .ws-navbar-desktop {
+        margin-right: 10px;
+    }
+
+}
+
+
+@media screen and (min-width: 1400px) {
+
+    .ws-navbar-color {
+        height: 140px;
+    }
+
+    .ws-navbar-logo {
+        width: 25%;
+        height: 75%;
+    }
+
+    .ws-logo-site {
+        min-width: 85%;
+
+    }
+
+    .ws-navbar-link-color-black li {
+        font-size: 20px;
+        letter-spacing: 2px;
 
     }
 
     .ws-navbar-desktop button {
-        font-size: 18px;
+        font-size: 22px;
         letter-spacing: 2px;
 
+    }
+
+    .ws-navbar-desktop {
+        margin-right: 20px;
     }
 
 }

@@ -1,14 +1,18 @@
-<nav class="navbar navbar-expand-md p-md-2 p-lg-3 navbar-light bg-black fixed-top ws-navbar-color ">
+<nav class="navbar navbar-expand-md p-0 navbar-light bg-black fixed-top ws-navbar-color ">
 
     <div class="container-fluid align-items-center ">
 
-        <a href="/">
-            <img src="{{ asset('build/images/WildSports.7886eafc.png') }}" class="my-0 p-0 ws-logo-site"
-                 alt="logo" width="135" height="auto"></a>
-        <button class="navbar-toggler ws-navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#navbarOffcanvasMd" aria-controls="navbarOffcanvasMd" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon ws-icon-toggler"></span>
-        </button>
+        <div class="ws-navbar-logo">
+            <a href="/">
+                <img src="{{ asset('build/images/WildSports.7886eafc.png') }}" class="my-0 p-0 ws-logo-site"
+                     alt="logo" width="135" height="auto"></a>
+        </div>
+
+            <button class="navbar-toggler ws-navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarOffcanvasMd" aria-controls="navbarOffcanvasMd"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon ws-icon-toggler"></span>
+            </button>
 
         <div class="offcanvas offcanvas-end ws-offcanvas-bg" tabindex="-1" id="navbarOffcanvasMd"
              aria-labelledby="navbarOffcanvasMdLabel">
@@ -24,12 +28,12 @@
             <div class="offcanvas-body ">
                 <div class="d-flex w-100 align-items-center">
 
-                    <ul class="navbar-nav mx-md-2 mx-lg-3 mx-xl-4 ws-navbar-link-color-black">
-                        <li class="nav-item">
+                    <ul class="navbar-nav mx-md-2 mx-lg-3  ws-navbar-link-color-black">
+                        <li class="nav-item me-lg-2">
                             <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown  me-xxl-2">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">Catégories</a>
 
@@ -42,19 +46,19 @@
 
                         {% if app.user %}
 
-                            <li class="nav-item">
+                            <li class="nav-item me-xxl-2">
                                 <a class="nav-link" href="#">Favoris</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item me-xxl-2">
                                 <a class="nav-link" href="/contact">Contact</a>
                             </li>
 
                         {% else %}
 
-                            <li class="nav-item">
+                            <li class="nav-item me-xxl-2">
                                 <a class="nav-link" href="/contact">Contact</a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item me-xxl-2">
                                 <a class="nav-link text-nowrap" href="/premium">Pourquoi s'abonner</a>
                             </li>
 
@@ -88,7 +92,7 @@
                             </ul>
 
                         {% else %}
-                            <li class="nav-item">
+                            <li class="nav-item me-2">
                                 <a class="nav-link active p-0 me-1" aria-current="page" href="/login">
                                     <button class="ws-black-btn">Se connecter</button>
                                 </a>
