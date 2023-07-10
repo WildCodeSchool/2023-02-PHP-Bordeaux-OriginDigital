@@ -21,15 +21,13 @@
     grid-template-rows: minmax(150px, 1fr);
     grid-auto-flow: column;
     grid-auto-columns: calc(100% - 20px * 2);
-
     overflow-x: scroll;
     scroll-snap-type: x proximity;
     padding-bottom: calc(.75 * 20px);
     margin-bottom: calc(-.25 * 20px);
 }
 
-.ws-home-video-container:before,
-.ws-home-video-container:after {
+.ws-home-video-container:before {
     content: '';
     width: 10px;
 }
@@ -39,6 +37,7 @@
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }

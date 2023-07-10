@@ -1,0 +1,55 @@
+.ws-premium-header h1 {
+    margin-top: 120px;
+}
+
+.ws-premium-header h1, h2, p, a{
+    display: flex;
+    justify-content: center;
+}
+
+.ws-premium h3, a {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+
+.ws-premium a {
+    text-decoration: none;
+}
+
+.ws-premium-accordion {
+    display: flex;
+    flex-direction: column;
+    width: 73%;
+    margin: 20px auto;
+
+}
+
+.ws-premium-accordion .accordion-item, .accordion-button {
+    background-color: transparent;
+    color: var(--primary-color)
+
+}
+
+.ws-premium-accordion button[aria-expanded="true"]:focus {
+    box-shadow: none;
+    background-color: transparent;
+    color: var(--primary-color)
+}
+
+.ws-premium-accordion button[aria-expanded="false"]:focus {
+    box-shadow: none;
+    background-color: transparent;
+    color: var(--primary-color)
+}
+
+
+
+//width: 73%;
+//         display: flex;
+//flex-direction: column;
+///* align-content: center; */
+///* justify-content: center; */
+//margin: 20px auto;
+//--bs-accordion-btn-icon: white;
