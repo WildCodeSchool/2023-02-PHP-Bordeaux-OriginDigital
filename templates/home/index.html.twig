@@ -67,16 +67,16 @@
                 </div>
             </div>
         </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-                    class="visually-hidden">Next</span>
-            </button>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+                class="visually-hidden">Next</span>
+        </button>
+    </div>
     </div>
     <!-- End of first section -->
 
@@ -107,32 +107,32 @@
                 </div>
                 {% endfor %}
                 {% else %}
-        <div class="ws-home-video-container no-scrollbar">
-            {% for premiumVideo in premiumVideos %}
-                <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
-                    <div class="ws-home-video-card">
-                        <video src="videos/{{ premiumVideo.videoLink }}"
-                               width="100%"
-                               style="filter: brightness(50%);">
-                        </video>
-                        <div class="ws-home-match-title">
-                            {% if premiumVideo.title|length > 20 %}
-                                <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
-                            {% else %}
-                                <p class="fw-bold">{{ premiumVideo.title }}</p>
-                            {% endif %}
-                            <!-- TO DO: change date by premiumVideo.createdAt -->
-                            <p class="fw-bold">31 JAN 2023</p>
-                            <button class="ws-blue-btn">Premium pass</button>
+                <div class="ws-home-video-container no-scrollbar">
+                    {% for premiumVideo in premiumVideos %}
+                    <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
+                        <div class="ws-home-video-card">
+                            <video src="videos/{{ premiumVideo.videoLink }}"
+                                   width="100%"
+                                   style="filter: brightness(50%);">
+                            </video>
+                            <div class="ws-home-match-title">
+                                {% if premiumVideo.title|length > 20 %}
+                                    <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
+                                {% else %}
+                                    <p class="fw-bold">{{ premiumVideo.title }}</p>
+                                {% endif %}
+                                <!-- TO DO: change date by premiumVideo.createdAt -->
+                                <p class="fw-bold">31 JAN 2023</p>
+                                <button class="ws-blue-btn">Premium pass</button>
+                            </div>
                         </div>
-                    </div>
 
                         <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
 
                             <button class="ws-blue-btn" type="submit">Premium pass</button>
                         </form>
-                    </div>
-                </a>
+                </div>
+            </a>
             {% endfor %}
             {% endif %}
 
@@ -166,9 +166,9 @@
         <!-- Subsection advertisement -->
         <div class="ws-home-ad-container">
             {% for advertisementVideo in advertisementVideos %}
-                    <video src="uploads/advertisements/{{ advertisementVideo.link }}"
-                           width="900" height="500" autoplay muted></video>
-                    {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
+                <video src="uploads/advertisements/{{ advertisementVideo.link }}"
+                       width="900" height="500" autoplay muted></video>
+                {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
             {% endfor %}
         </div>
         <!-- End of subsection -->
