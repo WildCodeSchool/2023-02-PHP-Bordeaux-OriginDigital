@@ -18,30 +18,34 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <video class="d-block w-100" src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
-                           style="filter: brightness(70%);"></video>
+                    <video class="d-block " src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
+                           style="filter: brightness(70%); width: 100%"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[0].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[0].title|length > 20 %}
-                                <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[0].title }}</h2>
-                            {% endif %}
+                            <div>
+                                <h4 class="fw-bold">COMPETITION</h4>
+                                {% if carouselVideos[0].title|length > 20 %}
+                                    <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
+                                {% else %}
+                                    <h2>{{ carouselVideos[0].title }}</h2>
+                                {% endif %}
+                            </div>
                         </a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <video class="d-block w-100" src="videos/{{ carouselVideos[1].videoLink }}" alt="First slide"
-                           style="filter: brightness(70%);"></video>
+                           style="filter: brightness(70%); width: 100%"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[1].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[1].title|length > 20 %}
-                                <h2>{{ carouselVideos[1].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[1].title }}</h2>
-                            {% endif %}
+                            <div>
+                                <h4 class="fw-bold">COMPETITION</h4>
+                                {% if carouselVideos[1].title|length > 20 %}
+                                    <h2>{{ carouselVideos[1].title|slice(0, 20) ~ '...' }}</h2>
+                                {% else %}
+                                    <h2>{{ carouselVideos[1].title }}</h2>
+                                {% endif %}
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -50,12 +54,14 @@
                            style="filter: brightness(70%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[2].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[2].title|length > 20 %}
-                                <h2>{{ carouselVideos[2].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[2].title }}</h2>
-                            {% endif %}
+                            <div>
+                                <h4 class="fw-bold">COMPETITION</h4>
+                                {% if carouselVideos[2].title|length > 20 %}
+                                    <h2>{{ carouselVideos[2].title|slice(0, 20) ~ '...' }}</h2>
+                                {% else %}
+                                    <h2>{{ carouselVideos[2].title }}</h2>
+                                {% endif %}
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -80,6 +86,27 @@
             <h4>MATCHS</h4>
         </div>
         <div class="ws-home-video-container no-scrollbar">
+
+            {% if app.user %}
+            {% for premiumVideo in premiumVideos %}
+                <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
+                    <div class="ws-home-video-card">
+                        <video src="videos/{{ premiumVideo.videoLink }}"
+                               width="100%">
+                        </video>
+                        <div class="ws-home-match-title">
+                            {% if premiumVideo.title|length > 20 %}
+                                <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
+                            {% else %}
+                                <p class="fw-bold">{{ premiumVideo.title }}</p>
+                            {% endif %}
+                            <!-- TO DO: change date by premiumVideo.createdAt -->
+                            <p class="fw-bold">31 JAN 2023</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            {% else %}
             {% for premiumVideo in premiumVideos %}
                 <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
@@ -100,6 +127,7 @@
                     </div>
                 </a>
             {% endfor %}
+            {% endif %}
         </div>
         <!-- End of subsection -->
 
