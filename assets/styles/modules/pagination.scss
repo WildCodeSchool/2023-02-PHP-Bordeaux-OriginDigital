@@ -3,3 +3,7 @@
     background-color: var(--quaternary-color)!important; ;
 }
 
+.ws-pagination .active>.page-link {
+    border-color: var(--quinary-color);
+}
+
