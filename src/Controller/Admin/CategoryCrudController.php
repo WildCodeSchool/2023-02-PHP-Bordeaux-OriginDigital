@@ -7,6 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class CategoryCrudController extends AbstractCrudController
 {
+    use Trait\AddShowTrait;
+
     public static function getEntityFqcn(): string
     {
         return Category::class;
