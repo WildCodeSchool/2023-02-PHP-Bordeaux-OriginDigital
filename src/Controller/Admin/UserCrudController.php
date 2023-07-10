@@ -12,10 +12,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Factory\FilterFactory;
 use App\Service\CsvService;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use Symfony\Component\HttpFoundation\Request;
-use Trait\AddShowTrait;
 
 class UserCrudController extends AbstractCrudController
 {
+    use Trait\AddShowTrait;
+
     private CsvService $csvService;
     private FilterFactory $filterFactory;
 
