@@ -10,11 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VideoController extends AbstractController
 {
-    #[Route('/videos/{id}', name: 'app_video')]
+    #[Route('/video/{id}', name: 'app_video')]
     public function showVideo(Video $video): Response
     {
         return $this->render('videos/showSelectedVideo.html.twig', [
-            'videos' => $video,
+            'video' => $video,
         ]);
     }
 }
