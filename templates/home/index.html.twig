@@ -83,10 +83,8 @@
             {% for premiumVideo in premiumVideos %}
                 <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video src="videos/{{ premiumVideo.videoLink }}"
-                               width="100%"
-                               style="filter: brightness(50%);">
-                        </video>
+                        <video src="videos/{{ premiumVideo.videoLink }}" width="100%"
+                               style="filter: brightness(50%);"></video>
                         <div class="ws-home-match-title">
                             {% if premiumVideo.title|length > 20 %}
                                 <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
@@ -95,9 +93,18 @@
                             {% endif %}
                             <!-- TO DO: change date by premiumVideo.createdAt -->
                             <p class="fw-bold">31 JAN 2023</p>
-                            <button class="ws-blue-btn">Premium pass</button>
+                            {% if app.user %}
+                                <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
+                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
+                                </form>
+                            {% else %}
+                                <form action="/login" method="get">
+                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
+                </div>
                 </a>
             {% endfor %}
         </div>
@@ -112,10 +119,8 @@
             {% for basketballVideo in basketballVideos %}
                 <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;"
-                               src="videos/{{ basketballVideo.videoLink }}"
-                               type="video/mp4" preload="metadata">
-                        </video>
+                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ basketballVideo.videoLink }}"
+                               type="video/mp4" preload="metadata"></video>
                         {% if basketballVideo.title|length > 30 %}
                             <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
@@ -129,7 +134,11 @@
 
         <!-- Subsection advertisement -->
         <div class="ws-home-ad-container">
-            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid">
+            {% for advertisementVideo in advertisementVideos %}
+                <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
+                       muted></video>
+                {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
+            {% endfor %}
         </div>
         <!-- End of subsection -->
 
@@ -142,10 +151,8 @@
             {% for footballVideo in footballVideos %}
                 <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;"
-                               src="videos/{{ footballVideo.videoLink }}"
-                               type="video/mp4" preload="metadata">
-                        </video>
+                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}"
+                               type="video/mp4" preload="metadata"></video>
                         {% if footballVideo.title|length > 30 %}
                             <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
@@ -154,7 +161,6 @@
                     </div>
                 </a>
             {% endfor %}
-
         </div>
         <!-- End of subsection -->
 
@@ -167,10 +173,8 @@
             {% for surfVideo in surfVideos %}
                 <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;"
-                               src="videos/{{ surfVideo.videoLink }}"
-                               type="video/mp4" preload="metadata">
-                        </video>
+                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}"
+                               type="video/mp4" preload="metadata"></video>
                         {% if surfVideo.title|length > 30 %}
                             <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
