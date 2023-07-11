@@ -2,7 +2,7 @@
     {% set currentPage = app.request.attributes.get('_route') %}
 
     {% if currentPage in ['contactForm', 'legal-notice', 'privacy-policy', 'cookies-policy',
-        'cgv', 'app_login', 'app_register'] %}
+        'cgv', 'app_login', 'app_register', 'app_stripe'] %}
         <style>
             #ws-logo-visibility {
                 display: none;

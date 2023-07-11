@@ -3,9 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\AdvertisementRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: AdvertisementRepository::class)]
+#[Vich\Uploadable()]
 class Advertisement
 {
     #[ORM\Id]
@@ -21,10 +26,40 @@ class Advertisement
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $link = null;
+    #[Vich\UploadableField(mapping: 'advertisement_file', fileNameProperty: 'Link')]
+    private ?File $advertisementFile = null;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "100M",
+     *     mimeTypes = {"video/mp4", "video/mpeg"},
+     *     mimeTypesMessage = "Veuillez télécharger une vidéo valide (MP4 ou MPEG)"
+     * )
+     */
+    private mixed $file;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAT = null;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFile(): mixed
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile(mixed $file): void
+    {
+        $this->file = $file;
     }
 
     public function getName(): ?string
@@ -61,5 +96,26 @@ class Advertisement
         $this->link = $link;
 
         return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getAdvertisementFile(): ?File
+    {
+        return $this->advertisementFile;
+    }
+
+    /**
+     * @param File|null $advertisementFile
+     */
+    public function setAdvertisementFile(?File $advertisementFile): void
+    {
+        $this->advertisementFile = $advertisementFile;
+    }
+
+    public function getUpdatedAT(): ?\DateTimeInterface
+    {
+        return $this->updatedAT;
     }
 }

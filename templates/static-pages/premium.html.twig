@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Wild Sport Premium {% endblock %}
+
+{% block body %}
+
+    <section class="container">
+
+        <div class="ws-premium">
+            <div class="ws-premium-header">
+                <h1> Wild Sports Premium</h1>
+                <p class="mb-1">Wild Sports en illimité et sans pub</p>
+                <h2 class="mt-5">Abonnez-vous</h2>
+                <p class="mt-1"> Abonnez-vous pour seulement 9,90€ par mois.
+                    Annulation possible à tout moment</p>
+                <div>
+{#                <a href="/register" class="btn ">#}
+{#                    <button class="ws-blue-btn"> S'abonner</button> </a>#}
+                <a href="/cgv" class="mb-3">Offre soumise à conditions. En savoir plus</a>
+
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center my-5">
+                <div class="col-11 col-md-5 col-lg-4 ws-premium-advantages">
+                    <div class="card h-100 bg-black">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Wild Sports Free</h3>
+                            <p class="card-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-check-lg" viewBox="0 0 16 16">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                </svg>
+                                <span style="margin-left: 5px;">Accès aux vidéos gratuites</span>
+                            </p>
+                            <p class="card-text">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                        class="bi bi-check-lg" viewBox="0 0 16 16">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                </svg>
+                                <span style="margin-left: 5px;">Publicité </span></p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-11 col-md-5 col-lg-4 ">
+                    <div class="card h-100 bg-black">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Wild Sports Premium</h3>
+                            <p class="card-text">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                        class="bi bi-check-lg" viewBox="0 0 16 16">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                </svg>
+                                <span style="margin-left: 5px;">Accès à toutes les vidéos</span></p>
+                            <p class="card-text">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                        class="bi bi-check-lg" viewBox="0 0 16 16">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                </svg>
+                                <span style="margin-left: 5px;">Aucune publicité</span></p>
+                            <p class="card-text">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                        class="bi bi-check-lg" viewBox="0 0 16 16">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                </svg>
+                                <span style="margin-left: 5px;">Contenu exclusif</span></p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-center">
+                            <a href="/register" class="btn ">
+                                <button id="premium-button" class="ws-blue-btn">S'abonner pour 9,99€</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+
+                <h2 class="mt-2"> Questions Fréquentes </h2>
+
+                <div class="accordion accordion-flush ws-premium-accordion " id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item bg-transparent text-light">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button bg-transparent text-light" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
+                                    aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Que comprend Wild Sports Premium?
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <p> Vous pouvez regarder des millions de vidéos sans que des annonces
+                                    (y compris des annonces vidéo en superposition) soient diffusées avant
+                                    et pendant la lecture.
+                                    <br>En outre, aucune annonce tierce ne s'affiche dans des bannières ni
+                                    dans les résultats de recherche.</p>
+                                <p> Accès à du contenu exclusif : En vous abonnant, vous pourrez bénéficier
+                                    d'un accès à du contenu exclusif qui n'est pas disponible
+                                    pour les utilisateurs gratuits.<br>
+                                    Cela peut inclure des événements sportifs en direct, des interviews de joueurs,
+                                    des analyses approfondies, des documentaires et bien plus encore.</p>
+                                <p>Absence de publicité : L'un des avantages majeurs de l'abonnement freemium
+                                    est la suppression ou la réduction significative des publicités. <br>
+                                    Vous pourrez profiter de votre contenu sportif préféré sans être constamment
+                                    interrompu
+                                    par des annonces publicitaire</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-transparent text-light">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                                    aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                Comment s'inscrire à Wild Sports Premium?
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p> Pour s'inscrire, rien de plus simple.
+                                    Cliquez sur ce lien (s'inscrire) et renseignez vos informations:</p>
+                                <ul>
+                                    <li>Nom</li>
+                                    <li>Prénom</li>
+                                    <li>Mail</li>
+                                    <li>Mot de passe</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-transparent text-light">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
+                                    aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                Comment puis-je annuler mon abonnement?
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>Pour annuler votre abonnement, accédez à votre profil et sélectionnez la rubrique
+                                    "Gérer mon abonnement". <br>
+                                    Vous pouvez vous réabonner à Wild Sports Premium à tout moment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}
