@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Video;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @extends ServiceEntityRepository<Video>
@@ -49,6 +50,39 @@ class VideoRepository extends ServiceEntityRepository
             ->getQuery();
 
         return $queryBuilder->getResult();
+    }
+
+    public function findVideosPaginated(int $page, string $categoryName, int $limit =6): array
+    {
+        $limit = abs($limit);
+
+        $result = [];
+
+        $query = $this->getEntityManager()->createQueryBuilder()
+            ->select('c', 'v')
+            ->from('App\Entity\Video', 'v')
+            ->join('v.category', 'c')
+            ->andWhere("c.name = :category")
+            ->setParameter('category', $categoryName)
+            ->setMaxResults($limit)
+        ->setFirstResult(($page * $limit) - $limit);
+
+        $paginator = new Paginator($query);
+        $data = $paginator->getQuery()->getResult();
+
+        if(empty($data)) {
+            return $result;
+        }
+
+        //Calcul du nombre de pages
+        $pages = ceil($paginator->count() / $limit);
+
+        $result['data'] = $data;
+        $result['pages'] = $pages;
+        $result['page'] = $page;
+        $result['limit'] = $limit;
+
+        return $result;
     }
 
 //    /**

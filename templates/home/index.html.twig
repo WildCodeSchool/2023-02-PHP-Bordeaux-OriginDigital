@@ -84,9 +84,18 @@
                         <div class="ws-home-match-title">
                             <p class="fw-bold">{{ premiumVideo.title }}</p>
                             <p class="fw-bold">31 JAN 2023</p>
-                            <button class="ws-blue-btn">Premium pass</button>
+                            {% if app.user %}
+                                <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
+                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
+                                </form>
+                            {% else %}
+                                <form action="/login" method="get">
+                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
+                </div>
                 </a>
             {% endfor %}
         </div>
@@ -137,8 +146,12 @@
 
     <!-- Subsection advertisement -->
     <div class="ws-home-ad-container">
-        <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid">
-    </div>
+            {% for advertisementVideo in advertisementVideos %}
+                <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
+                       muted></video>
+                {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
+            {% endfor %}
+        </div>
     <!-- End of subsection -->
 
     <!-- Subsection category 2 -->

@@ -36,7 +36,7 @@
   margin-left: -100px;
 }
 
-@media screen and (min-width 768px) {
+@media screen and (min-width: 768px) {
   .contentReservedText {
     margin: 50px 0 !important;
   }
