@@ -32,7 +32,7 @@
         <video src="/videos/{{ video.videoLink }}" controls width="90%"></video>
     </div>
     {% endif %}
-    <div class="divUnderVideo d-flex flex-column">
+    <div class="divUnderVideo d-flex flex-column" style="margin-top:0">
         <div class="separationBarShowVideo align-self-center"></div>
 
         <div class="textBlockUnderVideo">
@@ -45,8 +45,9 @@
             <p class="mt-2 w-75"><b>Publié le:</b> {# videos.createdAt #}</p>
             <p class="mt-2 w-75"><b>Description:</b> {{ video.description }}</p>
             <p class="mt-2 w-75"><b>Categorie: </b>{# videos.categorie.name #}</p>
-        </div>
+            <p class="mt-2 w-75"><b>Partager:</b> {% include '_includes/_share.html.twig' %} </p>
 
+        </div>
         <div class="separationBarShowVideo align-self-center"></div>
 
         <div class="textBlockUnderVideo">
