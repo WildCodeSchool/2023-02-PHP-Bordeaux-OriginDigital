@@ -16,19 +16,23 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <video class="d-block w-100" src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
-                           style="filter: brightness(70%);"></video>
-                    <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
-                        <a href="/video/{{ carouselVideos[0].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[0].title|length > 20 %}
-                                <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[0].title }}</h2>
-                            {% endif %}
-                        </a>
+            <div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <video class="d-block w-100" src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
+                               style="filter: brightness(70%);"></video>
+                        <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
+                            <a href="/video/{{ carouselVideos[0].id }}" class="text-decoration-none">
+                                <div>
+                                    <h4 class="fw-bold">COMPETITION</h4>
+                                    {% if carouselVideos[0].title|length > 20 %}
+                                        <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
+                                    {% else %}
+                                        <h2>{{ carouselVideos[0].title }}</h2>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -36,12 +40,14 @@
                            style="filter: brightness(70%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[1].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[1].title|length > 20 %}
-                                <h2>{{ carouselVideos[1].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[1].title }}</h2>
-                            {% endif %}
+                            <div>
+                                <h4 class="fw-bold">COMPETITION</h4>
+                                {% if carouselVideos[1].title|length > 20 %}
+                                    <h2>{{ carouselVideos[1].title|slice(0, 20) ~ '...' }}</h2>
+                                {% else %}
+                                    <h2>{{ carouselVideos[1].title }}</h2>
+                                {% endif %}
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -50,12 +56,14 @@
                            style="filter: brightness(70%);"></video>
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         <a href="/video/{{ carouselVideos[2].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[2].title|length > 20 %}
-                                <h2>{{ carouselVideos[2].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[2].title }}</h2>
-                            {% endif %}
+                            <div>
+                                <h4 class="fw-bold">COMPETITION</h4>
+                                {% if carouselVideos[2].title|length > 20 %}
+                                    <h2>{{ carouselVideos[2].title|slice(0, 20) ~ '...' }}</h2>
+                                {% else %}
+                                    <h2>{{ carouselVideos[2].title }}</h2>
+                                {% endif %}
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -79,12 +87,12 @@
         <div class="w-100 d-inline-flex justify-content-between align-items-center ws-header-video-container">
             <h4>MATCHS</h4>
         </div>
+        {% if app.user %}
         <div class="ws-home-video-container no-scrollbar">
             {% for premiumVideo in premiumVideos %}
                 <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video src="videos/{{ premiumVideo.videoLink }}" width="100%"
-                               style="filter: brightness(50%);"></video>
+                        <video src="videos/{{ premiumVideo.videoLink }}" width="100%"></video>
                         <div class="ws-home-match-title">
                             {% if premiumVideo.title|length > 20 %}
                                 <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
@@ -93,20 +101,34 @@
                             {% endif %}
                             <!-- TO DO: change date by premiumVideo.createdAt -->
                             <p class="fw-bold">31 JAN 2023</p>
-                            {% if app.user %}
-                                <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
-                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
-                                </form>
-                            {% else %}
-                                <form action="/login" method="get">
-                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
-                                </form>
-                            {% endif %}
                         </div>
                     </div>
-                </div>
+
                 </a>
             {% endfor %}
+            {% else %}
+            <div class="ws-home-video-container no-scrollbar">
+                {% for premiumVideo in premiumVideos %}
+                    <div class="ws-home-video-card">
+                        <video src="videos/{{ premiumVideo.videoLink }}" width="100%" style="filter: brightness(50%);"></video>
+                        <div class="ws-home-match-title">
+                            {% if premiumVideo.title|length > 20 %}
+                                <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
+                            {% else %}
+                                <p class="fw-bold">{{ premiumVideo.title }}</p>
+                            {% endif %}
+                            <!-- TO DO: change date by premiumVideo.createdAt -->
+                            <p class="fw-bold">31 JAN 2023</p>
+                            <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
+                                <button class="ws-blue-btn" type="submit">Premium pass</button>
+                            </form>
+                        </div>
+                        <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none"></a>
+                    </div>
+
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
         <!-- End of subsection -->
 
@@ -119,8 +141,10 @@
             {% for basketballVideo in basketballVideos %}
                 <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ basketballVideo.videoLink }}"
-                               type="video/mp4" preload="metadata"></video>
+                        <video class="ws-clip" style="max-height: 170px;"
+                               src="videos/{{ basketballVideo.videoLink }}"
+                               type="video/mp4" preload="metadata">
+                        </video>
                         {% if basketballVideo.title|length > 30 %}
                             <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
@@ -135,8 +159,8 @@
         <!-- Subsection advertisement -->
         <div class="ws-home-ad-container">
             {% for advertisementVideo in advertisementVideos %}
-                <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
-                       muted></video>
+                <video src="uploads/advertisements/{{ advertisementVideo.link }}"
+                       width="900" height="500" autoplay muted></video>
                 {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
             {% endfor %}
         </div>
@@ -151,8 +175,10 @@
             {% for footballVideo in footballVideos %}
                 <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}"
-                               type="video/mp4" preload="metadata"></video>
+                        <video class="ws-clip" style="max-height: 170px;"
+                               src="videos/{{ footballVideo.videoLink }}"
+                               type="video/mp4" preload="metadata">
+                        </video>
                         {% if footballVideo.title|length > 30 %}
                             <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
@@ -173,8 +199,10 @@
             {% for surfVideo in surfVideos %}
                 <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}"
-                               type="video/mp4" preload="metadata"></video>
+                        <video class="ws-clip" style="max-height: 170px;"
+                               src="videos/{{ surfVideo.videoLink }}"
+                               type="video/mp4" preload="metadata">
+                        </video>
                         {% if surfVideo.title|length > 30 %}
                             <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
                         {% else %}
