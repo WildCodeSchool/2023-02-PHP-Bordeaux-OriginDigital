@@ -32,7 +32,7 @@ class Advertisement
     /**
      * @Assert\File(
      *     maxSize = "100M",
-     *     mimeTypes = {"video/mp4", "video/mpeg"},
+     *     mimeTypes = {"videos/mp4", "videos/mpeg"},
      *     mimeTypesMessage = "Veuillez télécharger une vidéo valide (MP4 ou MPEG)"
      * )
      */

@@ -30,7 +30,7 @@ class AdvertisementCrudController extends AbstractCrudController
                 ->setFormType(VichFileType::class)
                 ->setFormTypeOptions([
                     'required' => true,
-                    'download_label' => 'Voir la video',
+                    'download_label' => 'Voir la videos',
                 ])
                 ->formatValue(function ($value, $entity) {
                     // Récupérer le nom du fichier depuis l'entité Video

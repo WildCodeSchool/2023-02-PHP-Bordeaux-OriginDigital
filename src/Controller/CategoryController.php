@@ -29,7 +29,7 @@ class CategoryController extends AbstractController
 
         return $this->render('categoryPage/showVideosByCategory.html.twig', [
             'category' => $category,
-            'video' => $video
+            'videos' => $video
         ]);
     }
 }

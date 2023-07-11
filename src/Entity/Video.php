@@ -39,13 +39,13 @@ class Video
     #[ORM\ManyToOne(inversedBy: 'videos')]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'video', targetEntity: Favorite::class)]
+    #[ORM\OneToMany(mappedBy: 'videos', targetEntity: Favorite::class)]
     private Collection $favorites;
 
     /**
      * @Assert\File(
      *     maxSize = "100M",
-     *     mimeTypes = {"video/mp4", "video/mpeg"},
+     *     mimeTypes = {"videos/mp4", "videos/mpeg"},
      *     mimeTypesMessage = "Veuillez télécharger une vidéo valide (MP4 ou MPEG)"
      * )
      */
