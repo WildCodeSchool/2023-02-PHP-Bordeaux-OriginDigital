@@ -56,6 +56,7 @@ class Video
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $videoPicture = null;
+
     public function __construct()
     {
         $this->favorites = new ArrayCollection();

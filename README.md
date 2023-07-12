@@ -37,6 +37,8 @@ It's symfony website-skeleton project with some additional library (webpack, fix
 7. Run `yarn encore dev`
 8. Run `composer require symfony/mailer`
 9. Run `composer require vich/uploader-bundle`
+10. Run `composer require stripe/stripe-php`
+
 
 ### Working
 

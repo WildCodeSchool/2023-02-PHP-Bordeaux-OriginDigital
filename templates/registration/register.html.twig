@@ -4,12 +4,12 @@
 
 {% block body %}
     <div class="img-fluid ws-custom-login-bg-image">
-        <section class="container d-flex justify-content-center ws-custom-register-form">
+        <section class="container ws-custom-register-form d-flex justify-content-center" style="margin-top: 15vh;margin-bottom:10vh">
             <div class="ws-custom-login-bg">
                 <div class="d-flex flex-column align-items-center">
-                    <section class="container my-3">
+                    <section class="container">
                         <div class="row ws-custom-login-bg">
-                            <div class="col-md p-4 mt-5">
+                            <div class="col-md p-4 mt-2">
                                 <div class="my-5 mx-5">
                                     {% for flash_error in app.flashes('verify_email_error') %}
                                         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
@@ -22,15 +22,15 @@
                                             {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
                                             {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
                                             {{ form_row(registrationForm.email, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.RGPDConsent) }}
                                         </div>
                                         <div class="col-md-6">
                                             {{ form_row(registrationForm.date_of_birth, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
                                             {{ form_row(registrationForm.plainPassword) }}
-                                            {{ form_row(registrationForm.RGPDConsent) }}
                                         </div>
                                     </fieldset>
                                     <div class="text-center">
-                                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">S'inscrire</button>
+                                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">S'abonner</button>
                                     </div>
                                     {{ form_end(registrationForm) }}
                                     <div class="text-center">

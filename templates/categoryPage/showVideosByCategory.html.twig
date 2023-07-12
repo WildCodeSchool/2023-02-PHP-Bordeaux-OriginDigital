@@ -42,7 +42,7 @@
 </div>
 
     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-        {% for video in category.videos %}
+        {% for video in video.data %}
             {% if app.user is empty and video.isPremium is not empty %}
                 <div class="col">
                     <a href="/video/{{ video.id }}"> <div class="card border-0 rounded-0 h-100 text-decoration-none" style="background-color: var(--secondary-color); color:white">
@@ -70,6 +70,13 @@
             </div>
         {% endif %}
         {% endfor %}
+        {% set path = 'app_category' %}
+        {% set pages = video.pages %}
+        {% set currentPage = video.page %}
+    </div>
+
+    <div class="mt-4 mb-3 mx-md-3">
+        {% include ('_includes/pagination.html.twig') %}
     </div>
 
 

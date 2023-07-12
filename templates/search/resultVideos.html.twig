@@ -2,7 +2,9 @@
 
 {% block body %}
 
-    <section style="margin-top: 120px;">
+    <h1 class="d-flex justify-content-center" style="margin-top: 100px">Rechercher</h1>
+
+    <section style="margin-top: 80px;">
         <form method="post" class="mb-5">
             <div class="d-flex justify-content-center">
                 {{ form_start(form) }}
@@ -17,8 +19,7 @@
                 {{ form_end(form) }}
             </div>
         </form>
-
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-5 card-header">
             {% for video in videos %}
                 {% if app.user is empty and video.isPremium is not empty %}
                     <div class="col">
@@ -27,8 +28,8 @@
                                  style="background-color: var(--secondary-color); color:white">
                                 <div class="d-flex justify-content-center align-items-center mb-1">
                                     <video src="/videos/{{ video.videoLink }}"
-                                           class="card-img-top notPremiumVideoBlurred"
-                                           style="max-height: 183px"></video>
+                                           class="card-img-top card-header notPremiumVideoBlurred"
+                                           style="max-height: 183px;"></video>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
                                          class="position-absolute bi bi-shield-lock-fill m-5" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
@@ -48,7 +49,7 @@
                             <div class="card border-0 rounded-0 h-100 text-decoration-none"
                                  style="background-color: var(--secondary-color)">
                                 <video src="/videos/{{ video.videoLink }}" class="card-img-top mb-1"
-                                       style="max-height: 183px"></video>
+                                       style="max-height: 183px; border-radius:0 !important;"></video>
                                 <div class="card-body">
                                     <h5 class="videoTitleColor card-title text-decoration-none"
                                         style="color: white">{{ video.title }}</h5>
@@ -60,5 +61,4 @@
             {% endfor %}
         </div>
     </section>
-
 {% endblock %}
