@@ -73,30 +73,37 @@
         <div class="w-100 d-inline-flex justify-content-between align-items-center ws-header-video-container">
             <h4>MATCHS</h4>
         </div>
+        {% if app.user %}
         <div class="ws-home-video-container no-scrollbar">
             {% for premiumVideo in premiumVideos %}
                 <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
-                        <video src="videos/{{ premiumVideo.videoLink }}"
-                               width="100%"
-                               style="filter: brightness(50%); max-height: 170px;">
-                        </video>
+                        <video src="videos/{{ premiumVideo.videoLink }}" width="100%" style="max-height: 170px;"></video>
                         <div class="ws-home-match-title">
                             <p class="fw-bold">{{ premiumVideo.title }}</p>
                             <p class="fw-bold">31 JAN 2023</p>
-                            {% if app.user %}
-                                <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
-                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
-                                </form>
-                            {% else %}
-                                <form action="/login" method="get">
-                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
-                                </form>
-                            {% endif %}
                         </div>
                     </div>
                 </a>
             {% endfor %}
+            {% else %}
+            <div class="ws-home-video-container no-scrollbar">
+                {% for premiumVideo in premiumVideos %}
+                <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
+                    <div class="ws-home-video-card">                       
+                        <video src="videos/{{ premiumVideo.videoLink }}" width="100%" style="filter: brightness(50%); max-height: 170px;"></video>
+                        <div class="ws-home-match-title">
+                            <p class="fw-bold">{{ premiumVideo.title }}</p>
+                            <p class="fw-bold">31 JAN 2023</p>
+                            <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
+                                <button class="ws-blue-btn" type="submit">Premium pass</button>
+                            </form>
+                        </div>                       
+                    </div>
+                 </a>
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
         <!-- End of subsection -->
 
@@ -146,12 +153,13 @@
     <!-- Subsection advertisement -->
     <div class="ws-home-ad-container">
             {% for advertisementVideo in advertisementVideos %}
-                <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
-                       muted></video>
+                <video src="uploads/advertisements/{{ advertisementVideo.link }}"
+                       width="900" height="500" autoplay muted></video>
                 {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
             {% endfor %}
         </div>
     <!-- End of subsection -->
+
 
     <!-- Subsection category 2 -->
     <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
