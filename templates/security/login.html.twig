@@ -4,50 +4,68 @@
 
 {% block body %}
     <div class="img-fluid ws-custom-login-bg-image">
-        <div class="ws-loginRowHeight col-md d-flex justify-content-center align-items-center">
-            <div class="d-flex flex-column align-items-center">
-                <section class="container my-4 mx-5">
-                    <div class="row ws-custom-login-bg mx-5">
-                        <div class="col-md p-4 mx-5 my-3">
-                            <form method="post">
+        <section class="container ws-custom-register-form d-flex justify-content-center" style="margin-top: 15vh;margin-bottom:10vh">
+            <div class="ws-custom-login-bg">
+                <div class="d-flex flex-column align-items-center">
+                    <section class="container">
+                        <div class="row ws-custom-login-bg">
+                            <div class="col-md p-4 mt-2">
+                                <div class="my-5 mx-5">
                                 {% if error %}
-                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                    <div class="alert alert-danger">
+                                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                                    </div>
                                 {% endif %}
 
                                 {% if app.user %}
                                     <div class="ws-custom-mb-3">
-                                        Vous êtes connecté(e) {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                        Vous êtes connecté(e) {{ app.user.userIdentifier }},
+                                        <a href="{{ path('app_logout') }}">Se déconnecter</a>
                                     </div>
                                 {% endif %}
 
                                 <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
-                                <label for="inputEmail"></label>
-                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control rounded-0" placeholder='E-mail' autocomplete="email" required minlength="5" maxlength="50">
-                                <label for="inputPassword"></label>
-                                <input type="password" name="password" id="inputPassword" class="form-control rounded-0" autocomplete="current-password" placeholder='Mot de passe' required>
 
-                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                    <label for="inputEmail"></label>
+                                    <input type="email" value="{{ last_username }}" name="email"
+                                           id="inputEmail" class="form-control rounded-0"
+                                           placeholder='E-mail' autocomplete="email"
+                                           required minlength="5" maxlength="50">
+
+                                    <label for="inputPassword"></label>
+                                    <input type="password" name="password" id="inputPassword"
+                                           class="form-control rounded-0" autocomplete="current-password"
+                                           placeholder='Mot de passe' required>
+
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
                                 <div class="text-center">
-                                    <button class="btn btn-primary mt-5 mb-2 rounded-0" type="submit">Se connecter</button>
+                                    <button class="btn btn-primary mt-5 mb-2 rounded-0"
+                                            type="submit">Se connecter
+                                    </button>
                                 </div>
                                 <br>
                                 <div class="ws-custom-text-center">
                                     <div class="ws-custom-mb-3 d-flex align-items-center justify-content-center">
-                                        <a href="{{ path('app_forgot_password_request') }}" class="text-decoration-none">Mot de passe oublié</a>
-                                        <hr style="width: 50%">
-                                        <div class="d-flex">
-                                            <p>Pas encore de compte ?</p>
-                                        </div>
-                                        <div>
-                                            <a href="/register" class="text-warning"><strong>Inscrivez-vous !</strong></a>
+                                        <a href="{{ path('app_forgot_password_request') }}"
+                                           class="text-decoration-none">Mot de passe oublié</a>
+                                            <hr style="width: 50%">
+                                                <div class="d-flex">
+                                                    <p>Pas encore de compte ?</p>
+                                                </div>
+                                                <div>
+                                                    <a href="/register" class="text-warning">
+                                                        <strong>Inscrivez-vous !</strong>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
+                            </div>
+                    </section>
+                </div>
             </div>
-        </div>
-</div>
+        </section>
+    </div>
 {% endblock %}
