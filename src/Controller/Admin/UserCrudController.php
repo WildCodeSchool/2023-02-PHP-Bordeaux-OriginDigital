@@ -63,6 +63,12 @@ class UserCrudController extends AbstractCrudController
         );
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('Utilisateur')
+            ->setEntityLabelInPlural('Utilisateurs');
+    }
 
 
     /*
