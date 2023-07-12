@@ -1,24 +1,31 @@
-<nav class="navbar navbar-expand-md p-0 navbar-light bg-black fixed-top ws-navbar-color ">
+<nav class="navbar navbar-expand-md p-0 navbar-light bg-black fixed-top ws-navbar-color-height ">
 
     <div class="container-fluid align-items-center ">
 
         <div class="ws-navbar-logo">
             <a href="/">
-                <img src="{{ asset('build/images/WildSports.7886eafc.png') }}" class="my-0 p-0 ws-logo-site"
-                     alt="logo" width="135" height="auto"></a>
+                <img src="{{ asset('build/images/Logo-site-desktop.6173b503.svg ') }}"
+                     class="my-0 p-0 ws-logo-site-desktop"
+                     alt="logo" width="135" height="auto">
+
+                <img src="{{ asset('build/images/WildSports.7886eafc.png') }}"
+                     class="my-0 p-0 ws-logo-site-mobile d-md-none"
+                     alt="logo" width="135" height="auto">
+            </a>
+
         </div>
 
-            <button class="navbar-toggler ws-navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#navbarOffcanvasMd" aria-controls="navbarOffcanvasMd"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon ws-icon-toggler"></span>
-            </button>
+        <button class="navbar-toggler ws-navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#navbarOffcanvasMd" aria-controls="navbarOffcanvasMd"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon ws-icon-toggler"></span>
+        </button>
 
         <div class="offcanvas offcanvas-end ws-offcanvas-bg" tabindex="-1" id="navbarOffcanvasMd"
              aria-labelledby="navbarOffcanvasMdLabel">
 
             <div class="offcanvas-header">
-                <h4 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Wild Sports</h4>
+                <h4 class="offcanvas-title m-0" id="offcanvasDarkNavbarLabel">Wild Sports</h4>
 
                 <button type="button" class="btn-close btn-close-black " data-bs-dismiss="offcanvas" aria-label="Close">
 
@@ -29,6 +36,11 @@
                 <div class="d-flex w-100 align-items-center">
 
                     <ul class="navbar-nav mx-md-2 mx-lg-3  ws-navbar-link-color-black">
+
+                        <li>
+                            <a class="d-flex d-md-none text-black justify-content-start mt-0" href="/search/videos "><i
+                                    class="fa fa-search fs-5 pe-2"></i> Recherche</a>
+                        </li>
                         <li class="nav-item me-lg-2">
                             <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                         </li>
@@ -108,6 +120,7 @@
                 </div>
 
                 <ul class="navbar-nav justify-content-start d-md-none ws-navbar-link-connexion-color-black">
+
                     {% if app.user %}
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/profil">
