@@ -48,7 +48,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        // Redirection vers Stripe
+        return new RedirectResponse('https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU');
     }
 
     protected function getLoginUrl(Request $request): string
