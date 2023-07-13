@@ -7,7 +7,7 @@
 
     <!-- First section: front videos -->
     <div class="ws-home-carousel-container">
-        <div id="carouselExampleIndicators" class="carousel slide">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -106,7 +106,6 @@
                                 </form>
                             </div>
                         </div>
-
                     </a>
                 {% endfor %}
                 {% endif %}
@@ -150,8 +149,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-    </div>
-    <!-- End of subsection -->
+    </div><!-- End of subsection -->
 
     <!-- Subsection advertisement -->
     <div class="ws-home-ad-container">
@@ -162,7 +160,6 @@
         {% endfor %}
     </div>
     <!-- End of subsection -->
-
 
     <!-- Subsection category 2 -->
     <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
@@ -199,8 +196,7 @@
                 </div>
             {% endif %}
         {% endfor %}
-    </div>
-    <!-- End of subsection -->
+    </div><!-- End of subsection -->
 
     <!-- Subsection category 3 -->
     <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
@@ -235,9 +231,7 @@
                 </div>
             {% endif %}
         {% endfor %}
-    </div>
-    <!-- End of subsection -->
-    <!-- End of second section -->
+    </div><!-- End of subsection --><!-- End of second section -->
 
     <script>
         const elements = document.querySelectorAll(".ws-home-video-container");
@@ -296,8 +290,7 @@
                 this.pause();
             });
         });
-    </script>
-    <!-- play video à l'hover -->
+    </script><!-- play video à l'hover -->
     <script>
         const clip = document.querySelectorAll('.ws-clip');
         for (let i = 0; i < clip.length; i++) {
