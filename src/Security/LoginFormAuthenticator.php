@@ -40,6 +40,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         );
     }
 
+
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         $targetPath = $this->getTargetPath($request->getSession(), $firewallName);
@@ -48,9 +49,18 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // Redirection vers Stripe
-        return new RedirectResponse('https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU');
+        // Vérification si l'utilisateur s'est enregistré ou s'est connecté
+        if ($request->attributes->get('_route') === 'app_login') {
+            // Stockage des données de session
+            $session = $request->getSession();
+            $session->set('some_key', 'some_value');
+
+            return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        } else {
+            return new RedirectResponse('https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU');
+        }
     }
+
 
     protected function getLoginUrl(Request $request): string
     {
