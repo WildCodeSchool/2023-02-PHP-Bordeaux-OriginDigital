@@ -1,0 +1,8 @@
+body {
+    background-image: url("../images/admin.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9; /* Remplacez 0.5 par la valeur d'opacité souhaitée entre 0 et 1 */
+}
+
+

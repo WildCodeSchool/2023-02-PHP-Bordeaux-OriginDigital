@@ -50,6 +50,10 @@
     position: relative;
 }
 
+.ws-home-video-card:hover {
+    transform: scale(1.05);
+}
+
 .ws-home-video-match {
     position: relative;
     display: inline-block;

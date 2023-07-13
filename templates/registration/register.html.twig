@@ -14,7 +14,7 @@
                                     {% for flash_error in app.flashes('verify_email_error') %}
                                         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
                                     {% endfor %}
-                                    <h1 class="text-center h3 mb-3 font-weight-normal">Créer un compte</h1>
+                                    <h1 class="text-center h3 mb-5 font-weight-normal">Créer un compte</h1>
                                     {{ form_errors(registrationForm) }}
                                     {{ form_start(registrationForm) }}
                                     <fieldset class="mb-2 row">
@@ -26,6 +26,8 @@
                                         <div class="col-md-6">
                                             {{ form_row(registrationForm.date_of_birth, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
                                             {{ form_row(registrationForm.plainPassword) }}
+                                        </div>
+                                        <div class="ws-rgpd-custom">
                                             {{ form_row(registrationForm.RGPDConsent) }}
                                         </div>
                                     </fieldset>
@@ -35,8 +37,10 @@
                                     {{ form_end(registrationForm) }}
                                     <div class="text-center">
                                         <div class="mb-3">
-                                            <p>Déjà inscrit ? <a href="/login" class="text-decoration-none"><strong>S'identifier</strong></a></p>
+                                            <p style="display: inline;">Déjà inscrit ?</p>
+                                            <a href="/login" class="text-decoration-none" style="display: inline;  margin-left: 5px"><strong>S'identifier</strong></a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

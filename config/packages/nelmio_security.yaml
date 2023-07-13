@@ -1,6 +1,7 @@
 nelmio_security:
-    # prevents framing of the entire site
+
     clickjacking:
+        content_types: ["text/html", "application/xhtml+xml"]
         paths:
             '^/.*': DENY
 
@@ -24,3 +25,4 @@ nelmio_security:
         policies:
             - 'no-referrer'
             - 'strict-origin-when-cross-origin'
+                

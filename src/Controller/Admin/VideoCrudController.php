@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Video;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
@@ -57,5 +58,12 @@ class VideoCrudController extends AbstractCrudController
                     return $fileName ? $fileName : 'Aucun fichier sélectionné';
                 }),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('Video')
+            ->setEntityLabelInPlural('Videos');
     }
 }

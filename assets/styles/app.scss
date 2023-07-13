@@ -14,7 +14,8 @@
 @import "modules/subscription";
 @import "modules/showVideoByCategory.css";
 @import "modules/premium";
-
+@import "modules/pagination";
+@import "modules/register";
 
 :root {
     --primary-color: rgb(255, 255, 255);//text
@@ -23,16 +24,32 @@
     --quaternary-color: rgb(0, 0, 0);//navbar and pub
     --quinary-color: rgb(255, 219, 89);//logo and mobile navbar
 }
+
 * {
     margin: 0;
     box-sizing: border-box;
 }
+
 
 body {
     background-color: var(--secondary-color);
     min-height: 100vh;
     display: grid;//footer
     grid-template-rows: auto 1fr auto;//footer
+    margin-top: 130px;
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1200px) {
+
+    body {
+        margin-top: 50px;
+    }
 }
 
 h1, h2, h3 {
@@ -48,3 +65,10 @@ a:hover {
     color: var(--quinary-color)!important;
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}

@@ -1,5 +1,10 @@
-@media screen and (max-width: 767px){
-    .ws-navbar-color, .ws-offcanvas-bg  {
+.ws-navbar-dropdown-category {
+    line-height: 1.8;
+}
+
+
+@media screen and (max-width: 767px) {
+    .ws-navbar-color-height, .ws-offcanvas-bg {
         background-color: var(--quinary-color) !important;
     }
 
@@ -16,17 +21,15 @@
         max-width: 80% !important;
     }
 
-    .ws-navbar-desktop {
+    .ws-navbar-desktop, .ws-logo-site-desktop {
         display: none;
     }
+
+
     .ws-navbar-link-color-black a, .ws-navbar-link-connexion-color-black a {
         color: var(--quaternary-color) !important;
-        margin-left: 15px;
+        margin: 0 0 2px 15px;
         padding: 6px;
-    }
-
-    .ws-navbar-link-color-black a {
-        margin-bottom: 9px ;
     }
 
     .ws-navbar-link-color-black a:hover, .ws-navbar-link-connexion-color-black a:hover {
@@ -34,52 +37,115 @@
     }
 
     .ws-navbar-link-connexion-color-black {
-        margin-top: 100px;
-        font-size: 12px;
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    .ws-navbar-dropdown-category, .ws-navbar-dropdown-category.show {
+        background-color: var(--quinary-color) !important;
+        border: none;
     }
 
 }
 
-@media screen and (min-width: 576px) and (max-width: 767px){
+@media screen and (min-width: 576px) and (max-width: 767px) {
 
-    .ws-logo-site{
+    .ws-logo-site {
         min-width: 150px;
     }
 
-//    .ws-navbar-link-color-black li, .ws-navbar-desktop button {
-//        font-size: 10px;
-//    }
-//
-//    //.ws-navbar-link-color-black a {
-//    //    padding: 4px;
-//    //}
-//
+    .ws-navbar-color-height {
+        height: 80px;
+    }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
 
-    .ws-logo-site{
-        min-width: 200px;
+    .ws-navbar-color-height {
+        height: 95px;
     }
 
+    .ws-navbar-logo {
+        width: 25%;
+        height: 85%;
+    }
+
+    .ws-logo-site-desktop {
+        min-width: 85%;
+
+    }
     .ws-navbar-link-color-black li, .ws-navbar-desktop button {
         font-size: 12px;
+
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+
+    .ws-navbar-color-height {
+        height: 140px;
+    }
+
+    .ws-navbar-logo {
+        width: 25%;
+        height: 75%;
+    }
+
+    .ws-logo-site-desktop {
+        min-width: 85%;
+
+    }
+
+    .ws-navbar-link-color-black li {
+        font-size: 17px;
+        letter-spacing: 2px;
+
+    }
+
+    .ws-navbar-desktop button {
+        font-size: 16px;
+        letter-spacing: 2px;
+
+    }
+
+    .ws-navbar-desktop {
+        margin-right: 10px;
     }
 
 }
 
-@media screen and (min-width: 1025px){
 
-    .ws-logo-site{
-        min-width: 300px;
+@media screen and (min-width: 1400px) {
+
+    .ws-navbar-color-height {
+        height: 140px;
+        margin-bottom: 120px !important ;
+    }
+
+    .ws-navbar-logo {
+        width: 25%;
+        height: 75%;
+    }
+
+    .ws-logo-site-desktop {
+        min-width: 75%;
+
     }
 
     .ws-navbar-link-color-black li {
         font-size: 18px;
+        letter-spacing: 2px;
+
     }
 
     .ws-navbar-desktop button {
         font-size: 17px;
+        letter-spacing: 2px;
+
+    }
+
+    .ws-navbar-desktop {
+        margin-right: 20px;
     }
 
 }
