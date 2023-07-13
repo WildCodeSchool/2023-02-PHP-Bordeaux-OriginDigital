@@ -52,7 +52,7 @@ class VideoRepository extends ServiceEntityRepository
         return $queryBuilder->getResult();
     }
 
-    public function findVideosPaginated(int $page, string $categoryName, int $limit =6): array
+    public function findVideosPaginated(int $page, string $categoryName, int $limit = 6): array
     {
         $limit = abs($limit);
 
@@ -70,7 +70,7 @@ class VideoRepository extends ServiceEntityRepository
         $paginator = new Paginator($query);
         $data = $paginator->getQuery()->getResult();
 
-        if(empty($data)) {
+        if (empty($data)) {
             return $result;
         }
 
