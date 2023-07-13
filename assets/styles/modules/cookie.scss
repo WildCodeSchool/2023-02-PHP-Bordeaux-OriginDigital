@@ -1,17 +1,29 @@
-#cookie-consent-popup {
+.cookie-consent-modal {
+    height: 100vh;
+    width: 100vw;
     position: fixed;
-    justify-self: center;
-    text-align: center;
-    background-color: var(--quaternary-color);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
+    top: 0;
+    left: 0;
     z-index: 9999;
+    display: none;
+    align-items: flex-end;
+}
+.cookie-consent-modal.active {
+    display: flex;
+    justify-content: center;
+}
+.content {
+    background-color: #000000;
+    padding: 5vw 3vw;
+    border-radius: 10px 10px 0 0;
 }
 
-#cookie-consent-accept, #cookie-consent-decline {
-    width: 82px
+.btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2em;
 }
+
+
 
 

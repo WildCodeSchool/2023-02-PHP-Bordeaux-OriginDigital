@@ -14,8 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(VideoRepository $videoRepository, CategoryRepository $categoryRepository, AdvertisementRepository $advertisementRepository,): Response
-    {
+    public function index(
+        VideoRepository $videoRepository,
+        CategoryRepository $categoryRepository,
+        AdvertisementRepository $adRepository
+    ): Response {
         $footballPicture = $videoRepository->findByPicture('football1.jpg');
         $tennisPicture = $videoRepository->findByPicture('tennis2.jpg');
         $volleyballPicture = $videoRepository->findByPicture('volleyball1.jpg');
@@ -32,7 +35,7 @@ class HomeController extends AbstractController
         $surf = $categoryRepository->findOneBy(['name' => 'Surf']);
         $surfVideos = $videoRepository->findByCategory($surf);
 
-        $advertisementVideos = $advertisementRepository->findAll(
+        $advertisementVideos = $adRepository->findAll(
         );
 
         return $this->render(

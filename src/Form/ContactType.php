@@ -57,7 +57,7 @@ class ContactType extends AbstractType
                     new NotBlank(),
                 ],
                 'attr' => [
-                    'placeholder' => 'Contenu',
+                    'placeholder' => 'Votre message',
                     'class' => 'ws-contact-contenu-fields'
                 ],
             ])
