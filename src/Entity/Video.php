@@ -54,6 +54,10 @@ class Video
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $videoPicture = null;
+
     public function __construct()
     {
         $this->likes = new ArrayCollection();
@@ -195,6 +199,18 @@ class Video
         if ($this->likes->removeElement($like)) {
             $like->removeLike($this);
         }
+
+        return $this;
+    }
+
+    public function getVideoPicture(): ?string
+    {
+        return $this->videoPicture;
+    }
+
+    public function setVideoPicture(?string $videoPicture): static
+    {
+        $this->videoPicture = $videoPicture;
 
         return $this;
     }

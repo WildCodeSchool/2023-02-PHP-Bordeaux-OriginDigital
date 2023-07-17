@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Video;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -51,7 +52,7 @@ class VideoRepository extends ServiceEntityRepository
         return $queryBuilder->getResult();
     }
 
-    public function findVideosPaginated(int $page, string $categoryName, int $limit =6): array
+    public function findVideosPaginated(int $page, string $categoryName, int $limit = 6): array
     {
         $limit = abs($limit);
 
@@ -69,7 +70,7 @@ class VideoRepository extends ServiceEntityRepository
         $paginator = new Paginator($query);
         $data = $paginator->getQuery()->getResult();
 
-        if(empty($data)) {
+        if (empty($data)) {
             return $result;
         }
 
@@ -87,25 +88,25 @@ class VideoRepository extends ServiceEntityRepository
 //    /**
 //     * @return Video[] Returns an array of Video objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('v.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findByPicture(string $picture): array
+    {
+        return $this->createQueryBuilder('v')
+            ->andWhere('v.videoPicture = :picture')
+            ->setParameter('picture', $picture)
+            ->orderBy('v.id', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Video
-//    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findByCategory(?Category $category): array
+    {
+        return $this->createQueryBuilder('v')
+            ->andWhere('v.category = :category')
+            ->setParameter('category', $category)
+            ->orderBy('v.id', 'ASC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult();
+    }
 }

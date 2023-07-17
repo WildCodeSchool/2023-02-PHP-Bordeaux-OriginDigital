@@ -15,6 +15,8 @@
 @import "modules/showVideoByCategory.css";
 @import "modules/premium";
 @import "modules/pagination";
+@import "modules/register";
+@import "modules/carousel";
 @import "modules/favorites";
 
 :root {
@@ -30,11 +32,26 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-color: var(--secondary-color);
     min-height: 100vh;
     display: grid;//footer
     grid-template-rows: auto 1fr auto;//footer
+    margin-top: 130px;
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1200px) {
+
+    body {
+        margin-top: 50px;
+    }
 }
 
 h1, h2, h3 {

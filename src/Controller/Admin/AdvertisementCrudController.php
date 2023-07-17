@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Advertisement;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -39,5 +40,12 @@ class AdvertisementCrudController extends AbstractCrudController
                     return $fileName ? $fileName : 'Aucun fichier sélectionné';
                 }),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('Publicité')
+            ->setEntityLabelInPlural('Publicités');
     }
 }

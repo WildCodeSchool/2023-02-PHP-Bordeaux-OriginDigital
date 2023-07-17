@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Video;
+use App\Repository\CategoryRepository;
 use App\Entity\Advertisement;
 use App\Repository\AdvertisementRepository;
 use App\Repository\VideoRepository;
@@ -14,43 +16,34 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(
         VideoRepository $videoRepository,
-        AdvertisementRepository $advertisementRepository,
+        CategoryRepository $categoryRepository,
+        AdvertisementRepository $adRepository
     ): Response {
-        $carouselVideos = $videoRepository->findBy(
-            [],
-            ['id' => 'DESC'],
-            3
-        );
-        shuffle($carouselVideos);
+        $footballPicture = $videoRepository->findByPicture('football1.jpg');
+        $tennisPicture = $videoRepository->findByPicture('tennis2.jpg');
+        $volleyballPicture = $videoRepository->findByPicture('volleyball1.jpg');
 
         $premiumVideos = $videoRepository->findBy(
             ['isPremium' => true],
             ['id' => 'ASC'],
             6
         );
-        $basketballVideos = $videoRepository->findBy(
-            ['category' => 1],
-            ['id' => 'ASC'],
-            6
-        );
-        $footballVideos = $videoRepository->findBy(
-            ['category' => 2],
-            ['id' => 'ASC'],
-            6
-        );
-        $surfVideos = $videoRepository->findBy(
-            ['category' => 3],
-            ['id' => 'ASC'],
-            6
-        );
+        $basketball = $categoryRepository->findOneBy(['name' => 'Basketball']);
+        $basketballVideos = $videoRepository->findByCategory($basketball);
+        $football = $categoryRepository->findOneBy(['name' => 'Football']);
+        $footballVideos = $videoRepository->findByCategory($football);
+        $surf = $categoryRepository->findOneBy(['name' => 'Surf']);
+        $surfVideos = $videoRepository->findByCategory($surf);
 
-        $advertisementVideos = $advertisementRepository->findAll(
+        $advertisementVideos = $adRepository->findAll(
         );
 
         return $this->render(
             'home/index.html.twig',
             [
-                'carouselVideos' => $carouselVideos,
+                'footballPicture' => $footballPicture,
+                'tennisPicture' => $tennisPicture,
+                'volleyballPicture' => $volleyballPicture,
                 'premiumVideos' => $premiumVideos,
                 'basketballVideos' => $basketballVideos,
                 'footballVideos' => $footballVideos,

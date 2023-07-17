@@ -7,7 +7,7 @@
 
     <!-- First section: front videos -->
     <div class="ws-home-carousel-container">
-        <div id="carouselExampleIndicators" class="carousel slide">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -18,44 +18,38 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <video class="d-block w-100" src="videos/{{ carouselVideos[0].videoLink }}" alt="First slide"
-                           style="filter: brightness(70%);"></video>
+                    <img class="d-block w-100" src="{{ asset('build/images/' ~ footballPicture[0].videoPicture) }}"
+                         style="filter: brightness(70%); max-height: 700px; object-fit: cover; object-position: center;">
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
-                        <a href="/video/{{ carouselVideos[0].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[0].title|length > 20 %}
-                                <h2>{{ carouselVideos[0].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[0].title }}</h2>
-                            {% endif %}
+                        <a href="/video/{{ footballPicture[0].id }}" class="text-decoration-none">
+                            <div class="d-flex flex-column">
+                                <h2 class="fw-bold fs-1">COMPETITION</h2>
+                                <h1 class="fw-bold">{{ footballPicture[0].title }}</h1>
+                            </div>
                         </a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <video class="d-block w-100" src="videos/{{ carouselVideos[1].videoLink }}" alt="First slide"
-                           style="filter: brightness(70%);"></video>
+                    <img class="d-block w-100" src="{{ asset('build/images/' ~ tennisPicture[0].videoPicture) }}"
+                         style="filter: brightness(70%); max-height: 700px; object-fit: cover; object-position: center;">
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
-                        <a href="/video/{{ carouselVideos[1].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[1].title|length > 20 %}
-                                <h2>{{ carouselVideos[1].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[1].title }}</h2>
-                            {% endif %}
+                        <a href="/video/{{ tennisPicture[0].id }}" class="text-decoration-none">
+                            <div class="d-flex flex-column">
+                                <h2 class="fw-bold fs-1">COMPETITION</h2>
+                                <h1 class="fw-bold">{{ tennisPicture[0].title }}</h1>
+                            </div>
                         </a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <video class="d-block w-100" src="videos/{{ carouselVideos[2].videoLink }}" alt="First slide"
-                           style="filter: brightness(70%);"></video>
+                    <img class="d-block w-100" src="{{ asset('build/images/' ~ volleyballPicture[0].videoPicture) }}"
+                         style="filter: brightness(70%); max-height: 700px; object-fit: cover; object-position: center;">
                     <div class="carousel-caption d-md-block" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
-                        <a href="/video/{{ carouselVideos[2].id }}" class="text-decoration-none">
-                            <h4 class="fw-bold">COMPETITION</h4>
-                            {% if carouselVideos[2].title|length > 20 %}
-                                <h2>{{ carouselVideos[2].title|slice(0, 20) ~ '...' }}</h2>
-                            {% else %}
-                                <h2>{{ carouselVideos[2].title }}</h2>
-                            {% endif %}
+                        <a href="/video/{{ volleyballPicture[0].id }}" class="text-decoration-none">
+                            <div class="d-flex flex-column">
+                                <h2 class="fw-bold fs-1">COMPETITION</h2>
+                                <h1 class="fw-bold">{{ volleyballPicture[0].title }}</h1>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -79,115 +73,166 @@
         <div class="w-100 d-inline-flex justify-content-between align-items-center ws-header-video-container">
             <h4>MATCHS</h4>
         </div>
+        {% if app.user %}
         <div class="ws-home-video-container no-scrollbar">
             {% for premiumVideo in premiumVideos %}
                 <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
                         <video src="videos/{{ premiumVideo.videoLink }}" width="100%"
-                               style="filter: brightness(50%);"></video>
+                               style="filter: brightness(50%); max-height: 170px;"></video>
                         <div class="ws-home-match-title">
-                            {% if premiumVideo.title|length > 20 %}
-                                <p class="fw-bold">{{ premiumVideo.title|slice(0, 20) ~ '...' }}</p>
-                            {% else %}
-                                <p class="fw-bold">{{ premiumVideo.title }}</p>
-                            {% endif %}
+                            <p class="fw-bold">{{ premiumVideo.title }}</p>
                             <!-- TO DO: change date by premiumVideo.createdAt -->
                             <p class="fw-bold">31 JAN 2023</p>
-                            {% if app.user %}
-                                <form action="https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU" method="get">
-                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
-                                </form>
-                            {% else %}
-                                <form action="/login" method="get">
-                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
-                                </form>
-                            {% endif %}
+                            <form action="/register" method="get">
+                                <button class="ws-blue-btn" type="submit">Premium pass</button>
+                            </form>
                         </div>
                     </div>
-                </div>
                 </a>
             {% endfor %}
+            {% else %}
+            <div class="ws-home-video-container no-scrollbar">
+                {% for premiumVideo in premiumVideos %}
+                    <a href="/video/{{ premiumVideo.id }}" class="text-decoration-none">
+                        <div class="ws-home-video-card">
+                            <video src="videos/{{ premiumVideo.videoLink }}" width="100%"
+                                   style="filter: brightness(50%); max-height: 170px;"></video>
+                            <div class="ws-home-match-title">
+                                <p class="fw-bold">{{ premiumVideo.title }}</p>
+                                <p class="fw-bold">31 JAN 2023</p>
+                                <form action="/register" method="get">
+                                    <button class="ws-blue-btn" type="submit">Premium pass</button>
+                                </form>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
         <!-- End of subsection -->
 
         <!-- Subsection category 1 -->
         <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
-            <h4>BASKETBALL</h4>
-            <button class="ws-yellow-btn mb-3"><a href="/category/1" class="text-decoration-none">Voir plus</a></button>
+            <h4 style="text-transform: uppercase;">{{ basketballVideos[0].category.name }}</h4>
+            <a href="/category/{{ basketballVideos[0].category.id }}" class="text-decoration-none">
+                <button class="ws-yellow-btn mb-3">Voir plus</button>
+            </a>
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for basketballVideo in basketballVideos %}
-                <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
+                {% if app.user is empty and basketballVideo.isPremium is not empty %}
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ basketballVideo.videoLink }}"
-                               type="video/mp4" preload="metadata"></video>
-                        {% if basketballVideo.title|length > 30 %}
-                            <p>{{ basketballVideo.title|slice(0, 30) ~ '...' }}</p>
-                        {% else %}
-                            <p>{{ basketballVideo.title }}</p>
-                        {% endif %}
+                        <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
+                            <video class="notPremiumVideoBlurred" style="max-height: 170px;"
+                                   src="videos/{{ basketballVideo.videoLink }}" width="100%"></video>
+                            <div class="ws-home-match-title">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                     class="bi bi-shield-lock-fill mb-4" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z"/>
+                                </svg>
+                            </div>
+                        </a> <a href="/video/{{ basketballVideo.id }}"
+                                class="text-decoration-none mt-2">{{ basketballVideo.title }}</a>
                     </div>
-                </a>
-            {% endfor %}
-        </div>
-        <!-- End of subsection -->
-
-        <!-- Subsection advertisement -->
-        <div class="ws-home-ad-container">
-            {% for advertisementVideo in advertisementVideos %}
-                <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
-                       muted></video>
-                {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
-            {% endfor %}
-        </div>
-        <!-- End of subsection -->
-
-        <!-- Subsection category 2 -->
-        <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
-            <h4>FOOTBALL</h4>
-            <button class="ws-yellow-btn mb-3"><a href="/category/2" class="text-decoration-none">Voir plus</a></button>
-        </div>
-        <div class="ws-home-video-container no-scrollbar">
-            {% for footballVideo in footballVideos %}
-                <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
+                {% else %}
                     <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}"
-                               type="video/mp4" preload="metadata"></video>
-                        {% if footballVideo.title|length > 30 %}
-                            <p>{{ footballVideo.title|slice(0, 30) ~ '...' }}</p>
-                        {% else %}
-                            <p>{{ footballVideo.title }}</p>
-                        {% endif %}
+                        <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
+                            <video class="ws-clip" style="max-height: 170px;"
+                                   src="videos/{{ basketballVideo.videoLink }}" type="video/mp4" preload="metadata"
+                                   width="100%"></video>
+                        </a> <a href="/video/{{ basketballVideo.id }}"
+                                class="text-decoration-none mt-2">{{ basketballVideo.title }}</a>
                     </div>
-                </a>
+                {% endif %}
             {% endfor %}
         </div>
-        <!-- End of subsection -->
+    </div><!-- End of subsection -->
 
-        <!-- Subsection category 3 -->
-        <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
-            <h4>SURF</h4>
-            <button class="ws-yellow-btn mb-3"><a href="/category/3" class="text-decoration-none">Voir plus</a></button>
-        </div>
-        <div class="ws-home-video-container no-scrollbar">
-            {% for surfVideo in surfVideos %}
-                <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
-                    <div class="ws-home-video-card">
-                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}"
-                               type="video/mp4" preload="metadata"></video>
-                        {% if surfVideo.title|length > 30 %}
-                            <p>{{ surfVideo.title|slice(0, 30) ~ '...' }}</p>
-                        {% else %}
-                            <p>{{ surfVideo.title }}</p>
-                        {% endif %}
-                    </div>
-                </a>
-
-            {% endfor %}
-        </div>
-        <!-- End of subsection -->
+    <!-- Subsection advertisement -->
+    <div class="ws-home-ad-container">
+        {% for advertisementVideo in advertisementVideos %}
+            <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
+                   muted></video>
+            {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
+        {% endfor %}
     </div>
-    <!-- End of second section -->
+    <!-- End of subsection -->
+
+    <!-- Subsection category 2 -->
+    <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
+        <h4 style="text-transform: uppercase;">{{ footballVideos[0].category.name }}</h4>
+        <a href="/category/ {{ footballVideos[0].category.id }}" class="text-decoration-none">
+            <button class="ws-yellow-btn mb-3">Voir plus</button>
+        </a>
+    </div>
+    <div class="ws-home-video-container no-scrollbar">
+        {% for footballVideo in footballVideos %}
+            {% if app.user is empty and footballVideo.isPremium is not empty %}
+                <div class="ws-home-video-card">
+                    <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
+                        <video class="notPremiumVideoBlurred" style="max-height: 170px;"
+                               src="videos/{{ footballVideo.videoLink }}" type="video/mp4" preload="metadata"
+                               width="100%"></video>
+                        <div class="ws-home-match-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                 class="bi bi-shield-lock-fill mb-4" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z"/>
+                            </svg>
+                        </div>
+                    </a> <a href="/video/{{ footballVideo.id }}"
+                            class="text-decoration-none mt-2">{{ footballVideo.title }}</a>
+                </div>
+            {% else %}
+                <div class="ws-home-video-card">
+                    <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
+                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}"
+                               type="video/mp4" preload="metadata" width="100%"></video>
+                    </a> <a href="/video/{{ footballVideo.id }}"
+                            class="text-decoration-none mt-2">{{ footballVideo.title }}</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div><!-- End of subsection -->
+
+    <!-- Subsection category 3 -->
+    <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
+        <h4 style="text-transform: uppercase;">{{ surfVideos[0].category.name }}</h4>
+        <a href="/category/{{ surfVideos[0].category.id }}" class="text-decoration-none">
+            <button class="ws-yellow-btn mb-3">Voir plus</button>
+        </a>
+    </div>
+    <div class="ws-home-video-container no-scrollbar" style="margin-bottom: 80px;">
+        {% for surfVideo in surfVideos %}
+            {% if app.user is empty and surfVideo.isPremium is not empty %}
+                <div class="ws-home-video-card">
+                    <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
+                        <video class="notPremiumVideoBlurred" style="max-height: 170px;"
+                               src="videos/{{ surfVideo.videoLink }}" type="video/mp4" preload="metadata" width="100%"
+                               muted></video>
+                        <div class="ws-home-match-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                 class="bi bi-shield-lock-fill mb-4" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z"/>
+                            </svg>
+                        </div>
+                    </a> <a href="/video/{{ surfVideo.id }}" class="text-decoration-none mt-2">{{ surfVideo.title }}</a>
+                </div>
+            {% else %}
+                <div class="ws-home-video-card">
+                    <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
+                        <video class="ws-clip" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}"
+                               type="video/mp4" preload="metadata" width="100%"></video>
+                    </a> <a href="/video/{{ surfVideo.id }}" class="text-decoration-none mt-2">{{ surfVideo.title }}</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div><!-- End of subsection --><!-- End of second section -->
+
     <script>
         const elements = document.querySelectorAll(".ws-home-video-container");
 
@@ -245,8 +290,7 @@
                 this.pause();
             });
         });
-    </script>
-    <!-- play video à l'hover -->
+    </script><!-- play video à l'hover -->
     <script>
         const clip = document.querySelectorAll('.ws-clip');
         for (let i = 0; i < clip.length; i++) {
