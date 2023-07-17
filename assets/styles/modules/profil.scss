@@ -18,7 +18,7 @@
 .ws-profil-form{
     display: flex;
     justify-content: center;
-    margin-top: 5em;
+    margin-top: 1em;
     margin-bottom: 3em;
 }
 
@@ -36,10 +36,12 @@
 #ws-profil-mail{
     display: flex;
     justify-content: center;
+    margin-top: 2em;
 }
 
 #ws-profil-mail input{
     border-radius: 0;
+    margin-bottom: 1em;
 }
 
 @media screen and (min-width: 768px){

@@ -2,8 +2,10 @@
 {% block title %} Mon abonnement {% endblock %}
 
 {% block body %}
-    <h1 class="ws-subscription-title">Mon abonnement</h1>
     <a class="ws-subscription-redirect" href="{{ path('app_profil', {'id': app.user.id}) }}">Retourner vers votre profile</a>
+
+
+    <h1 class="ws-subscription-title">Mon abonnement</h1>
 
     <div class="ws-subscription-contents">
         <div class="ws-subscription-content">

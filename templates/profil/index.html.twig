@@ -33,6 +33,9 @@
                 {{ form_end(form) }}
             </div>
             </div>
-            {#  <a href="templates/reset_password/reset.html.twig"></a>#}
+    <div class="d-flex justify-content-center">
+        <a href="{{ path('user_password_edit', {'id': user.id}) }}" class="btn ws-profil-underline d-flex justify-content-center">Modifier le mot de passe</a>
+    </div>
+
     </div>
 {% endblock %}
