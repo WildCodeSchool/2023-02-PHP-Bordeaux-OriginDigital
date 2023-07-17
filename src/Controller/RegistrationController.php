@@ -55,7 +55,7 @@ class RegistrationController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Bienvenue ' . $lastname . ' !!!'
+                'Bienvenue ' . $lastname . '!'
             );
 
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user, (new TemplatedEmail())
@@ -92,6 +92,6 @@ class RegistrationController extends AbstractController
 
         $this->addFlash('success', 'Votre e-mail a bien été vérifié');
 
-        return $this->redirectToRoute('/');
+        return $this->redirectToRoute('app_profil');
     }
 }
