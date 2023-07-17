@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface as Hasher;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/user')]
@@ -70,7 +70,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/profil/editpassword/{id}', name: 'user_password_edit', methods: ['GET', 'POST'])]
-    public function editPassword(EntityManagerInterface $em, User $user, Request $request, UserPasswordHasherInterface $hasher): Response
+    public function editPassword(EntityManagerInterface $emi, User $user, Request $request, Hasher $hasher): Response
     {
         $form = $this->createForm(UserPasswordResetType::class);
 
@@ -85,8 +85,8 @@ class UserController extends AbstractController
                     )
                 );
 
-                $em->persist($user);
-                $em->flush();
+                $emi->persist($user);
+                $emi->flush();
 
                 $this->addFlash('success', 'Votre mot de passe a bien était modifié!');
             }
