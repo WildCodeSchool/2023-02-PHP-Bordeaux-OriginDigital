@@ -91,7 +91,7 @@
                                aria-expanded="false">{{ app.user.firstName }}
                                 <img src="{{ asset('build/images/user.4da9742a.png') }}" alt="Logo de profil"></a>
 
-                            <ul class="dropdown-menu dropdown-menu-start bg-black">
+                            <ul class="dropdown-menu dropdown-menu-start bg-black ws-navbar-dropdown-profil">
                                 {% if is_granted("ROLE_ADMIN") and app.user %}
                                     <li><a class="dropdown-item" href="/admin">Administration</a></li>
                                 {% else %}
