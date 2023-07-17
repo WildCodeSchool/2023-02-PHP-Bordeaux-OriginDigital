@@ -9,9 +9,9 @@
 
     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4" style="padding: 0 20px; margin-bottom: 50px;">
         {% for video in app.user.likes %}
-                <div class="col d-grid position-relative">
+                <div class="col position-relative ws-btn-like-fav-pg">
                     <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 75%">
-                        <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike" data-video-id="{{ video.id }}">
+                        <a href="{{ path('app_like_video', {'id': video.id}) }}" onclick="onclickBtnLike(event)" class="like-dislike" data-video-id="{{ video.id }}">
                             {% if is_granted('ROLE_USER') %}
                                 {% if video in app.user.likes %}
                                     <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
