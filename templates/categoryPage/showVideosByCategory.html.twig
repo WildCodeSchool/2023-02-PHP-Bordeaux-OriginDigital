@@ -69,8 +69,8 @@
                     </a>
                 </div>
             {% else %}
-                <div class="col d-grid">
-                    <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 290px">
+                <div class="col d-grid" style="position: relative">
+                    <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 75%">
                         <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike" data-video-id="{{ video.id }}">
                             {% if app.user %}
                                 {% if video in app.user.likes %}
