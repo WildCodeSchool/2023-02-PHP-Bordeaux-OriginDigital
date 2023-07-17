@@ -59,6 +59,15 @@
     }
 }
 
+@media screen and (min-width: 768px){
+    .ws-navbar-dropdown-profil {
+        :hover {
+            background-color: transparent !important;
+        }
+    }
+
+}
+
 @media screen and (min-width: 768px) and (max-width: 1200px) {
 
     .ws-navbar-color-height {
