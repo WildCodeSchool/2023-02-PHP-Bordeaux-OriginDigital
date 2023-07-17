@@ -63,13 +63,13 @@
             <div class="col d-grid">
                 <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 290px">
                     <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike" data-video-id="{{ video.id }}">
-                        {% if is_granted('ROLE_USER') %}
-                            {% if video in app.user.likes %}
-                                <i class="fa fa-heart d-flex position-absolute" style="height:50px; width: 50px; z-index:100; color: red" aria-hidden="true"></i>
+                        {% if app.user %}
+                        {% if video in app.user.likes %}
+                                <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
                             {% else %}
-                                <i class="fa fa-heart-o d-flex position-absolute" style="height:50px; width: 50px; z-index:100; color: red" aria-hidden="true"></i>
+                                <i class="fa fa-star white-star-like" aria-hidden="true"></i>
                             {% endif %}
-                        {% endif %}
+                            {% endif %}
                     </a>
                 </div>
                 <a class="ws-videoTitleColor" href="/video/{{ video.id }}"><div class="card border-0 rounded-0 h-100 text-decoration-none" style="background-color: var(--secondary-color)">

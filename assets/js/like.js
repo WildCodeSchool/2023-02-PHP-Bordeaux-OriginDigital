@@ -15,11 +15,10 @@ function onclickBtnLike(event)
 
     axios.get(url)
         .then((response) => {
-          console.log(response);
-            if (icone.classList.contains('fa-heart')) {
-                icone.classList.replace('fa-heart', 'fa-heart-o');
+            if (icone.classList.contains('yellow-star-like')) {
+                icone.classList.replace('yellow-star-like', 'white-star-like');
             } else {
-                icone.classList.replace('fa-heart-o', 'fa-heart');
+                icone.classList.replace('white-star-like', 'yellow-star-like');
             }
         })
         .catch((error) => {
