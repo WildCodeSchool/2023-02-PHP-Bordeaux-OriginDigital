@@ -57,7 +57,11 @@
     {% endfor %}
 </div>
 {% block body %}{% endblock %}
-<footer>{% include ('_includes/_footer.html.twig') %}</footer>
+
+
+{% block footer %}
+    <footer>{% include ('_includes/_footer.html.twig') %}</footer>
+{% endblock %}
 <script src="https://kit.fontawesome.com/837a298307.js" crossorigin="anonymous"></script>
 <script src="https://js.stripe.com/v3/" ></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
