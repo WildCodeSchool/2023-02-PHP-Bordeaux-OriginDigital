@@ -33,7 +33,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
+    {# Fontawesome #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -45,19 +46,8 @@
 </head>
 {% include('_includes/_navbar.html.twig') %}
 <body>
-
-<div class="container">
-    {# pass an array argument to get the messages of those types  #}
-    {% for label, messages in app.flashes(['warning', 'error', 'success']) %}
-        {% for message in messages %}
-            <div class="alert alert-{{ label }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-</div>
+{% include('_includes/_flashMessages.html.twig') %}
 {% block body %}{% endblock %}
-
 
 {% block footer %}
     <footer>{% include ('_includes/_footer.html.twig') %}</footer>

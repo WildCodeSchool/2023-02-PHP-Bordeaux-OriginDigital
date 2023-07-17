@@ -99,13 +99,13 @@ class VideoRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findByCategory(?Category $category): array
+    public function findByCategory(?Category $category, int $maxResults): array
     {
         return $this->createQueryBuilder('v')
             ->andWhere('v.category = :category')
             ->setParameter('category', $category)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(6)
+            ->orderBy('v.id', 'DESC')
+            ->setMaxResults($maxResults)
             ->getQuery()
             ->getResult();
     }

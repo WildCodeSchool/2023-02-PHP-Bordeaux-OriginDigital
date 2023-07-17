@@ -73,6 +73,10 @@
     font-weight: bold;
 }
 
+.ws-desktop-message {
+    display: none;
+}
+
 
 
 /* Tablet version */
@@ -81,6 +85,10 @@
 
     .ws-home-video-container {
         grid-auto-columns: calc(40% - 20px * 2);
+    }
+
+    .ws-desktop-message {
+        display: inline-block;
     }
 
 }
@@ -95,6 +103,10 @@
 
     .ws-home-ad-container {
         margin: auto;
+    }
+
+    .ws-desktop-message {
+        display: inline-block;
     }
 
 }

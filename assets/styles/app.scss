@@ -17,6 +17,8 @@
 @import "modules/pagination";
 @import "modules/register";
 @import "modules/carousel";
+@import "modules/favorites";
+@import "modules/flashMessages.scss";
 @import "modules/error403";
 
 :root {
@@ -74,3 +76,4 @@ a {
 li {
     list-style: none;
 }
+

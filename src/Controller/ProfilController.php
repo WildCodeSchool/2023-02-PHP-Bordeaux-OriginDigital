@@ -18,6 +18,7 @@ class ProfilController extends AbstractController
     #[Route('/profil', name: 'app_profil')]
     public function index(UserRepository $userRepository, Request $request, RequestStack $requestStack): Response
     {
+
         $user = $this->getUser();
 
         $form = $this->createForm(UserType::class, $user);
