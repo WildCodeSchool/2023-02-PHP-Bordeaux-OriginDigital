@@ -137,7 +137,19 @@
                         </a> <a href="/video/{{ basketballVideo.id }}"
                                 class="text-decoration-none mt-2">{{ basketballVideo.title }}</a>
                     </div>
-                {% else %}
+        {% else %}
+                <div style="position: relative">
+                    <div class="position-absolute" style="top: 5%; right: 10%; z-index: 10">
+                        <a href="{{ path('app_like_video', {'id': basketballVideo.id}) }}" class="like-dislike" data-video-id="{{ basketballVideo.id }}">
+                            {% if is_granted('ROLE_USER') %}
+                                {% if basketballVideo in app.user.likes %}
+                                    <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
+                                {% else %}
+                                    <i class="fa fa-star white-star-like" aria-hidden="true"></i>
+                                {% endif %}
+                            {% endif %}
+                        </a>
+                    </div>
                     <div class="ws-home-video-card">
                         <a href="/video/{{ basketballVideo.id }}" class="text-decoration-none">
                             <video class="ws-clip" style="max-height: 170px;"
@@ -146,6 +158,7 @@
                         </a> <a href="/video/{{ basketballVideo.id }}"
                                 class="text-decoration-none mt-2">{{ basketballVideo.title }}</a>
                     </div>
+                </div>
                 {% endif %}
             {% endfor %}
         </div>
@@ -187,6 +200,18 @@
                             class="text-decoration-none mt-2">{{ footballVideo.title }}</a>
                 </div>
             {% else %}
+            <div style="position: relative">
+                <div class="position-absolute" style="top: 5%; right: 10%; z-index: 10">
+                    <a href="{{ path('app_like_video', {'id': footballVideo.id}) }}" class="like-dislike" data-video-id="{{ footballVideo.id }}">
+                        {% if is_granted('ROLE_USER') %}
+                            {% if footballVideo in app.user.likes %}
+                                <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
+                            {% else %}
+                                <i class="fa fa-star white-star-like" aria-hidden="true"></i>
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                </div>
                 <div class="ws-home-video-card">
                     <a href="/video/{{ footballVideo.id }}" class="text-decoration-none">
                         <video class="ws-clip" style="max-height: 170px;" src="videos/{{ footballVideo.videoLink }}"
@@ -194,6 +219,7 @@
                     </a> <a href="/video/{{ footballVideo.id }}"
                             class="text-decoration-none mt-2">{{ footballVideo.title }}</a>
                 </div>
+            </div>
             {% endif %}
         {% endfor %}
     </div><!-- End of subsection -->
@@ -223,12 +249,26 @@
                     </a> <a href="/video/{{ surfVideo.id }}" class="text-decoration-none mt-2">{{ surfVideo.title }}</a>
                 </div>
             {% else %}
+            <div style="position: relative">
+                <div class="position-absolute" style="top: 5%; right: 10%; z-index: 10">
+                    <a href="{{ path('app_like_video', {'id': surfVideo.id}) }}" class="like-dislike" data-video-id="{{ surfVideo.id }}">
+                        {% if is_granted('ROLE_USER') %}
+                            {% if surfVideo in app.user.likes %}
+                                <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
+                            {% else %}
+                                <i class="fa fa-star white-star-like" aria-hidden="true"></i>
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                </div>
+
                 <div class="ws-home-video-card">
                     <a href="/video/{{ surfVideo.id }}" class="text-decoration-none">
                         <video class="ws-clip" style="max-height: 170px;" src="videos/{{ surfVideo.videoLink }}"
                                type="video/mp4" preload="metadata" width="100%"></video>
                     </a> <a href="/video/{{ surfVideo.id }}" class="text-decoration-none mt-2">{{ surfVideo.title }}</a>
                 </div>
+            </div>
             {% endif %}
         {% endfor %}
     </div><!-- End of subsection --><!-- End of second section -->
