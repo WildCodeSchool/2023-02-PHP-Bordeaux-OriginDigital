@@ -13,6 +13,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
@@ -48,7 +49,16 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        // Vérification si l'utilisateur s'est enregistré ou s'est connecté
+        if ($request->attributes->get('_route') === 'app_login') {
+            // Stockage des données de session
+            $session = $request->getSession();
+            $session->set('some_key', 'some_value');
+
+            return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        } else {
+            return new RedirectResponse('https://buy.stripe.com/test_00g3fkbDkaJNeWYeUU');
+        }
     }
 
     protected function getLoginUrl(Request $request): string

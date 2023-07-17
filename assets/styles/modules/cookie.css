@@ -1,17 +1,13 @@
-/* Error: expected "{".
- *    ,
- * 25 | </style>
- *    |         ^
- *    '
- *   cookie.scss 25:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 25 \2502  </style>\a    \2502          ^\a    \2575 \a   cookie.scss 25:9  root stylesheet';
+#cookie-consent-popup {
+  position: fixed;
+  justify-self: center;
+  text-align: center;
+  background-color: var(--quaternary-color);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  z-index: 9999;
 }
+
+/*# sourceMappingURL=cookie.css.map */

@@ -41,6 +41,8 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $lastname = $form->get('lastname')->getData();
+
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -53,7 +55,7 @@ class RegistrationController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Bienvenue {lastname} !!!'
+                'Bienvenue ' . $lastname . ' !!!'
             );
 
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user, (new TemplatedEmail())
