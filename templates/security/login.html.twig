@@ -13,11 +13,6 @@
                             <div class="col-md p-4 mt-2">
                                 <div class="my-5 mx-5">
                                     <form method="post">
-                                        {% if error %}
-                                            <div class="alert alert-danger">
-                                                {{ error.messageKey|trans(error.messageData, 'security') }}
-                                            </div>
-                                        {% endif %}
 
                                         {% if app.user %}
                                             <div class="ws-custom-mb-3">
@@ -43,6 +38,12 @@
 
                                         <input type="hidden" name="_csrf_token"
                                                value="{{ csrf_token('authenticate') }}">
+
+                                        {% if error %}
+                                            <div class="alert alert-danger mt-3">
+                                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                                            </div>
+                                        {% endif %}
 
                                         <div class="text-center">
                                             <button class="btn btn-primary mt-5 mb-2 rounded-0" type="submit">Se

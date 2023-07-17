@@ -45,18 +45,9 @@
 </head>
 {% include('_includes/_navbar.html.twig') %}
 <body>
-
-<div class="container">
-    {# pass an array argument to get the messages of those types  #}
-    {% for label, messages in app.flashes(['warning', 'error', 'success']) %}
-        {% for message in messages %}
-            <div class="alert alert-{{ label }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-</div>
+{% include('_includes/_flashMessages.html.twig') %}
 {% block body %}{% endblock %}
+
 <footer>{% include ('_includes/_footer.html.twig') %}</footer>
 <script src="https://kit.fontawesome.com/837a298307.js" crossorigin="anonymous"></script>
 <script src="https://js.stripe.com/v3/" ></script>
