@@ -3,11 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserPasswordResetType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface as Hasher;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/user')]
@@ -63,6 +66,40 @@ class UserController extends AbstractController
         return $this->renderForm('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/profil/editpassword/{id}', name: 'user_password_edit', methods: ['GET', 'POST'])]
+    public function editPassword(EntityManagerInterface $emi, User $user, Request $request, Hasher $hasher): Response
+    {
+        $form = $this->createForm(UserPasswordResetType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($hasher->isPasswordValid($user, $form->getData()['plainPassword'])) {
+                $user->setPassword(
+                    $hasher->hashPassword(
+                        $user,
+                        $form->getData()['newPassword']
+                    )
+                );
+
+                $emi->persist($user);
+                $emi->flush();
+
+                $this->addFlash('success', 'Votre mot de passe a bien était modifié!');
+            } else {
+                $this->addFlash('danger', 'Les mots de passe saisis ne sont pas bon.');
+
+                return $this->redirectToRoute('app_profil');
+            }
+
+            return $this->redirectToRoute('app_profil');
+        }
+
+        return $this->render('/profil/edit_password.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }

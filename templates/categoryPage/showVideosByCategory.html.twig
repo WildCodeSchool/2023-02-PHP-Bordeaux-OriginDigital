@@ -69,7 +69,18 @@
                     </a>
                 </div>
             {% else %}
-                <div class="col">
+                <div class="col d-grid" style="position: relative">
+                    <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 75%">
+                        <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike" data-video-id="{{ video.id }}">
+                            {% if app.user %}
+                                {% if video in app.user.likes %}
+                                    <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
+                                {% else %}
+                                    <i class="fa fa-star white-star-like" aria-hidden="true"></i>
+                                {% endif %}
+                            {% endif %}
+                        </a>
+                    </div>
                     <a class="ws-videoTitleColor" href="/video/{{ video.id }}">
                         <div class="card border-0 rounded-0 h-100 text-decoration-none"
                              style="background-color: var(--secondary-color)">
@@ -85,6 +96,7 @@
                 </div>
             {% endif %}
         {% endfor %}
+
         {% set path = 'app_category' %}
         {% set pages = video.pages %}
         {% set currentPage = video.page %}
@@ -93,6 +105,5 @@
     <div class="mt-4 mb-3 mx-md-3">
         {% include ('_includes/pagination.html.twig') %}
     </div>
-
 
 {% endblock %}

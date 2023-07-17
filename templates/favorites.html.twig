@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Favorites{% endblock %}
+
+{% block body %}
+
+
+    <h1 class="d-flex justify-content-center" style="margin-top: 100px">Mes Favoris</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4" style="padding: 0 20px; margin-bottom: 50px;">
+        {% for video in app.user.likes %}
+                <div class="col d-grid position-relative">
+                    <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 75%">
+                        <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike" data-video-id="{{ video.id }}">
+                            {% if is_granted('ROLE_USER') %}
+                                {% if video in app.user.likes %}
+                                    <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
+                                {% else %}
+                                    <i class="fa fa-star white-star-like" aria-hidden="true"></i>
+                                {% endif %}
+                            {% endif %}
+                        </a>
+                    </div>
+                    <a class="ws-videoTitleColor" href="/video/{{ video.id }}"><div class="card border-0 rounded-0 h-100 text-decoration-none" style="background-color: var(--secondary-color)">
+                            <video src="/videos/{{ video.videoLink }}" class="card-img-top mb-1" style="max-height: 183px"></video>
+                            <div class="card-body">
+                                <h5 class="videoTitleColor card-title text-decoration-none" style="color: white">{{ video.title }}</h5>
+                                <p class="videoTitleColor card-text text-decoration-none">{{ video.description }}</p>
+                            </div>
+                        </div></a>
+                </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
