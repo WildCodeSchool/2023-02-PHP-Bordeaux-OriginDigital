@@ -2,17 +2,16 @@
 {% block title %} Mon abonnement {% endblock %}
 
 {% block body %}
-    <a class="ws-subscription-redirect" href="{{ path('app_profil', {'id': app.user.id}) }}">Retourner vers votre profile</a>
-
+    <a class="ws-subscription-redirect" href="{{ path('app_profil', {'id': app.user.id}) }}">Retourner vers votre profil</a>
 
     <h1 class="ws-subscription-title">Mon abonnement</h1>
 
     <div class="ws-subscription-contents">
         <div class="ws-subscription-content">
-            {{ "Status: Abonnement premium actif" }}
+            {{ "Statut : Abonnement premium actif" }}
         </div>
         <div class="ws-subscription-content">
-            {{ "Date d'inscription: " }}{{ app.user.getCreatedAt()|date('d/m/Y') }}
+            {{ "Date d'inscription : " }}{{ app.user.getCreatedAt()|date('d/m/Y') }}
 
         </div>
         <div class="ws-subscription-content">

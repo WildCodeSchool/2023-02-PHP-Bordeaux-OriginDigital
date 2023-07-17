@@ -89,7 +89,12 @@ class UserController extends AbstractController
                 $emi->flush();
 
                 $this->addFlash('success', 'Votre mot de passe a bien était modifié!');
+            } else {
+                $this->addFlash('danger', 'Les mots de passe saisis ne sont pas bon.');
+
+                return $this->redirectToRoute('app_profil');
             }
+
             return $this->redirectToRoute('app_profil');
         }
 
