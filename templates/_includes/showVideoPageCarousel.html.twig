@@ -22,6 +22,18 @@
                     </div>
                 </a>
             {% else %}
+                <div>
+                    <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 235px">
+                        <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike" data-video-id="{{ video.id }}">
+                            {% if is_granted('ROLE_USER') %}
+                                {% if video in app.user.likes %}
+                                    <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
+                                {% else %}
+                                    <i class="fa fa-star white-star-like" aria-hidden="true"></i>
+                                {% endif %}
+                            {% endif %}
+                        </a>
+                    </div>
                 <a href="/video/{{ video.id }}" class="text-decoration-none">
                     <div class="ws-home-video-card">
                         <video src="/videos/{{ video.videoLink }}" style="max-height:134px" class="img-fluid ws-home-video-match"></video>
@@ -31,7 +43,7 @@
                             <p>{{ video.title }}</p>
                         {% endif %}
                     </div>
-                </a>
+                </a></div>
             {% endif %}
         {% endfor %}
     </div>
