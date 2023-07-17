@@ -12,7 +12,7 @@
         {% endfor %}
     {% endfor %}
 
-    <h1 class="ws-profil-title">Bienvenue {{ user.firstname }} {{ user.lastname }}</h1>
+    <h1 class="ws-profil-title h3">Bienvenue {{ user.firstname }} {{ user.lastname }}</h1>
 
     <div class="ws-profil-information">
         <h2 class="ws-profil-titles">Mon abonnement</h2>
@@ -29,12 +29,12 @@
             <div id="ws-profil-mail">
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
-                <button class="btn ws-yellow-btn ws-profil-btn" onclick="return confirm('Êtes-vous sûr(e) de vouloir modifier votre adresse e-mail ?')">{{ button_label|default('Modifier') }}</button>
+                <button class="btn ws-mail-btn ws-profil-btn" onclick="return confirm('Êtes-vous sûr(e) de vouloir modifier votre adresse e-mail ?')">{{ button_label|default('Modifier') }}</button>
                 {{ form_end(form) }}
             </div>
             </div>
-    <div class="d-flex justify-content-center">
-        <a href="{{ path('user_password_edit', {'id': user.id}) }}" class="btn ws-profil-underline d-flex justify-content-center">Modifier le mot de passe</a>
+    <div class="d-flex justify-content-center mt-4">
+        <a href="{{ path('user_password_edit', {'id': user.id}) }}" class="btn ws-profil-underline d-flex justify-content-center mb-5">Modifier le mot de passe</a>
     </div>
 
     </div>
