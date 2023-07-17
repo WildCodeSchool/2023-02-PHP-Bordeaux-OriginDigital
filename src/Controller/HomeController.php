@@ -23,17 +23,17 @@ class HomeController extends AbstractController
         $tennisPicture = $videoRepository->findByPicture('tennis2.jpg');
         $volleyballPicture = $videoRepository->findByPicture('volleyball1.jpg');
 
-        $premiumVideos = $videoRepository->findBy(
-            ['isPremium' => true],
-            ['id' => 'ASC'],
-            6
+        $allPremiumVideos = $videoRepository->findBy(
+            ['isPremium' => true]
         );
+        shuffle($allPremiumVideos);
+        $premiumVideos = array_slice($allPremiumVideos, 0, 6);
         $basketball = $categoryRepository->findOneBy(['name' => 'Basketball']);
-        $basketballVideos = $videoRepository->findByCategory($basketball);
+        $basketballVideos = $videoRepository->findByCategory($basketball, 6);
         $football = $categoryRepository->findOneBy(['name' => 'Football']);
-        $footballVideos = $videoRepository->findByCategory($football);
+        $footballVideos = $videoRepository->findByCategory($football, 6);
         $surf = $categoryRepository->findOneBy(['name' => 'Surf']);
-        $surfVideos = $videoRepository->findByCategory($surf);
+        $surfVideos = $videoRepository->findByCategory($surf, 6);
 
         $advertisementVideos = $adRepository->findAll(
         );

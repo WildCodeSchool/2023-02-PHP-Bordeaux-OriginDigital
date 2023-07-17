@@ -1,6 +1,6 @@
 {% if pages > 1 %}
     <nav>
-        <ul class="pagination justify-content-center ws-pagination ">
+        <ul id="pagination" class="pagination justify-content-center ws-pagination ">
 
             {% if currentPage >1 %}
                 <li class="page-item">
@@ -33,4 +33,24 @@
 
         </ul>
     </nav>
+    <script>
+    var paginationElement = document.getElementById('pagination');
+
+    var url = window.location.href;
+    var urlSplit = url.split('/');
+    var isPage = urlSplit.findIndex(element => element.includes('page'));
+
+
+    if(isPage > 0){
+         console.log(isPage);
+        // Faire défiler l'élément de pagination au milieu de la fenêtre
+        paginationElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
+    }
+    </script>
+
 {% endif %}
+
