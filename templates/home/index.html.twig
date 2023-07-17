@@ -73,12 +73,12 @@
         <div class="w-100 d-inline-flex justify-content-between align-items-center ws-header-video-container">
             {% if app.user is empty %}
                 <h4>MATCHS <small class="ws-desktop-message">- Contenu réservé aux abonnés</small></h4>
+                <a href="/premium" class="text-decoration-none">
+                    <button class="ws-blue-btn mb-3 ws-animated-btn">Premium pass</button>
+                </a>
             {% else %}
                 <h4>MATCHS</h4>
             {% endif %}
-            <a href="/premium" class="text-decoration-none">
-                <button class="ws-blue-btn mb-3 ws-animated-btn">Premium pass</button>
-            </a>
         </div>
         <div class="ws-home-video-container no-scrollbar">
             {% for premiumVideo in premiumVideos %}
