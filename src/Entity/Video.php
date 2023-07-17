@@ -39,9 +39,6 @@ class Video
     #[ORM\ManyToOne(inversedBy: 'videos')]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'video', targetEntity: Favorite::class)]
-    private Collection $favorites;
-
     /**
      * @Assert\File(
      *     maxSize = "100M",
@@ -51,6 +48,10 @@ class Video
      */
     private mixed $file;
 
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'likes')]
+    private Collection $likes;
+
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
@@ -59,14 +60,13 @@ class Video
 
     public function __construct()
     {
-        $this->favorites = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getTitle(): ?string
     {
         return $this->title;
@@ -128,36 +128,6 @@ class Video
     }
 
     /**
-     * @return Collection<int, Favorite>
-     */
-    public function getFavorites(): Collection
-    {
-        return $this->favorites;
-    }
-
-    public function addFavorite(Favorite $favorite): static
-    {
-        if (!$this->favorites->contains($favorite)) {
-            $this->favorites->add($favorite);
-            $favorite->setVideo($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFavorite(Favorite $favorite): static
-    {
-        if ($this->favorites->removeElement($favorite)) {
-            // set the owning side to null (unless already changed)
-            if ($favorite->getVideo() === $this) {
-                $favorite->setVideo(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getFile(): mixed
@@ -204,6 +174,33 @@ class Video
     public function setUpdatedAt(?DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(User $like): static
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->addLike($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(User $like): static
+    {
+        if ($this->likes->removeElement($like)) {
+            $like->removeLike($this);
+        }
+
+        return $this;
     }
 
     public function getVideoPicture(): ?string
