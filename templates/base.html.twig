@@ -44,8 +44,12 @@
         {{ encore_entry_script_tags('cookieConsent') }}
     {% endblock %}
 </head>
-{% include('_includes/_navbar.html.twig') %}
+
+
 <body>
+{% block navbar %}
+    <nav>{% include ('_includes/_navbar.html.twig') %}</nav>
+{% endblock %}
 {% include('_includes/_flashMessages.html.twig') %}
 {% block body %}{% endblock %}
 
