@@ -13,10 +13,15 @@ function onclickBtnLike(event)
     const url = this.href;
     const icone = this.querySelector('i');
 
+    let btLike = document.querySelector('.ws-btn-like-fav-pg');
+
     axios.get(url)
         .then((response) => {
             if (icone.classList.contains('yellow-star-like')) {
                 icone.classList.replace('yellow-star-like', 'white-star-like');
+                if (btLike) {
+                    btLike.style.display = "none";
+                }
             } else {
                 icone.classList.replace('white-star-like', 'yellow-star-like');
             }
@@ -30,3 +35,4 @@ function onclickBtnLike(event)
         })
     ;
 }
+window.onclickBtnLike = onclickBtnLike
