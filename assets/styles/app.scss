@@ -19,6 +19,9 @@
 @import "modules/carousel";
 @import "modules/favorites";
 @import "modules/flashMessages.scss";
+@import "modules/error403";
+@import "modules/error404";
+
 
 :root {
     --primary-color: rgb(255, 255, 255);//text
