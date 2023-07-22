@@ -1,29 +1,24 @@
 import axios from "axios";
 
-let jsLikeLinks = document.querySelectorAll('a.like-dislike');
-
-jsLikeLinks.forEach((link) => {
-    link.addEventListener('click', onclickBtnLike);
-});
-
 function onclickBtnLike(event)
 {
     event.preventDefault();
 
-    const url = this.href;
-    const icone = this.querySelector('i');
+    const url = event.currentTarget;
+    const link = url.href
 
     let btLike = document.querySelector('.ws-btn-like-fav-pg');
 
-    axios.get(url)
+    axios.get(link)
         .then((response) => {
-            if (icone.classList.contains('yellow-star-like')) {
-                icone.classList.replace('yellow-star-like', 'white-star-like');
+            const favIcon = url.firstElementChild
+            if (favIcon.classList.contains('yellow-star-like')) {
+                favIcon.classList.replace('yellow-star-like', 'white-star-like');
                 if (btLike) {
                     btLike.style.display = "none";
                 }
             } else {
-                icone.classList.replace('white-star-like', 'yellow-star-like');
+                favIcon.classList.replace('white-star-like', 'yellow-star-like');
             }
         })
         .catch((error) => {
