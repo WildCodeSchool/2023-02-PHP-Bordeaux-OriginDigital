@@ -72,9 +72,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Vous devez accepter les termes du contrat.',
                     ]),
                 ],
-                'label' => 'J\'accepte les Conditions Générales d\'Utilisation et reconnais avoir été informé que mes
-                 données personnelles seront utilisées tel que décrit ci-dessous et détaillé dans la Politique de
-                  protection des données personnelles du site Wild Sports',
+                'label' => 'J\'accepte les termes du contrat.',
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
