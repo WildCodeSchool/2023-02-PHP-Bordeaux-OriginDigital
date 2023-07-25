@@ -34,7 +34,7 @@
     <div class="ws-video-text">
         <div class="">
             <div class="d-flex"><h2 class="mt-2 fw-bold">{{ video.title }}</h2>
-                <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike align-self-center" style="margin-left: 30px" data-video-id="{{ video.id }}">
+                <a href="{{ path('app_like_video', {'id': video.id}) }}" onclick="onclickBtnLike(event)" class="like-dislike align-self-center" style="margin-left: 30px" data-video-id="{{ video.id }}">
                     {% if is_granted('ROLE_USER') %}
                         {% if video in app.user.likes %}
                             <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>

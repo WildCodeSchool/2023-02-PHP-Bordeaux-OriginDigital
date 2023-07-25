@@ -25,7 +25,7 @@
             {% else %}
                 <div style="position: relative">
                     <div class="position-absolute" style="top: 5%; right: 10%; z-index: 10">
-                        <a href="{{ path('app_like_video', {'id': video.id}) }}" onclick="onclickBtnLike(event)" class="like-dislike" data-video-id="{{ video.id }}">
+                        <a href="{{ path('app_like_video', {'id': video.id}) }}" onclick="onclickBtnLike(event)" class="like-dislike"< data-video-id="{{ video.id }}">
                             {% if is_granted('ROLE_USER') %}
                                 {% if video in app.user.likes %}
                                     <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>

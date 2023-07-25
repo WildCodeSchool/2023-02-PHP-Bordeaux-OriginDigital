@@ -71,7 +71,7 @@
             {% else %}
                 <div class="col d-grid" style="position: relative">
                     <div class="position-absolute" style="z-index: 99; justify-self: center; margin-top:10px; margin-left: 75%">
-                        <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike" data-video-id="{{ video.id }}">
+                        <a href="{{ path('app_like_video', {'id': video.id}) }}" onclick="onclickBtnLike(event)" class="like-dislike" data-video-id="{{ video.id }}">
                             {% if app.user %}
                                 {% if video in app.user.likes %}
                                     <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
@@ -105,5 +105,6 @@
     <div class="mt-4 mb-3 mx-md-3">
         {% include ('_includes/pagination.html.twig') %}
     </div>
+
 
 {% endblock %}
