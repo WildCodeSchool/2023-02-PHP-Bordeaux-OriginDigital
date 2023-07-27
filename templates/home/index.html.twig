@@ -162,15 +162,17 @@
         </div>
     <!-- End of subsection -->
 
+        {% if app.user is empty %}
     <!-- Subsection advertisement -->
     <div class="ws-home-ad-container">
         {% for advertisementVideo in advertisementVideos %}
-            <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
+            <video src="/videos/{{ advertisementVideo.link }}" width="900" height="500" autoplay
                    muted></video>
             {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
         {% endfor %}
     </div>
     <!-- End of subsection -->
+        {% endif %}
 
     <!-- Subsection category 2 -->
     <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">

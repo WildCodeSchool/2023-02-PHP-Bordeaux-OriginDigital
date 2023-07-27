@@ -45,7 +45,7 @@
                 </a>
             </div>
             <p class="mt-2"><b>Publié le :</b> 31 janvier 2023</p>
-            <p class="mt-2"><b>Description :</b> {{ video.description }}</p>
+            <p class="mt-2"><b>Description :</b> {{ video.description | striptags }}</p>
             <p class="mt-2"><b>Catégorie :</b> {{ video.category.name }}</p>
             <p class="mt-2 mb-2"><b>Partager :</b></p>
         </div>
