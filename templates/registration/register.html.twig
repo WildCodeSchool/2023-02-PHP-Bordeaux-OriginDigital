@@ -19,26 +19,44 @@
                                     {{ form_start(registrationForm) }}
                                     <fieldset class="mb-2 row">
                                         <div class="col-md-6">
-                                            {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
-                                            {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
-                                            {{ form_row(registrationForm.email, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.lastname,
+                                                {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.firstname,
+                                                {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.email,
+                                                {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
                                         </div>
                                         <div class="col-md-6">
-                                            {{ form_row(registrationForm.date_of_birth, {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
+                                            {{ form_row(registrationForm.date_of_birth,
+                                                {'attr': {'class': 'form-control rounded-0 mb-1'}}) }}
                                             {{ form_row(registrationForm.plainPassword) }}
                                         </div>
                                         <div class="ws-rgpd-custom">
                                             {{ form_row(registrationForm.RGPDConsent) }}
+                                            <label for="{{ registrationForm.RGPDConsent.vars.id }}">
+                                                En acceptant les termes du contrat, vous confirmez avoir plus de 18 ans et vous acceptez les
+                                                <a href="{{ path('cgv') }}" class="ws-rgpd-conscent-custom fw-bold">Conditions Générales d'Utilisation</a>
+                                                . Vous reconnaissez avoir été informé que vos données personnelles seront utilisées tel que décrit ci-dessous
+                                                et détaillé dans la
+                                                <a href="{{ path('legal-notice') }}" class="ws-rgpd-conscent-custom fw-bold">Politique de protection des données personnelles</a>
+                                                du site Wild Sports.
+                                            </label>
                                         </div>
+
+
                                     </fieldset>
                                     <div class="text-center">
-                                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">S'abonner</button>
+                                        <button class="btn btn-primary mt-2 mb-5 rounded-0" type="submit">
+                                            S'abonner
+                                        </button>
                                     </div>
                                     {{ form_end(registrationForm) }}
                                     <div class="text-center">
                                         <div class="mb-3">
                                             <p style="display: inline;">Déjà inscrit ?</p>
-                                            <a href="/login" class="text-decoration-none" style="display: inline;  margin-left: 5px"><strong>S'identifier</strong></a>
+                                            <a href="/login" class="text-decoration-none" style="display: inline;  margin-left: 5px">
+                                                <strong>S'identifier</strong>
+                                            </a>
                                         </div>
 
                                     </div>

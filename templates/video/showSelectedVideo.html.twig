@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<section class="">
+<section class="container-fluid">
     <div class="d-flex justify-content-center" style="margin-top: 100px;">
         <h1 class="text-center mt-2 width-75">{{ video.title }}</h1>
     </div>
@@ -34,7 +34,7 @@
     <div class="ws-video-text">
         <div class="">
             <div class="d-flex"><h2 class="mt-2 fw-bold">{{ video.title }}</h2>
-                <a href="{{ path('app_like_video', {'id': video.id}) }}" class="like-dislike align-self-center" style="margin-left: 30px" data-video-id="{{ video.id }}">
+                <a href="{{ path('app_like_video', {'id': video.id}) }}" onclick="onclickBtnLike(event)" class="like-dislike align-self-center" style="margin-left: 30px" data-video-id="{{ video.id }}">
                     {% if is_granted('ROLE_USER') %}
                         {% if video in app.user.likes %}
                             <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>
@@ -45,7 +45,7 @@
                 </a>
             </div>
             <p class="mt-2"><b>Publié le :</b> 31 janvier 2023</p>
-            <p class="mt-2"><b>Description :</b> {{ video.description }}</p>
+            <p class="mt-2"><b>Description :</b> {{ video.description | striptags }}</p>
             <p class="mt-2"><b>Catégorie :</b> {{ video.category.name }}</p>
             <p class="mt-2 mb-2"><b>Partager :</b></p>
         </div>

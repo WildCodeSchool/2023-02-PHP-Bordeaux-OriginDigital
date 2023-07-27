@@ -162,15 +162,17 @@
         </div>
     <!-- End of subsection -->
 
+        {% if app.user is empty %}
     <!-- Subsection advertisement -->
     <div class="ws-home-ad-container">
         {% for advertisementVideo in advertisementVideos %}
-            <video src="uploads/advertisements/{{ advertisementVideo.link }}" width="900" height="500" autoplay
+            <video src="/videos/{{ advertisementVideo.link }}" width="900" height="500" autoplay
                    muted></video>
             {#            <img src="//via.placeholder.com/900x500/?text=ADVERTISEMENT" class="img-fluid"> #}
         {% endfor %}
     </div>
     <!-- End of subsection -->
+        {% endif %}
 
     <!-- Subsection category 2 -->
     <div class="w-100 d-inline-flex justify-content-between align-items-center my-3 ws-header-video-container">
@@ -250,7 +252,7 @@
             {% else %}
             <div style="position: relative">
                 <div class="position-absolute" style="top: 5%; right: 10%; z-index: 10">
-                    <a href="{{ path('app_like_video', {'id': surfVideo.id}) }}" class="like-dislike" data-video-id="{{ surfVideo.id }}">
+                    <a href="{{ path('app_like_video', {'id': surfVideo.id}) }}" onclick="onclickBtnLike(event)" class="like-dislike" data-video-id="{{ surfVideo.id }}">
                         {% if is_granted('ROLE_USER') %}
                             {% if surfVideo in app.user.likes %}
                                 <i class="fa fa-star yellow-star-like" aria-hidden="true"></i>

@@ -57,9 +57,9 @@ class UserPasswordResetType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'ws-blue-btn mt-5 ws-btn-password'
+                    'class' => 'ws-blue-btn my-5 ws-btn-password'
                 ],
-                'label' => 'Changer le mot de passe.'
+                'label' => 'Changer le mot de passe'
             ]);
     }
 }
